@@ -1,0 +1,294 @@
+
+// Colores del tema administrativo
+$admin-primary: #1e40af;
+$admin-secondary: #64748b;
+$admin-success: #059669;
+$admin-warning: #d97706;
+$admin-danger: #dc2626;
+$admin-info: #0891b2;
+
+$admin-bg: #f8fafc;
+$admin-white: #ffffff;
+$admin-gray-50: #f9fafb;
+$admin-gray-100: #f3f4f6;
+$admin-gray-200: #e5e7eb;
+$admin-gray-300: #d1d5db;
+$admin-gray-500: #6b7280;
+$admin-gray-700: #374151;
+$admin-gray-900: #111827;
+
+// Espaciado
+$spacings: (
+  0: 0,
+  1: 0.25rem,
+  2: 0.5rem,
+  3: 0.75rem,
+  4: 1rem,
+  5: 1.25rem,
+  6: 1.5rem,
+  8: 2rem,
+  10: 2.5rem,
+  12: 3rem
+);
+
+// Breakpoints
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1400px
+);
+
+// MIXINS
+
+@mixin card-shadow {
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+}
+
+@mixin card-shadow-hover {
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+@mixin button-variant($color) {
+  background-color: $color;
+  border-color: $color;
+  color: white;
+  
+  &:hover:not(:disabled) {
+    background-color: darken($color, 10%);
+    border-color: darken($color, 10%);
+    transform: translateY(-1px);
+  }
+  
+  &:active:not(:disabled) {
+    background-color: darken($color, 15%);
+    transform: translateY(0);
+  }
+  
+  &:disabled {
+    background-color: $admin-gray-300;
+    border-color: $admin-gray-300;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin transition($property: all, $duration: 0.3s, $timing: ease) {
+  transition: $property $duration $timing;
+}
+
+// LAYOUT BASE ADMINISTRATIVO
+
+.admin-layout {
+  min-height: 100vh;
+  background-color: $admin-bg;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.admin-header {
+  background-color: $admin-white;
+  border-bottom: 1px solid $admin-gray-200;
+  padding: 1rem 0;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  @include card-shadow;
+  
+  .header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .admin-logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: $admin-primary;
+    text-decoration: none;
+  }
+  
+  .user-menu {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    
+    .user-info {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      
+      .user-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: $admin-primary;
+        @include flex-center;
+        color: white;
+        font-weight: 600;
+      }
+      
+      .user-name {
+        font-weight: 500;
+        color: $admin-gray-700;
+      }
+    }
+  }
+}
+
+.admin-nav {
+  background-color: $admin-white;
+  border-bottom: 1px solid $admin-gray-200;
+  padding: 0.5rem 0;
+  
+  .nav-content {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+  }
+  
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    border-bottom: none;
+    
+    .nav-tab {
+      padding: 0.75rem 1.5rem;
+      background: none;
+      border: none;
+      color: $admin-gray-500;
+      font-weight: 500;
+      cursor: pointer;
+      border-bottom: 3px solid transparent;
+      @include transition(all, 0.2s);
+      
+      &:hover {
+        color: $admin-primary;
+        background-color: $admin-gray-50;
+      }
+      
+      &.active {
+        color: $admin-primary;
+        border-bottom-color: $admin-primary;
+        background-color: $admin-gray-50;
+      }
+    }
+  }
+}
+
+.admin-main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem 1rem;
+}
+
+// COMPONENTES ADMINISTRATIVOS
+
+.admin-card {
+  background-color: $admin-white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  @include card-shadow;
+  @include transition();
+  
+  &:hover {
+    @include card-shadow-hover;
+  }
+  
+  .card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+    
+    .card-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      color: $admin-gray-900;
+      margin: 0;
+    }
+    
+    .card-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+  
+  .card-content {
+    color: $admin-gray-700;
+  }
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.stat-card {
+  background-color: $admin-white;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  @include card-shadow;
+  @include transition();
+  
+  &:hover {
+    @include card-shadow-hover;
+    transform: translateY(-2px);
+  }
+  
+  .stat-header {
+    display: flex;
+    justify-content: between;
+    align-items: center;
+    margin-bottom: 1rem;
+    
+    .stat-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 0.5rem;
+      @include flex-center;
+      font-size: 1.5rem;
+      color: white;
+      
+      &.primary { background-color: $admin-primary; }
+      &.success { background-color: $admin-success; }
+      &.warning { background-color: $admin-warning; }
+      &.danger { background-color: $admin-danger; }
+      &.info { background-color: $admin-info; }
+    }
+  }
+  
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: $admin-gray-900;
+    margin-bottom: 0.25rem;
+  }
+  
+  .stat-label {
+    color: $admin-gray-500;
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+  
+  .stat-change {
+    font-size: 0.75rem;
+    font-weight: 500;
+  }
+    &.positive {
+      color: $admin-success;
+    } 
+      &::before {
+  }
+}

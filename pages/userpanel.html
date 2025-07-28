@@ -1,0 +1,355 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control de Productos - Sysgen Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="../css/usuario.css" rel="stylesheet">
+</head>
+<body class="admin-layout">
+    <!-- Header Administrativo -->
+    <header class="admin-header">
+        <div class="header-content">
+            <a href="../index.html" class="admin-logo">
+                <i class="fas fa-cube"></i>
+                Sysgen Admin
+            </a>
+            <div class="user-menu">
+                <div class="user-info">
+                    <div class="user-avatar">JD</div>
+                    <span class="user-name">Juan Pérez</span>
+                </div>
+                <button class="btn btn-outline btn-primary" onclick="logout()">
+                    <i class="fas fa-sign-out-alt"></i>
+                    Salir
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Navegación de Pestañas -->
+    <nav class="admin-nav">
+        <div class="nav-content">
+            <div class="nav-tabs">
+                <button class="nav-tab active" data-tab="productos">
+                    <i class="fas fa-box"></i>
+                    Control de Productos
+                </button>
+                <button class="nav-tab" data-tab="compra-venta" onclick="window.location.href='compra-venta.html'">
+                    <i class="fas fa-exchange-alt"></i>
+                    Compra y Venta
+                </button>
+                <button class="nav-tab" data-tab="cuenta-corriente" onclick="window.location.href='cuenta-corriente.html'">
+                    <i class="fas fa-file-invoice-dollar"></i>
+                    Cuenta Corriente
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contenido Principal -->
+    <main class="admin-main">
+        <!-- Estadísticas de Productos -->
+        <div class="stats-grid">
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon primary">
+                        <i class="fas fa-boxes"></i>
+                    </div>
+                </div>
+                <div class="stat-value">1,247</div>
+                <div class="stat-label">Total Productos</div>
+                <div class="stat-change positive">+12% este mes</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon success">
+                        <i class="fas fa-check-circle"></i>
+                    </div>
+                </div>
+                <div class="stat-value">1,089</div>
+                <div class="stat-label">Productos Activos</div>
+                <div class="stat-change positive">+8% este mes</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon warning">
+                        <i class="fas fa-exclamation-triangle"></i>
+                    </div>
+                </div>
+                <div class="stat-value">23</div>
+                <div class="stat-label">Stock Bajo</div>
+                <div class="stat-change negative">Requiere atención</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-header">
+                    <div class="stat-icon danger">
+                        <i class="fas fa-times-circle"></i>
+                    </div>
+                </div>
+                <div class="stat-value">135</div>
+                <div class="stat-label">Sin Stock</div>
+                <div class="stat-change negative">-5% este mes</div>
+            </div>
+        </div>
+
+        <!-- Panel de Control de Productos -->
+        <div class="admin-card">
+            <div class="card-header">
+                <h2 class="card-title">Gestión de Productos</h2>
+                <div class="card-actions">
+                    <button class="btn btn-primary" onclick="openProductModal()">
+                        <i class="fas fa-plus"></i>
+                        Nuevo Producto
+                    </button>
+                    <button class="btn btn-secondary">
+                        <i class="fas fa-download"></i>
+                        Exportar
+                    </button>
+                </div>
+            </div>
+
+            <!-- Filtros -->
+            <div class="admin-form">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label class="form-label">Buscar producto</label>
+                        <input type="text" class="form-control" placeholder="Nombre, código o categoría..." id="searchProduct">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Categoría</label>
+                        <select class="form-control" id="categoryFilter">
+                            <option value="">Todas las categorías</option>
+                            <option value="electronica">Electrónica</option>
+                            <option value="ropa">Ropa</option>
+                            <option value="hogar">Hogar</option>
+                            <option value="deportes">Deportes</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Estado</label>
+                        <select class="form-control" id="statusFilter">
+                            <option value="">Todos los estados</option>
+                            <option value="activo">Activo</option>
+                            <option value="inactivo">Inactivo</option>
+                            <option value="agotado">Agotado</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">&nbsp;</label>
+                        <button class="btn btn-primary" onclick="filterProducts()">
+                            <i class="fas fa-search"></i>
+                            Filtrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Tabla de Productos -->
+            <div class="card-content">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Código</th>
+                            <th>Producto</th>
+                            <th>Categoría</th>
+                            <th>Precio</th>
+                            <th>Stock</th>
+                            <th>Estado</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="productsTableBody">
+                        <tr>
+                            <td>P001</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 40px; height: 40px; background: #f3f4f6; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-laptop" style="color: #6b7280;"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Laptop Dell Inspiron 15</strong>
+                                        <div style="font-size: 0.75rem; color: #6b7280;">SKU: DELL-INS-15-001</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Electrónica</td>
+                            <td>$850,000</td>
+                            <td>
+                                <span class="badge badge-success">25 unidades</span>
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Activo</span>
+                            </td>
+                            <td class="actions">
+                                <button class="btn btn-sm btn-primary" onclick="editProduct(1)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-warning" onclick="viewProduct(1)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteProduct(1)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>P002</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 40px; height: 40px; background: #f3f4f6; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-tshirt" style="color: #6b7280;"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Camiseta Nike Running</strong>
+                                        <div style="font-size: 0.75rem; color: #6b7280;">SKU: NIKE-RUN-M-001</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Deportes</td>
+                            <td>$45,000</td>
+                            <td>
+                                <span class="badge badge-warning">5 unidades</span>
+                            </td>
+                            <td>
+                                <span class="badge badge-success">Activo</span>
+                            </td>
+                            <td class="actions">
+                                <button class="btn btn-sm btn-primary" onclick="editProduct(2)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-warning" onclick="viewProduct(2)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteProduct(2)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>P003</td>
+                            <td>
+                                <div style="display: flex; align-items: center; gap: 10px;">
+                                    <div style="width: 40px; height: 40px; background: #f3f4f6; border-radius: 4px; display: flex; align-items: center; justify-content: center;">
+                                        <i class="fas fa-couch" style="color: #6b7280;"></i>
+                                    </div>
+                                    <div>
+                                        <strong>Sofá 3 Plazas Gris</strong>
+                                        <div style="font-size: 0.75rem; color: #6b7280;">SKU: SOFA-3P-GR-001</div>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>Hogar</td>
+                            <td>$320,000</td>
+                            <td>
+                                <span class="badge badge-danger">0 unidades</span>
+                            </td>
+                            <td>
+                                <span class="badge badge-danger">Agotado</span>
+                            </td>
+                            <td class="actions">
+                                <button class="btn btn-sm btn-primary" onclick="editProduct(3)">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-warning" onclick="viewProduct(3)">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                                <button class="btn btn-sm btn-danger" onclick="deleteProduct(3)">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal para Nuevo/Editar Producto -->
+    <div class="admin-modal" id="productModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title" id="modalTitle">Nuevo Producto</h3>
+                <button class="modal-close" onclick="closeProductModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <form class="admin-form" id="productForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Código del Producto *</label>
+                            <input type="text" class="form-control" id="productCode" required>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">SKU</label>
+                            <input type="text" class="form-control" id="productSku">
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Nombre del Producto *</label>
+                        <input type="text" class="form-control" id="productName" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label class="form-label">Descripción</label>
+                        <textarea class="form-control" id="productDescription" rows="3"></textarea>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Categoría *</label>
+                            <select class="form-control" id="productCategory" required>
+                                <option value="">Seleccionar categoría</option>
+                                <option value="electronica">Electrónica</option>
+                                <option value="ropa">Ropa</option>
+                                <option value="hogar">Hogar</option>
+                                <option value="deportes">Deportes</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Estado</label>
+                            <select class="form-control" id="productStatus">
+                                <option value="activo">Activo</option>
+                                <option value="inactivo">Inactivo</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Precio de Compra</label>
+                            <input type="number" class="form-control" id="productCostPrice" step="0.01">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Precio de Venta *</label>
+                            <input type="number" class="form-control" id="productSalePrice" step="0.01" required>
+                        </div>
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label class="form-label">Stock Actual</label>
+                            <input type="number" class="form-control" id="productStock" min="0">
+                        </div>
+                        <div class="form-group">
+                            <label class="form-label">Stock Mínimo</label>
+                            <input type="number" class="form-control" id="productMinStock" min="0">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeProductModal()">Cancelar</button>
+                <button class="btn btn-primary" onclick="saveProduct()">
+                    <i class="fas fa-save"></i>
+                    Guardar Producto
+                </button>
+            </div>
+        </div>
+    </div>

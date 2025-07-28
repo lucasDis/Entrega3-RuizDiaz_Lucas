@@ -12,15 +12,17 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
   <!-- Navbar -->
   <header>
-    <nav class="navbar navbar-expand-lg navbar-light bg-white border-bottom">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand" href="../index.html">Sysgen</a>
+        <a class="navbar-brand fw-bold" href="index.html">
+          Sysgen
+        </a>
 
         <!-- Boton de movile -->
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
@@ -36,17 +38,20 @@
             </li>
             <li class="nav-item">
               <a class="nav-link btn btn-dark text-white me-2 mb-2 mb-lg-0"
-                href="/pages/funcionalidades.html">Funcionalidades</a>
+                href="pages/funcionalidades.html">Funcionalidades</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-dark text-white me-2 mb-2 mb-lg-0" href="/pages/planes.html">Planes</a>
+              <a class="nav-link btn btn-dark text-white me-2 mb-2 mb-lg-0" href="pages/planes.html">Planes</a>
             </li>
             <li class="nav-item">
-              <a class="nav-link btn btn-dark text-white me-2 mb-2 mb-lg-0" href="/pages/contacto.html">Contacto</a>
+              <a class="nav-link btn btn-dark text-white me-2 mb-2 mb-lg-0" href="pages/contacto.html">Contacto</a>
             </li>
-            <!-- Usuarios -->
-            <a href="/pages/login.html" class="btn btn-outline-dark">Iniciar sesión</a>
-          </div>
+          </ul>
+          <!-- Usuarios -->
+          <a href="pages/login.html" class="btn btn-outline-dark">
+            <i class="fas fa-sign-in-alt me-1"></i>
+            Iniciar sesión
+          </a>
         </div>
       </div>
     </nav>
@@ -58,20 +63,25 @@
       <div class="row align-items-center text-center text-md-start">
         <div class="col-md-4 mb-4 mb-md-0">
           <h1 class="display-5 fw-bold">
-            Gestión <span class="text-secondary">empresarial</span><br>en pocos pasos
+            Sistema de <span class="text-primary">Gestión Empresarial</span><br>completo y eficiente
           </h1>
         </div>
 
         <div class="col-md-4">
-          <p class="lead">Ayudamos a negocios a organizar su inventario, ventas, cuentas y más desde una sola plataforma
-            intuitiva.</p>
+          <p class="lead">Administrá tu negocio de manera inteligente: inventario en tiempo real, facturación automática, control de ventas y cuentas corrientes desde una sola plataforma.</p>
         </div>
 
         <div class="col-md-4">
-          <div class="card p-4 border bg-light">
-            <h5>¿Listo para empezar?</h5>
-            <p>Explorá nuestros planes y elegí el que mejor se adapte a tu negocio.</p>
-            <a href="planes.html" class="btn btn-dark">Ver planes</a>
+          <div class="card p-4 border bg-light shadow-sm">
+            <div class="text-center mb-3">
+              <i class="fas fa-rocket text-primary" style="font-size: 2.5rem;"></i>
+            </div>
+            <h5 class="text-center">¿Listo para optimizar tu negocio?</h5>
+            <p class="text-center">Descubrí cómo nuestro sistema puede transformar la gestión de tu empresa.</p>
+            <a href="pages/planes.html" class="btn btn-primary">
+              <i class="fas fa-arrow-right me-1"></i>
+              Ver planes
+            </a>
           </div>
         </div>
       </div>
@@ -79,226 +89,396 @@
 
     <section>
       <div style="height: 300px; overflow: hidden;">
-        <img src="assets/img/pexels-googledeepmind-17483867.webp" alt="Visual principal"
+        <img src="assets/img/pexels-googledeepmind-17483867.webp" alt="Sistema de gestión empresarial"
           class="img-fluid w-100 h-100 object-fit-cover">
       </div>
     </section>
 
     <section class="section-process">
-      <div class="container">
+      <div class="container py-5">
+        <div class="text-center mb-5">
+          <h2 class="display-6 fw-bold">¿Por qué elegir Sysgen?</h2>
+          <p class="lead">Herramientas profesionales para hacer crecer tu negocio</p>
+        </div>
         <div class="row g-4">
           <div class="col-lg-4 col-md-6">
             <div class="tarjeta-encabezado text-center h-100 p-4">
               <div class="imagen-gato mb-3">
-                <i class="fa-solid fa-check"></i>
+                <i class="fas fa-cash-register"></i>
               </div>
-              <h3 class="h5 mb-3">Gestión de ventas</h3>
-              <p class="mb-0">Registrá ventas, emití facturas y controlá el flujo de ingresos de tu negocio de manera
-                eficiente.</p>
+              <h3 class="h5 mb-3">Gestión Integral de Ventas</h3>
+              <p class="mb-0">Procesá ventas, emití facturas automáticas y mantené un control total del flujo de ingresos con reportes en tiempo real.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="tarjeta-encabezado text-center h-100 p-4">
               <div class="imagen-gato mb-3">
-                <i class="fas fa-heart"></i>
-              </div>
-              <h3 class="h5 mb-3">Control de Compras</h3>
-              <p class="mb-0">Administrá proveedores, órdenes de compra y mantené un control total de los costos de tu
-                negocio.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="tarjeta-encabezado text-center h-100 p-4">
-              <div class="imagen-gato mb-3">
-                <i class="fas fa-home"></i>
+                <i class="fas fa-warehouse"></i>
               </div>
               <h3 class="h5 mb-3">Inventario Inteligente</h3>
-              <p class="mb-0">Controlá stock, alertas de productos con bajo inventario y optimizá la gestión de tu
-                almacén.</p>
+              <p class="mb-0">Controlá stock en tiempo real, recibí alertas automáticas de productos con bajo inventario y optimizá la gestión de tu almacén.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="tarjeta-encabezado text-center h-100 p-4">
+              <div class="imagen-gato mb-3">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h3 class="h5 mb-3">Control de Compras Avanzado</h3>
+              <p class="mb-0">Administrá proveedores, órdenes de compra y mantené un control detallado de todos los costos operativos de tu negocio.</p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Contenido Principal -->
+    <!-- Sección de Características con Carrusel -->
     <section class="contenido-principal py-5 bg-light">
       <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-6">
-            <div class="texto-contenido">
-              <h2 class="display-4 fw-bold mb-4">Cuentas Corrientes Simplificadas</h2>
-              <p class="lead mb-4">Llevá un control detallado de clientes y proveedores. Gestioná créditos, pagos y
-                mantené un seguimiento completo de todas las transacciones comerciales.</p>
-              <h3 class="h4 mb-3">Beneficios Clave</h3>
-              <ul class="mb-4">
-                <li class="mb-2">Seguimiento automático de saldos</li>
-                <li class="mb-2">Alertas de vencimientos</li>
-                <li class="mb-2">Reportes de morosidad</li>
-                <li class="mb-2">Historial completo de transacciones</li>
-              </ul>
-              <a href="pages/funcionalidades.html" class="btn btn-primary btn-lg">Conocé más</a>
-            </div>
+        <div class="text-center mb-5">
+          <h2 class="display-4 fw-bold mb-4">Características Principales</h2>
+          <p class="lead">Descubrí todo lo que nuestro sistema puede hacer por tu empresa</p>
+        </div>
+        
+        <div id="caracteristicasCarousel" class="carousel slide" data-bs-ride="carousel">
+          <div class="carousel-indicators">
+            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="0" class="active"></button>
+            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="1"></button>
+            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="2"></button>
+            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="3"></button>
+            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="4"></button>
+            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="5"></button>
           </div>
-          <div class="col-lg-6">
-            <div class="text-center">
-              <div class="bg-white rounded p-4 shadow">
-                <i class="fas fa-file-invoice-dollar text-primary mb-3" style="font-size: 6rem;"></i>
-                <h4>Facturación Automática</h4>
-                <p>Generá facturas profesionales al instante</p>
+          
+          <div class="carousel-inner">
+            <!-- Slide 1: Cuentas Corrientes -->
+            <div class="carousel-item active">
+              <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                  <div class="texto-contenido">
+                    <h3 class="display-5 fw-bold mb-4">Cuentas Corrientes Simplificadas</h3>
+                    <p class="lead mb-4">Llevá un control detallado de clientes y proveedores. Gestioná créditos, pagos y mantené un seguimiento completo de todas las transacciones comerciales.</p>
+                    <ul class="list-unstyled mb-4">
+                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Seguimiento automático de saldos</li>
+                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Alertas de vencimientos</li>
+                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Reportes de morosidad</li>
+                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Historial completo de transacciones</li>
+                    </ul>
+                    <a href="pages/funcionalidades.html" class="btn btn-primary btn-lg">Conocé más</a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="text-center">
+                    <div class="bg-white rounded p-4 shadow">
+                      <i class="fas fa-file-invoice-dollar text-primary mb-3" style="font-size: 6rem;"></i>
+                      <h4>Facturación Automática</h4>
+                      <p>Generá facturas profesionales al instante</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 2: Análisis y Reportes -->
+            <div class="carousel-item">
+              <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                  <div class="texto-contenido">
+                    <h3 class="display-5 fw-bold mb-4">Análisis Empresarial Avanzado</h3>
+                    <p class="lead mb-4">Tomá decisiones estratégicas basadas en datos reales. Nuestro sistema genera reportes detallados y análisis predictivos para tu negocio.</p>
+                    <ul class="list-unstyled mb-4">
+                      <li class="mb-2"><i class="fas fa-chart-line text-primary me-2"></i>Dashboard ejecutivo en tiempo real</li>
+                      <li class="mb-2"><i class="fas fa-chart-pie text-primary me-2"></i>Análisis de rentabilidad por producto</li>
+                      <li class="mb-2"><i class="fas fa-trending-up text-primary me-2"></i>Proyecciones de ventas</li>
+                      <li class="mb-2"><i class="fas fa-download text-primary me-2"></i>Exportación de datos personalizada</li>
+                    </ul>
+                    <a href="pages/funcionalidades.html" class="btn btn-primary btn-lg">Ver reportes</a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="text-center">
+                    <div class="bg-primary text-white rounded p-4">
+                      <i class="fas fa-chart-bar mb-3" style="font-size: 6rem;"></i>
+                      <h4>Reportes Inteligentes</h4>
+                      <p>Visualizá el crecimiento de tu negocio</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 3: Seguridad y Backup -->
+            <div class="carousel-item">
+              <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                  <div class="texto-contenido">
+                    <h3 class="display-5 fw-bold mb-4">Seguridad y Protección Total</h3>
+                    <p class="lead mb-4">Tu información está protegida con los más altos estándares de seguridad. Sistema de backup automático y encriptación de datos.</p>
+                    <ul class="list-unstyled mb-4">
+                      <li class="mb-2"><i class="fas fa-shield-alt text-success me-2"></i>Encriptación de datos de extremo a extremo</li>
+                      <li class="mb-2"><i class="fas fa-cloud-upload-alt text-success me-2"></i>Backup automático en la nube</li>
+                      <li class="mb-2"><i class="fas fa-user-shield text-success me-2"></i>Control de acceso por roles</li>
+                      <li class="mb-2"><i class="fas fa-history text-success me-2"></i>Historial de cambios detallado</li>
+                    </ul>
+                    <a href="pages/funcionalidades.html" class="btn btn-success btn-lg">Más seguridad</a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="text-center">
+                    <div class="bg-success text-white rounded p-4">
+                      <i class="fas fa-lock mb-3" style="font-size: 6rem;"></i>
+                      <h4>Máxima Seguridad</h4>
+                      <p>Tus datos siempre protegidos</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 4: Integración y API -->
+            <div class="carousel-item">
+              <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                  <div class="texto-contenido">
+                    <h3 class="display-5 fw-bold mb-4">Integración Empresarial</h3>
+                    <p class="lead mb-4">Conectá Sysgen con tus herramientas existentes. API robusta y integraciones nativas con sistemas contables y plataformas de e-commerce.</p>
+                    <ul class="list-unstyled mb-4">
+                      <li class="mb-2"><i class="fas fa-plug text-warning me-2"></i>API RESTful completa</li>
+                      <li class="mb-2"><i class="fas fa-sync-alt text-warning me-2"></i>Sincronización automática</li>
+                      <li class="mb-2"><i class="fas fa-shopping-bag text-warning me-2"></i>Integración con e-commerce</li>
+                      <li class="mb-2"><i class="fas fa-calculator text-warning me-2"></i>Conexión con sistemas contables</li>
+                    </ul>
+                    <a href="pages/funcionalidades.html" class="btn btn-warning btn-lg">Ver integraciones</a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="text-center">
+                    <div class="bg-warning text-white rounded p-4">
+                      <i class="fas fa-network-wired mb-3" style="font-size: 6rem;"></i>
+                      <h4>Conectividad Total</h4>
+                      <p>Integrá todos tus sistemas</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 5: Movilidad -->
+            <div class="carousel-item">
+              <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                  <div class="texto-contenido">
+                    <h3 class="display-5 fw-bold mb-4">Acceso Desde Cualquier Lugar</h3>
+                    <p class="lead mb-4">Gestioná tu negocio desde donde estés. Aplicación web responsive y aplicaciones móviles nativas para iOS y Android.</p>
+                    <ul class="list-unstyled mb-4">
+                      <li class="mb-2"><i class="fas fa-mobile-alt text-info me-2"></i>App móvil nativa</li>
+                      <li class="mb-2"><i class="fas fa-tablet-alt text-info me-2"></i>Interfaz responsive</li>
+                      <li class="mb-2"><i class="fas fa-wifi text-info me-2"></i>Funcionamiento offline</li>
+                      <li class="mb-2"><i class="fas fa-sync text-info me-2"></i>Sincronización automática</li>
+                    </ul>
+                    <a href="pages/funcionalidades.html" class="btn btn-info btn-lg">Descargá la app</a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="text-center">
+                    <div class="bg-info text-white rounded p-4">
+                      <i class="fas fa-mobile mb-3" style="font-size: 6rem;"></i>
+                      <h4>Movilidad Total</h4>
+                      <p>Tu negocio siempre contigo</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Slide 6: Soporte -->
+            <div class="carousel-item">
+              <div class="row align-items-center g-5">
+                <div class="col-lg-6">
+                  <div class="texto-contenido">
+                    <h3 class="display-5 fw-bold mb-4">Soporte Especializado 24/7</h3>
+                    <p class="lead mb-4">Nuestro equipo de expertos está disponible cuando lo necesites. Capacitación, soporte técnico y consultoría empresarial incluidos.</p>
+                    <ul class="list-unstyled mb-4">
+                      <li class="mb-2"><i class="fas fa-headset text-danger me-2"></i>Soporte 24/7 multicanal</li>
+                      <li class="mb-2"><i class="fas fa-graduation-cap text-danger me-2"></i>Capacitación personalizada</li>
+                      <li class="mb-2"><i class="fas fa-user-tie text-danger me-2"></i>Consultor asignado</li>
+                      <li class="mb-2"><i class="fas fa-rocket text-danger me-2"></i>Migración gratuita</li>
+                    </ul>
+                    <a href="pages/contacto.html" class="btn btn-danger btn-lg">Contactar soporte</a>
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="text-center">
+                    <div class="bg-danger text-white rounded p-4">
+                      <i class="fas fa-life-ring mb-3" style="font-size: 6rem;"></i>
+                      <h4>Soporte Experto</h4>
+                      <p>Siempre listos para ayudarte</p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
+
+          <button class="carousel-control-prev" type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+          <button class="carousel-control-next" type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide="next">
+            <span class="carousel-control-next-icon"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Funcionalidades -->
-    <section class="py-5">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="display-4 fw-bold mb-4">Funcionalidades Principales</h2>
-            <p class="lead">Todo lo que necesitás para administrar tu negocio de manera profesional y eficiente.</p>
-          </div>
-        </div>
-        <div class="row align-items-center g-5">
-          <div class="col-lg-6">
-            <div class="contenido-funcionalidades">
-              <h3 class="h3 mb-4">Características Destacadas</h3>
-              <ul class="list-unstyled">
-                <li class="mb-3">
-                  <i class="fas fa-check-circle text-success me-3"></i>
-                  Reportes financieros detallados
-                </li>
-                <li class="mb-3">
-                  <i class="fas fa-check-circle text-success me-3"></i>
-                  Backup automático de datos
-                </li>
-                <li class="mb-3">
-                  <i class="fas fa-check-circle text-success me-3"></i>
-                  Múltiples usuarios y permisos
-                </li>
-                <li class="mb-3">
-                  <i class="fas fa-check-circle text-success me-3"></i>
-                  Integración con sistemas contables
-                </li>
-                <li class="mb-3">
-                  <i class="fas fa-check-circle text-success me-3"></i>
-                  Soporte técnico especializado
-                </li>
-              </ul>
-              <a href="pages/contacto.html" class="btn btn-outline-primary btn-lg">Solicitar Demo</a>
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="text-center">
-              <div class="bg-primary text-white rounded p-4">
-                <i class="fas fa-chart-pie mb-3" style="font-size: 5rem;"></i>
-                <h4>Análisis Avanzado</h4>
-                <p>Tomá decisiones basadas en datos reales</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección de Planes -->
+    <!-- Sección de Planes con Hover Expandible -->
     <section class="py-5 bg-light">
       <div class="container">
         <div class="row mb-5">
           <div class="col-lg-8 mx-auto text-center">
-            <h2 class="display-4 fw-bold mb-4">Planes Flexibles para Tu Negocio</h2>
-            <p class="lead">Elegí el plan que mejor se adapte al tamaño y necesidades de tu empresa.</p>
+            <h2 class="display-4 fw-bold mb-4">Planes Diseñados para tu Crecimiento</h2>
+            <p class="lead">Elegí el plan que mejor se adapte al tamaño y necesidades de tu empresa. Todos incluyen soporte técnico y actualizaciones gratuitas.</p>
           </div>
         </div>
-        <div class="row g-4">
+        <div class="row g-4 justify-content-center">
           <div class="col-lg-4 col-md-6">
-            <div class="card text-center h-100 p-4 shadow-sm">
-              <div class="mb-3">
-                <i class="fas fa-seedling text-success" style="font-size: 3rem;"></i>
+            <div class="plan-card card text-center h-100 shadow-sm border-0">
+              <div class="plan-card-body card-body p-4">
+                <div class="plan-icon mb-3">
+                  <i class="fas fa-seedling text-success" style="font-size: 3rem;"></i>
+                </div>
+                <h3 class="plan-title h4 mb-3">Plan Inicial</h3>
+                <p class="plan-subtitle mb-3">Perfecto para emprendimientos y pequeños negocios que comienzan su digitalización</p>
+                <ul class="list-unstyled plan-features mb-3">
+                  <li><i class="fas fa-check text-success me-2"></i>Hasta 1.000 productos</li>
+                  <li><i class="fas fa-check text-success me-2"></i>1 usuario incluido</li>
+                  <li><i class="fas fa-check text-success me-2"></i>Reportes básicos</li>
+                  <li><i class="fas fa-check text-success me-2"></i>Soporte por email</li>
+                </ul>
               </div>
-              <h3 class="h5 mb-3">Plan Básico</h3>
-              <p class="mb-3">Ideal para pequeños negocios que recién comienzan</p>
-              <div class="h4 fw-bold text-success">$15.000/mes</div>
-              <ul class="list-unstyled mt-3">
-                <li>✓ Hasta 1000 productos</li>
-                <li>✓ 1 usuario</li>
-                <li>✓ Reportes básicos</li>
-              </ul>
+              <div class="plan-expanded">
+                <div class="plan-price">
+                  <span class="price-currency">$</span>
+                  <span class="price-amount">15.000</span>
+                  <span class="price-period">/mes</span>
+                </div>
+                <p class="plan-price-note">Facturación mensual</p>
+                <a href="pages/contacto.html" class="btn btn-success btn-lg w-100 mb-3">
+                  <i class="fas fa-shopping-cart me-2"></i>
+                  Comenzar Ahora
+                </a>
+                <small class="text-muted">Sin permanencia • Cancela cuando quieras</small>
+              </div>
             </div>
           </div>
+          
           <div class="col-lg-4 col-md-6">
-            <div class="card text-center h-100 p-4 shadow-sm border-primary">
-              <div class="mb-3">
-                <i class="fas fa-store text-primary" style="font-size: 3rem;"></i>
+            <div class="plan-card card text-center h-100 shadow border-primary position-relative">
+              <div class="plan-popular-badge">
+                <span class="badge bg-primary">Más Popular</span>
               </div>
-              <h3 class="h5 mb-3">Plan Profesional</h3>
-              <p class="mb-3">Para negocios en crecimiento que necesitan más funciones</p>
-              <div class="h4 fw-bold text-primary">$35.000/mes</div>
-              <ul class="list-unstyled mt-3">
-                <li>✓ Productos ilimitados</li>
-                <li>✓ 5 usuarios</li>
-                <li>✓ Todos los reportes</li>
-                <li>✓ Cuentas corrientes</li>
-              </ul>
+              <div class="plan-card-body card-body p-4">
+                <div class="plan-icon mb-3">
+                  <i class="fas fa-store text-primary" style="font-size: 3rem;"></i>
+                </div>
+                <h3 class="plan-title h4 mb-3">Plan Profesional</h3>
+                <p class="plan-subtitle mb-3">Ideal para empresas en crecimiento que buscan maximizar su eficiencia operativa</p>
+                <ul class="list-unstyled plan-features mb-3">
+                  <li><i class="fas fa-check text-primary me-2"></i>Productos ilimitados</li>
+                  <li><i class="fas fa-check text-primary me-2"></i>Hasta 5 usuarios</li>
+                  <li><i class="fas fa-check text-primary me-2"></i>Reportes avanzados</li>
+                  <li><i class="fas fa-check text-primary me-2"></i>Cuentas corrientes</li>
+                  <li><i class="fas fa-check text-primary me-2"></i>API básica incluida</li>
+                </ul>
+              </div>
+              <div class="plan-expanded">
+                <div class="plan-price">
+                  <span class="price-currency">$</span>
+                  <span class="price-amount">35.000</span>
+                  <span class="price-period">/mes</span>
+                </div>
+                <p class="plan-price-note">Facturación mensual</p>
+                <a href="pages/contacto.html" class="btn btn-primary btn-lg w-100 mb-3">
+                  <i class="fas fa-rocket me-2"></i>
+                  Empezar Prueba Gratis
+                </a>
+                <small class="text-muted">30 días gratis • Sin compromisos</small>
+              </div>
             </div>
           </div>
+          
           <div class="col-lg-4 col-md-6">
-            <div class="card text-center h-100 p-4 shadow-sm">
-              <div class="mb-3">
-                <i class="fas fa-building text-warning" style="font-size: 3rem;"></i>
+            <div class="plan-card card text-center h-100 shadow-sm border-0">
+              <div class="plan-card-body card-body p-4">
+                <div class="plan-icon mb-3">
+                  <i class="fas fa-building text-warning" style="font-size: 3rem;"></i>
+                </div>
+                <h3 class="plan-title h4 mb-3">Plan Empresarial</h3>
+                <p class="plan-subtitle mb-3">Solución completa para grandes empresas con necesidades específicas y complejas</p>
+                <ul class="list-unstyled plan-features mb-3">
+                  <li><i class="fas fa-check text-warning me-2"></i>Todo incluido sin límites</li>
+                  <li><i class="fas fa-check text-warning me-2"></i>Usuarios ilimitados</li>
+                  <li><i class="fas fa-check text-warning me-2"></i>Soporte prioritario 24/7</li>
+                  <li><i class="fas fa-check text-warning me-2"></i>Personalización completa</li>
+                  <li><i class="fas fa-check text-warning me-2"></i>Consultor dedicado</li>
+                </ul>
               </div>
-              <h3 class="h5 mb-3">Plan Empresarial</h3>
-              <p class="mb-3">Solución completa para grandes empresas</p>
-              <div class="h4 fw-bold text-warning">$65.000/mes</div>
-              <ul class="list-unstyled mt-3">
-                <li>✓ Todo incluido</li>
-                <li>✓ Usuarios ilimitados</li>
-                <li>✓ Soporte prioritario</li>
-                <li>✓ Personalización</li>
-              </ul>
+              <div class="plan-expanded">
+                <div class="plan-price">
+                  <span class="price-currency">$</span>
+                  <span class="price-amount">65.000</span>
+                  <span class="price-period">/mes</span>
+                </div>
+                <p class="plan-price-note">Facturación mensual</p>
+                <a href="pages/contacto.html" class="btn btn-warning btn-lg w-100 mb-3">
+                  <i class="fas fa-crown me-2"></i>
+                  Solicitar Demo
+                </a>
+                <small class="text-muted">Demo personalizada • Implementación incluida</small>
+              </div>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- Sección de Entrenamiento de Comportamiento -->
+    <!-- Sección de Entrenamiento actualizada -->
     <section class="seccion-entrenamiento py-5">
       <div class="container">
         <div class="row align-items-center g-5">
           <div class="col-lg-6">
             <div class="imagen-entrenamiento">
-              <i class="fas fa-graduation-cap"></i>
+              <i class="fas fa-chalkboard-teacher"></i>
             </div>
           </div>
           <div class="col-lg-6">
             <div class="contenido-entrenamiento">
-              <h2 class="display-4 fw-bold mb-4">Entrenamiento de Comportamiento</h2>
-              <p class="lead mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                incididunt ut labore et dolore magna aliqua.</p>
-              <h3 class="h4 mb-4">Características Principales</h3>
+              <h2 class="display-4 fw-bold mb-4">Capacitación y Onboarding</h2>
+              <p class="lead mb-4">Nuestro programa de capacitación te asegura aprovechar al máximo todas las funcionalidades del sistema desde el primer día.</p>
+              <h3 class="h4 mb-4">¿Qué incluye?</h3>
               <ul class="list-unstyled">
                 <li class="mb-3">
-                  <i class="fas fa-check-circle text-muted me-3"></i>
-                  Evaluaciones de comportamiento
+                  <i class="fas fa-video text-primary me-3"></i>
+                  Sesiones de capacitación en vivo personalizadas
                 </li>
                 <li class="mb-3">
-                  <i class="fas fa-check-circle text-muted me-3"></i>
-                  Planes de entrenamiento personalizados
+                  <i class="fas fa-book text-primary me-3"></i>
+                  Material educativo y guías paso a paso
                 </li>
                 <li class="mb-3">
-                  <i class="fas fa-check-circle text-muted me-3"></i>
-                  Soporte continuo
+                  <i class="fas fa-users text-primary me-3"></i>
+                  Capacitación para todo tu equipo
                 </li>
                 <li class="mb-3">
-                  <i class="fas fa-check-circle text-muted me-3"></i>
-                  Técnicas de modificación de comportamiento
+                  <i class="fas fa-certificate text-primary me-3"></i>
+                  Certificación oficial en el uso del sistema
                 </li>
               </ul>
-              <a href="#" class="btn btn-primary btn-lg rounded-pill">Obtener Entrenamiento</a>
+              <a href="pages/contacto.html" class="btn btn-primary btn-lg rounded-pill">
+                <i class="fas fa-play me-2"></i>
+                Solicitar Capacitación
+              </a>
             </div>
           </div>
         </div>
