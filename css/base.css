@@ -130,60 +130,72 @@ p {
   padding: var(--spacing-sm) 0;
 }
 
-.nav-link {
-  color: var(--text-color);
-  text-decoration: none;
-  padding: var(--spacing-xs) var(--spacing-sm);
-  transition: var(--transition-normal);
-  border-radius: var(--border-radius-md);
-}
-
-/* Estilos para los botones del navbar, excluyendo 'Iniciar Sesión' */
-.navbar-light .navbar-nav .nav-link:not([href*=login]) {
-  background-color: #000000; /* Fondo negro para los botones */
-  color: #ffffff; /* Texto blanco para alto contraste */
-  padding: 8px 16px; /* Padding para mejor apariencia */
-  border-radius: 4px; /* Bordes redondeados suaves */
-  margin: 0 5px; /* Espaciado entre botones */
-  transition: background-color 0.3s ease; /* Transición suave para hover */
-}
-
-.navbar-light .navbar-nav .nav-link:not([href*=login]):hover {
-  background-color: #333333; /* Gris oscuro en hover */
-  color: #ffffff; /* Mantener texto blanco */
-}
-
-/* Asegurar que el botón 'Iniciar Sesión' mantenga su estilo original */
-.navbar-light .navbar-nav .nav-link[href*=login] {
-  /* No aplicar fondo negro ni texto blanco, mantener estilo de Bootstrap */
-  color: #000000; /* Color por defecto de navbar-light para buen contraste */
-}
-
-.navbar-light .navbar-nav .nav-link[href*=login]:hover {
-  color: #005566; /* Color de hover por defecto de Bootstrap para consistencia */
-}
-
-/* Mantener el fondo claro del navbar intacto */
+/* Estilos para el navbar */
 .navbar-light {
-  background-color: #f8f9fa; /* Reforzar el fondo claro de bg-light */
+  background-color: #f8f9fa; /* Fondo claro */
+  padding: 15px 0;
 }
 
-/* Estilos para el toggler (botón hamburguesa) en pantallas pequeñas */
+/* Estilos para los enlaces de navegación */
+.navbar-light .navbar-nav .nav-link.btn {
+  background-color: #000000; /* Fondo negro */
+  color: #ffffff; /* Texto blanco */
+  padding: 8px 16px;
+  margin: 0 10px;
+  transition: background-color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link.btn:hover {
+  background-color: #333333; /* Gris oscuro en hover */
+}
+
+/* Estilo para el botón 'Iniciar Sesión' */
+.navbar-light .navbar-nav .nav-link.btn-outline-dark {
+  border-color: #000000; /* Borde negro */
+  color: #000000; /* Texto negro */
+  padding: 8px 16px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.navbar-light .navbar-nav .nav-link.btn-outline-dark:hover {
+  background-color: #000000; /* Fondo negro en hover */
+  color: #ffffff; /* Texto blanco */
+}
+
+/* Estilos para el toggler */
 .navbar-light .navbar-toggler {
-  border-color: #000000; /* Borde oscuro para consistencia */
+  border-color: #000000;
 }
 
 .navbar-light .navbar-toggler-icon {
-  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e"); /* Icono oscuro */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.9)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
 }
 
-/* Asegurar que el texto del brand sea claro */
-.navbar-light .navbar-brand {
-  color: #000000; /* Color oscuro para el brand */
+/* Estilos para el hero */
+.hero {
+  background-color: #1a1a1a; /* Fondo oscuro simulado */
+  padding: 60px 0;
+  text-align: center;
+  color: #ffffff;
 }
 
-.navbar-light .navbar-brand:hover {
-  color: #005566; /* Color de hover consistente */
+/* Estilos para los botones de compra en planes.html */
+.card .btn-comprar {
+  margin: 10px;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 4px;
+  padding: 8px 16px;
+  transition: background-color 0.3s ease;
+}
+
+.card .btn-comprar:hover {
+  background-color: #333333;
+}
+
+/* Mantener el borde gris de las tarjetas */
+.card {
+  border: 1px solid #6c757d;
 }
 
 .btn {
