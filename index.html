@@ -12,7 +12,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="./css/styles.css">
+  <link rel="stylesheet" href="./css/base.css">
 </head>
 
 <body>
@@ -95,6 +95,7 @@
       </div>
     </section>
 
+    <!-- Sección Porque Elegirnos -->
     <section class="section-process">
       <div class="container py-5">
         <div class="text-center mb-5">
@@ -137,15 +138,23 @@
     </section>
 
     <!-- Sección de Características con Carrusel -->
-    <section class="contenido-principal py-5 bg-light">
+    <section class="py-5 bg-light">
       <div class="container">
         <div class="text-center mb-5">
           <h2 class="display-4 fw-bold mb-4">Características Principales</h2>
           <p class="lead">Descubrí todo lo que nuestro sistema puede hacer por tu empresa</p>
         </div>
 
-        <div id="caracteristicasCarousel" class="carousel slide" data-bs-ride="carousel">
-          <div class="carousel-indicators">
+        <!-- Navegación Externa -->
+        <div class="carousel-nav-external">
+          <button class="carousel-control-prev" type="button" data-bs-target="#caracteristicasCarousel"
+            data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Anterior</span>
+          </button>
+
+          <!-- Indicadores -->
+          <div class="carousel-indicators carousel-indicators-custom">
             <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="0"
               class="active"></button>
             <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="1"></button>
@@ -155,6 +164,14 @@
             <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="5"></button>
           </div>
 
+          <button class="carousel-control-next" type="button" data-bs-target="#caracteristicasCarousel"
+            data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Siguiente</span>
+          </button>
+        </div>
+
+        <div id="caracteristicasCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
           <div class="carousel-inner">
             <!-- Slide 1: Cuentas Corrientes -->
             <div class="carousel-item active">
@@ -172,13 +189,15 @@
                       <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Historial completo de
                         transacciones</li>
                     </ul>
-                    <a href="pages/funcionalidades.html" class="btn btn-primary btn-lg">Conocé más</a>
+                    <a href="#" class="btn btn-primary btn-lg">Conocé más</a>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="text-center">
-                    <div class="bg-white rounded p-4 shadow">
-                      <i class="fas fa-file-invoice-dollar text-primary mb-3" style="font-size: 6rem;"></i>
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="fas fa-file-invoice-dollar"></i>
+                      </div>
                       <h4>Facturación Automática</h4>
                       <p>Generá facturas profesionales al instante</p>
                     </div>
@@ -204,13 +223,15 @@
                       <li class="mb-2"><i class="fas fa-download text-primary me-2"></i>Exportación de datos
                         personalizada</li>
                     </ul>
-                    <a href="pages/funcionalidades.html" class="btn btn-primary btn-lg">Ver reportes</a>
+                    <a href="#" class="btn btn-primary btn-lg">Ver reportes</a>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="text-center">
-                    <div class="bg-primary text-white rounded p-4">
-                      <i class="fas fa-chart-bar mb-3" style="font-size: 6rem;"></i>
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                      </div>
                       <h4>Reportes Inteligentes</h4>
                       <p>Visualizá el crecimiento de tu negocio</p>
                     </div>
@@ -237,13 +258,15 @@
                       <li class="mb-2"><i class="fas fa-history text-success me-2"></i>Historial de cambios detallado
                       </li>
                     </ul>
-                    <a href="pages/funcionalidades.html" class="btn btn-success btn-lg">Más seguridad</a>
+                    <a href="#" class="btn btn-primary btn-lg">Más seguridad</a>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="text-center">
-                    <div class="bg-success text-white rounded p-4">
-                      <i class="fas fa-lock mb-3" style="font-size: 6rem;"></i>
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="fas fa-lock"></i>
+                      </div>
                       <h4>Máxima Seguridad</h4>
                       <p>Tus datos siempre protegidos</p>
                     </div>
@@ -268,13 +291,15 @@
                       <li class="mb-2"><i class="fas fa-calculator text-warning me-2"></i>Conexión con sistemas
                         contables</li>
                     </ul>
-                    <a href="pages/funcionalidades.html" class="btn btn-warning btn-lg">Ver integraciones</a>
+                    <a href="#" class="btn btn-primary btn-lg">Ver integraciones</a>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="text-center">
-                    <div class="bg-warning text-white rounded p-4">
-                      <i class="fas fa-network-wired mb-3" style="font-size: 6rem;"></i>
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="fas fa-network-wired"></i>
+                      </div>
                       <h4>Conectividad Total</h4>
                       <p>Integrá todos tus sistemas</p>
                     </div>
@@ -297,13 +322,15 @@
                       <li class="mb-2"><i class="fas fa-wifi text-info me-2"></i>Funcionamiento offline</li>
                       <li class="mb-2"><i class="fas fa-sync text-info me-2"></i>Sincronización automática</li>
                     </ul>
-                    <a href="pages/funcionalidades.html" class="btn btn-info btn-lg">Descargá la app</a>
+                    <a href="#" class="btn btn-primary btn-lg">Descargá la app</a>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="text-center">
-                    <div class="bg-info text-white rounded p-4">
-                      <i class="fas fa-mobile mb-3" style="font-size: 6rem;"></i>
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="fas fa-mobile"></i>
+                      </div>
                       <h4>Movilidad Total</h4>
                       <p>Tu negocio siempre contigo</p>
                     </div>
@@ -327,13 +354,15 @@
                       <li class="mb-2"><i class="fas fa-user-tie text-danger me-2"></i>Consultor asignado</li>
                       <li class="mb-2"><i class="fas fa-rocket text-danger me-2"></i>Migración gratuita</li>
                     </ul>
-                    <a href="pages/contacto.html" class="btn btn-danger btn-lg">Contactar soporte</a>
+                    <a href="#" class="btn btn-primary btn-lg">Contactar soporte</a>
                   </div>
                 </div>
                 <div class="col-lg-6">
                   <div class="text-center">
-                    <div class="bg-danger text-white rounded p-4">
-                      <i class="fas fa-life-ring mb-3" style="font-size: 6rem;"></i>
+                    <div class="feature-card">
+                      <div class="feature-icon">
+                        <i class="fas fa-life-ring"></i>
+                      </div>
                       <h4>Soporte Experto</h4>
                       <p>Siempre listos para ayudarte</p>
                     </div>
@@ -342,17 +371,6 @@
               </div>
             </div>
           </div>
-
-          <button class="carousel-control-prev" type="button" data-bs-target="#caracteristicasCarousel"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-          <button class="carousel-control-next" type="button" data-bs-target="#caracteristicasCarousel"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
         </div>
       </div>
     </section>

@@ -24,7 +24,7 @@
           <div class="user-avatar">JD</div>
           <span class="user-name">Juan Pérez</span>
         </div>
-        <button class="btn btn-outline btn-primary" onclick="logout()">
+        <button class="btn btn-outline btn-primary" href="./login.html" onclick="logout()">
           <i class="fas fa-sign-out-alt"></i>
           Salir
         </button>
@@ -40,11 +40,11 @@
           <i class="fas fa-box"></i>
           Control de Productos
         </button>
-        <button class="nav-tab" data-tab="compra-venta" onclick="window.location.href='compra-venta.html'">
+        <button class="nav-tab" data-tab="compra-venta" href="">
           <i class="fas fa-exchange-alt"></i>
           Compra y Venta
         </button>
-        <button class="nav-tab" data-tab="cuenta-corriente" onclick="window.location.href='cuenta-corriente.html'">
+        <button class="nav-tab" data-tab="cuenta-corriente" href="">
           <i class="fas fa-file-invoice-dollar"></i>
           Cuenta Corriente
         </button>
@@ -275,86 +275,5 @@
       </div>
     </div>
   </main>
-
-  <!-- Modal para Nuevo/Editar Producto -->
-  <div class="admin-modal" id="productModal">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h3 class="modal-title" id="modalTitle">Nuevo Producto</h3>
-        <button class="modal-close" onclick="closeProductModal()">×</button>
-      </div>
-      <div class="modal-body">
-        <form class="admin-form" id="productForm">
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Código del Producto *</label>
-              <input type="text" class="form-control" id="productCode" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">SKU</label>
-              <input type="text" class="form-control" id="productSku">
-            </div>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Nombre del Producto *</label>
-            <input type="text" class="form-control" id="productName" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label">Descripción</label>
-            <textarea class="form-control" id="productDescription" rows="3"></textarea>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Categoría *</label>
-              <select class="form-control" id="productCategory" required>
-                <option value="">Seleccionar categoría</option>
-                <option value="electronica">Electrónica</option>
-                <option value="ropa">Ropa</option>
-                <option value="hogar">Hogar</option>
-                <option value="deportes">Deportes</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Estado</label>
-              <select class="form-control" id="productStatus">
-                <option value="activo">Activo</option>
-                <option value="inactivo">Inactivo</option>
-              </select>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Precio de Compra</label>
-              <input type="number" class="form-control" id="productCostPrice" step="0.01">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Precio de Venta *</label>
-              <input type="number" class="form-control" id="productSalePrice" step="0.01" required>
-            </div>
-          </div>
-
-          <div class="form-row">
-            <div class="form-group">
-              <label class="form-label">Stock Actual</label>
-              <input type="number" class="form-control" id="productStock" min="0">
-            </div>
-            <div class="form-group">
-              <label class="form-label">Stock Mínimo</label>
-              <input type="number" class="form-control" id="productMinStock" min="0">
-            </div>
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" onclick="closeProductModal()">Cancelar</button>
-        <button class="btn btn-primary" onclick="saveProduct()">
-          <i class="fas fa-save"></i>
-          Guardar Producto
-        </button>
-      </div>
-    </div>
-  </div>
+</body>
+</html>

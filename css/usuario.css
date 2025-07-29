@@ -94,6 +94,28 @@
   padding: 2rem 1rem;
 }
 
+tr:hover {
+  background-color: rgba(0, 0, 0, 0.025);
+  transition: background-color 0.2s;
+}
+
+button {
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+button:hover {
+  transform: scale(1.02);
+}
+
+.modal.fade .modal-dialog {
+  transform: translateY(20px);
+  transition: transform 0.3s ease-out;
+}
+
+.modal.show .modal-dialog {
+  transform: translateY(0);
+}
+
 .admin-card {
   background-color: #ffffff;
   border-radius: 0.5rem;
