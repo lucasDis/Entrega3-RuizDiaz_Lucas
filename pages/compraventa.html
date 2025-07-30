@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sysgen Argentina - Compra y Venta</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="../css/usuario.css" rel="stylesheet">
+</head>
+
+<body class="admin-layout">
+  <!-- Header Administrativo -->
+  <header class="admin-header">
+    <div class="header-content">
+      <a href="../index.html" class="admin-logo">
+        <i class="fas fa-cube"></i>
+        Sysgen Admin
+      </a>
+      <div class="user-menu">
+        <div class="user-info">
+          <div class="user-avatar">JD</div>
+          <span class="user-name">Juan Pérez</span>
+        </div>
+        <button class="btn btn-outline btn-primary" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          Salir
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Navegación de Pestañas -->
+  <nav class="admin-nav">
+    <div class="nav-content">
+      <div class="nav-tabs">
+        <button class="nav-tab" onclick="location.href='userpanel.html'">
+          <i class="fas fa-box"></i>
+          Control de Productos
+        </button>
+        <button class="nav-tab active">
+          <i class="fas fa-exchange-alt"></i>
+          Compra y Venta
+        </button>
+        <button class="nav-tab" onclick="location.href='cuenta-corriente.html'">
+          <i class="fas fa-file-invoice-dollar"></i>
+          Cuenta Corriente
+        </button>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Contenido Principal -->
+  <main class="admin-main">
+    <!-- Estadísticas de Ventas -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon success">
+            <i class="fas fa-shopping-cart"></i>
+          </div>
+        </div>
+        <div class="stat-value">$2,847,320</div>
+        <div class="stat-label">Ventas del Mes</div>
+        <div class="stat-change positive">+18% vs mes anterior</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon primary">
+            <i class="fas fa-truck"></i>
+          </div>
+        </div>
+        <div class="stat-value">$1,245,890</div>
+        <div class="stat-label">Compras del Mes</div>
+        <div class="stat-change positive">+5% vs mes anterior</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon info">
+            <i class="fas fa-chart-line"></i>
+          </div>
+        </div>
+        <div class="stat-value">$1,601,430</div>
+        <div class="stat-label">Ganancia Bruta</div>
+        <div class="stat-change positive">+25% vs mes anterior</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon warning">
+            <i class="fas fa-receipt"></i>
+          </div>
+        </div>
+        <div class="stat-value">247</div>
+        <div class="stat-label">Transacciones</div>
+        <div class="stat-change positive">+12% este mes</div>
+      </div>
+    </div>
+
+    <!-- Pestañas de Compra y Venta -->
+    <div class="admin-card">
+      <div class="card-header">
+        <div class="nav-tabs" style="border: none; margin-bottom: 0;">
+          <button class="nav-tab active" data-subtab="ventas">
+            <i class="fas fa-shopping-cart"></i>
+            Ventas
+          </button>
+          <button class="nav-tab" data-subtab="compras">
+            <i class="fas fa-truck"></i>
+            Compras
+          </button>
+        </div>
+        <div class="card-actions">
+          <button class="btn btn-success" onclick="openSaleModal()">
+            <i class="fas fa-plus"></i>
+            Nueva Venta
+          </button>
+          <button class="btn btn-primary" onclick="openPurchaseModal()">
+            <i class="fas fa-plus"></i>
+            Nueva Compra
+          </button>
+        </div>
+      </div>
+
+      <!-- Contenido de Ventas -->
+      <div id="ventas-content" class="tab-content active">
+        <div class="admin-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Buscar venta</label>
+              <input type="text" class="form-control" placeholder="Cliente, producto o factura..." id="searchSale">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fecha desde</label>
+              <input type="date" class="form-control" id="dateFromSale">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fecha hasta</label>
+              <input type="date" class="form-control" id="dateToSale">
+            </div>
+            <div class="form-group">
+              <label class="form-label">&nbsp;</label>
+              <button class="btn btn-primary" onclick="filterSales()">
+                <i class="fas fa-search"></i>
+                Filtrar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Factura</th>
+                <th>Cliente</th>
+                <th>Fecha</th>
+                <th>Productos</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="salesTableBody">
+              <tr>
+                <td><strong>#V-001</strong></td>
+                <td>María González</td>
+                <td>15/01/2025</td>
+                <td>Laptop Dell Inspiron 15</td>
+                <td><strong>$850,000</strong></td>
+                <td><span class="badge badge-success">Pagado</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm btn-primary" onclick="viewSale(1)">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-sm btn-success" onclick="printInvoice(1)">
+                    <i class="fas fa-print"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>#V-002</strong></td>
+                <td>Carlos Rodríguez</td>
+                <td>14/01/2025</td>
+                <td>Camiseta Nike Running</td>
+                <td><strong>$45,000</strong></td>
+                <td><span class="badge badge-warning">Pendiente</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm btn-primary" onclick="viewSale(2)">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-sm btn-success" onclick="printInvoice(2)">
+                    <i class="fas fa-print"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- Contenido de Compras -->
+      <div id="compras-content" class="tab-content" style="display: none;">
+        <div class="admin-form">
+          <div class="form-row">
+            <div class="form-group">
+              <label class="form-label">Buscar compra</label>
+              <input type="text" class="form-control" placeholder="Proveedor, producto o factura..."
+                id="searchPurchase">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fecha desde</label>
+              <input type="date" class="form-control" id="dateFromPurchase">
+            </div>
+            <div class="form-group">
+              <label class="form-label">Fecha hasta</label>
+              <input type="date" class="form-control" id="dateToPurchase">
+            </div>
+            <div class="form-group">
+              <label class="form-label">&nbsp;</label>
+              <button class="btn btn-primary" onclick="filterPurchases()">
+                <i class="fas fa-search"></i>
+                Filtrar
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <div class="card-content">
+          <table class="admin-table">
+            <thead>
+              <tr>
+                <th>Factura</th>
+                <th>Proveedor</th>
+                <th>Fecha</th>
+                <th>Productos</th>
+                <th>Total</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="purchasesTableBody">
+              <tr>
+                <td><strong>#C-001</strong></td>
+                <td>Distribuidora Tech SA</td>
+                <td>10/01/2025</td>
+                <td>Laptops Dell (10 unidades)</td>
+                <td><strong>$6,500,000</strong></td>
+                <td><span class="badge badge-success">Recibido</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm btn-primary" onclick="viewPurchase(1)">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-sm btn-warning" onclick="receivePurchase(1)">
+                    <i class="fas fa-check"></i>
+                  </button>
+                </td>
+              </tr>
+              <tr>
+                <td><strong>#C-002</strong></td>
+                <td>Textiles del Norte</td>
+                <td>08/01/2025</td>
+                <td>Camisetas Nike (50 unidades)</td>
+                <td><strong>$1,750,000</strong></td>
+                <td><span class="badge badge-warning">En tránsito</span></td>
+                <td class="actions">
+                  <button class="btn btn-sm btn-primary" onclick="viewPurchase(2)">
+                    <i class="fas fa-eye"></i>
+                  </button>
+                  <button class="btn btn-sm btn-warning" onclick="receivePurchase(2)">
+                    <i class="fas fa-check"></i>
+                  </button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Modal Nueva Venta -->
+  <div id="saleModal" class="modal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Nueva Venta</h5>
+          <button type="button" class="close" onclick="closeSaleModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="saleForm">
+            <div class="form-group">
+              <label class="form-label">Cliente</label>
+              <input type="text" class="form-control" id="saleClient" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Producto</label>
+              <select class="form-control" id="saleProduct" required>
+                <option value="">Seleccionar producto</option>
+                <option value="P001">Laptop Dell Inspiron 15 - $850,000</option>
+                <option value="P002">Camiseta Nike Running - $45,000</option>
+                <option value="P003">Sofá 3 Plazas Gris - $320,000</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Cantidad</label>
+              <input type="number" class="form-control" id="saleQuantity" min="1" value="1" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Total</label>
+              <input type="text" class="form-control" id="saleTotal" readonly>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeSaleModal()">Cancelar</button>
+          <button type="button" class="btn btn-success" onclick="saveSale()">Registrar Venta</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal Nueva Compra -->
+  <div id="purchaseModal" class="modal" style="display: none;">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Nueva Compra</h5>
+          <button type="button" class="close" onclick="closePurchaseModal()">
+            <span>&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form id="purchaseForm">
+            <div class="form-group">
+              <label class="form-label">Proveedor</label>
+              <input type="text" class="form-control" id="purchaseSupplier" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Producto</label>
+              <input type="text" class="form-control" id="purchaseProduct" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Cantidad</label>
+              <input type="number" class="form-control" id="purchaseQuantity" min="1" value="1" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Precio unitario</label>
+              <input type="number" class="form-control" id="purchasePrice" min="0" step="0.01" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Total</label>
+              <input type="text" class="form-control" id="purchaseTotal" readonly>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closePurchaseModal()">Cancelar</button>
+          <button type="button" class="btn btn-primary" onclick="savePurchase()">Registrar Compra</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="../src/compra-venta.js"></script>
+</body>
+
+</html>
