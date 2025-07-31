@@ -1,3 +1,8 @@
+function logout() {
+  if (confirm('¿Estás seguro de que deseas cerrar sesión?')) {
+    window.location.href = "../Principal/login.html";
+  }
+}
 
 function openProductModal() {
   window.location.href = 'nuevo-producto.html';
