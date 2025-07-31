@@ -12,7 +12,7 @@
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
@@ -65,26 +65,26 @@
 
   <main class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
     <div class="container mt-5">
-        <h2>Iniciar Sesión</h2>
-        <form id="loginForm">
-            <div class="mb-3">
-                <label for="email" class="form-label">Correo Electrónico</label>
-                <input type="email" class="form-control" id="email" required>
-            </div>
-            <div class="mb-3">
-                <label for="password" class="form-label">Contraseña</label>
-                <input type="password" class="form-control" id="password" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-        </form>
+      <h2>Iniciar Sesión</h2>
+      <form id="loginForm">
+        <div class="mb-3">
+          <label for="email" class="form-label">Correo Electrónico</label>
+          <input type="email" class="form-control" id="email" required>
+        </div>
+        <div class="mb-3">
+          <label for="password" class="form-label">Contraseña</label>
+          <input type="password" class="form-control" id="password" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
+      </form>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>
-        document.getElementById('loginForm').addEventListener('submit', function(event) {
-            event.preventDefault(); // Evitar envío del formulario
-            window.location.href = 'userpanel.html'; // Redirigir a userpanel.html
-        });
+      document.getElementById('loginForm').addEventListener('submit', function (event) {
+        event.preventDefault(); // Evitar envío del formulario
+        window.location.href = '../PanelUsuario/userpanel.html'; // Redirigir a userpanel.html
+      });
     </script>
   </main>
 
@@ -99,7 +99,8 @@
               <i class="fas fa-briefcase me-2"></i>
               Sysgen
             </h3>
-            <p class="mb-3">Optimiza tus procesos de venta. Soluciones inteligentes para una gestión eficiente y rentable.</p>
+            <p class="mb-3">Optimiza tus procesos de venta. Soluciones inteligentes para una gestión eficiente y
+              rentable.</p>
             <div class="redes-sociales">
               <a href="#" class="me-3">
                 <i class="fab fa-facebook-f"></i>
@@ -132,7 +133,8 @@
         <div class="col-lg-4">
           <div class="seccion-pie">
             <h3 class="h5 mb-3">Suscribirse</h3>
-            <p class="mb-3">Suscribite y recibí novedades, actualizaciones y mejoras del sistema directamente en tu correo.</p>
+            <p class="mb-3">Suscribite y recibí novedades, actualizaciones y mejoras del sistema directamente en tu
+              correo.</p>
             <div class="input-group">
               <input type="email" class="form-control" placeholder="tucorreo@ejemplo.com">
               <button class="btn btn-primary" type="button">
@@ -150,6 +152,8 @@
       </div>
     </div>
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

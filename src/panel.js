@@ -1,12 +1,3 @@
-document.addEventListener('DOMContentLoaded', () => {
-  document.querySelectorAll('.nav-tab[data-tab]').forEach(tab => {
-    tab.addEventListener('click', () => {
-      const href = tab.getAttribute('data-tab');
-      if (href === 'compra-venta') location.href = 'compra-venta.html';
-      if (href === 'cuenta-corriente') location.href = 'cuenta-corriente.html';
-    });
-  });
-});
 
 function openProductModal() {
   window.location.href = 'nuevo-producto.html';
@@ -33,3 +24,23 @@ function filterProducts() {
 
   console.log('Filtros aplicados:', { search, category, status });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const currentPage = location.pathname.split('/').pop();
+
+  tabBtns.forEach(btn => {
+    // Marcar activa la pestaña correspondiente
+    if (btn.getAttribute('data-tab') === currentPage) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+    // Navegación al hacer click
+    btn.addEventListener('click', function () {
+      if (btn.getAttribute('data-tab') !== currentPage) {
+        window.location.href = btn.getAttribute('data-tab');
+      }
+    });
+  });
+});

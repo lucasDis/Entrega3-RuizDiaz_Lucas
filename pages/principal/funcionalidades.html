@@ -2,17 +2,17 @@
 <html lang="es" data-theme="light">
 
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sysgen Argentina - contacto</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sysgen Argentina - funcionalidades</title>
   <!-- Tipografia Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
   <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="../css/base.css">
 </head>
 
 <body>
@@ -20,7 +20,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand fw-bold" href="../index.html">
+        <a class="navbar-brand fw-bold" href="./index.html">
           Sysgen
         </a>
 
@@ -34,12 +34,12 @@
         <div class="collapse navbar-collapse" id="navbarNav">
           <ul class="navbar-nav mx-auto">
             <li class="nav-item">
-              <a class="nav-link text-white" href="../index.html">
+              <a class="nav-link text-white" href="./index.html">
                 Inicio
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="funcionalidades.html">
+              <a class="nav-link text-white" href="../Principal/funcionalidades.html">
                 Funcionalidades
               </a>
             </li>
@@ -63,36 +63,54 @@
     </nav>
   </header>
 
-  <main class="py-5 bg-light">
+  <main class="py-5">
     <div class="container">
       <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold">Contacto</h1>
-        <p class="lead">¿Tenés preguntas o querés saber más? Escribinos y te responderemos a la brevedad.</p>
+        <h1 class="display-4 fw-bold">Funcionalidades de Sysgen</h1>
+        <p class="lead">Todo lo que necesitás para administrar tu empresa de forma eficiente, desde un solo lugar.</p>
       </div>
-      <div class="row justify-content-center">
-        <div class="col-md-8">
-          <form>
-            <div class="mb-3">
-              <label for="nombre" class="form-label">Nombre completo</label>
-              <input type="text" class="form-control" id="nombre" placeholder="Tu nombre" required>
-            </div>
-            <div class="mb-3">
-              <label for="email" class="form-label">Correo electrónico</label>
-              <input type="email" class="form-control" id="email" placeholder="tucorreo@ejemplo.com" required>
-            </div>
-            <div class="mb-3">
-              <label for="asunto" class="form-label">Asunto</label>
-              <input type="text" class="form-control" id="asunto" placeholder="Motivo del contacto">
-            </div>
-            <div class="mb-3">
-              <label for="mensaje" class="form-label">Mensaje</label>
-              <textarea class="form-control" id="mensaje" rows="5" placeholder="Escribí tu mensaje aquí..."
-                required></textarea>
-            </div>
-            <div class="text-end">
-              <button type="submit" class="btn btn-primary">Enviar mensaje</button>
-            </div>
-          </form>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4 text-center shadow-sm">
+            <i class="fas fa-cash-register text-primary mb-3" style="font-size: 2rem;"></i>
+            <h5>Gestión de Ventas</h5>
+            <p>Emití facturas, registrá transacciones y mantené control total del flujo de ingresos.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4 text-center shadow-sm">
+            <i class="fas fa-boxes text-success mb-3" style="font-size: 2rem;"></i>
+            <h5>Inventario en Tiempo Real</h5>
+            <p>Actualización automática de stock, alertas y seguimiento por categoría o proveedor.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4 text-center shadow-sm">
+            <i class="fas fa-user-friends text-warning mb-3" style="font-size: 2rem;"></i>
+            <h5>Cuentas Corrientes</h5>
+            <p>Gestión de saldos, créditos, vencimientos y reportes de morosidad.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4 text-center shadow-sm">
+            <i class="fas fa-chart-line text-info mb-3" style="font-size: 2rem;"></i>
+            <h5>Reportes Financieros</h5>
+            <p>Visualización de ingresos, egresos y evolución de tu negocio en tiempo real.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4 text-center shadow-sm">
+            <i class="fas fa-users-cog text-danger mb-3" style="font-size: 2rem;"></i>
+            <h5>Multiusuario y Permisos</h5>
+            <p>Creá usuarios con roles personalizados y permisos por área o función.</p>
+          </div>
+        </div>
+        <div class="col-md-6 col-lg-4">
+          <div class="card h-100 p-4 text-center shadow-sm">
+            <i class="fas fa-cloud-upload-alt text-secondary mb-3" style="font-size: 2rem;"></i>
+            <h5>Backup y Seguridad</h5>
+            <p>Resguardá tu información de forma automática en la nube.</p>
+          </div>
         </div>
       </div>
     </div>
@@ -109,7 +127,8 @@
               <i class="fas fa-briefcase me-2"></i>
               Sysgen
             </h3>
-            <p class="mb-3">Optimiza tus procesos de venta. Soluciones inteligentes para una gestión eficiente y rentable.</p>
+            <p class="mb-3">Optimiza tus procesos de venta. Soluciones inteligentes para una gestión eficiente y
+              rentable.</p>
             <div class="redes-sociales">
               <a href="#" class="me-3">
                 <i class="fab fa-facebook-f"></i>
@@ -142,7 +161,8 @@
         <div class="col-lg-4">
           <div class="seccion-pie">
             <h3 class="h5 mb-3">Suscribirse</h3>
-            <p class="mb-3">Suscribite y recibí novedades, actualizaciones y mejoras del sistema directamente en tu correo.</p>
+            <p class="mb-3">Suscribite y recibí novedades, actualizaciones y mejoras del sistema directamente en tu
+              correo.</p>
             <div class="input-group">
               <input type="email" class="form-control" placeholder="tucorreo@ejemplo.com">
               <button class="btn btn-primary" type="button">
@@ -160,6 +180,6 @@
       </div>
     </div>
   </footer>
-</body>
 
-</html>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>

@@ -39,22 +39,22 @@
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="./pages/funcionalidades.html">
+              <a class="nav-link text-white" href="./pages/Principal/funcionalidades.html">
                 Funcionalidades
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="./pages/planes.html">
+              <a class="nav-link text-white" href="./pages/Principal/planes.html">
                 Planes
               </a>
             </li>
             <li class="nav-item">
-              <a class="nav-link text-white" href="./pages/contacto.html">
+              <a class="nav-link text-white" href="./pages/Principal/contacto.html">
                 Contacto
               </a>
             </li>
           </ul>
-          <a href="./pages/login.html" class="btn btn-outline-light">
+          <a href="./pages/Principal/login.html" class="btn btn-outline-light">
             <i class="fas fa-sign-in-alt me-1"></i>
             Iniciar sesión
           </a>
@@ -102,7 +102,7 @@
     </section>
 
     <!-- Sección Porque Elegirnos -->
-    <section class="section-process">
+    <section class="section-process bg-contrast">
       <div class="container py-5">
         <div class="text-center mb-5">
           <h2 class="display-6 fw-bold">¿Por qué elegir Sysgen?</h2>
@@ -149,32 +149,6 @@
         <div class="text-center mb-5">
           <h2 class="display-4 fw-bold mb-4">Características Principales</h2>
           <p class="lead">Descubrí todo lo que nuestro sistema puede hacer por tu empresa</p>
-        </div>
-
-        <!-- Navegación Externa -->
-        <div class="carousel-nav-external">
-          <button class="carousel-control-prev" type="button" data-bs-target="#caracteristicasCarousel"
-            data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Anterior</span>
-          </button>
-
-          <!-- Indicadores -->
-          <div class="carousel-indicators carousel-indicators-custom">
-            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="0"
-              class="active"></button>
-            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="1"></button>
-            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="2"></button>
-            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="3"></button>
-            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="4"></button>
-            <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="5"></button>
-          </div>
-
-          <button class="carousel-control-next" type="button" data-bs-target="#caracteristicasCarousel"
-            data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Siguiente</span>
-          </button>
         </div>
 
         <div id="caracteristicasCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
@@ -379,10 +353,35 @@
           </div>
         </div>
       </div>
+
+      <!-- Indicadores -->
+      <div class="d-flex justify-content-center carousel-indicators carousel-indicators-custom mt-4">
+        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="0" class="active"></button>
+        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="1"></button>
+        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="2"></button>
+        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="3"></button>
+        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="4"></button>
+        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="5"></button>
+      </div>
+      </div>
+      </div>
+      <!-- Botones de navegación por fuera del carrusel -->
+      <div class="d-flex justify-content-center mt-4">
+        <button class="carousel-control-prev position-static" type="button" data-bs-target="#caracteristicasCarousel"
+          data-bs-slide="prev" style="width:auto;">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Anterior</span>
+        </button>
+        <button class="carousel-control-next position-static ms-3" type="button"
+          data-bs-target="#caracteristicasCarousel" data-bs-slide="next" style="width:auto;">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Siguiente</span>
+        </button>
+      </div>
     </section>
 
     <!-- Sección de Planes con Hover Expandible -->
-    <section class="py-5 bg-light">
+    <section class="py-5 bg-light bg-contrast">
       <div class="container">
         <div class="row mb-5">
           <div class="col-lg-8 mx-auto text-center">
