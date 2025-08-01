@@ -94,6 +94,46 @@
   padding: 2rem 1rem;
 }
 
+.admin-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0 12px;
+  background: #fff;
+  font-size: 1rem;
+  box-shadow: none;
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 18px 20px;
+  border: none;
+  background: #f8f9fa;
+  text-align: left;
+  vertical-align: middle;
+  border-radius: 8px;
+}
+
+.admin-table th {
+  background: #e5e7eb;
+  font-weight: 600;
+  color: #333;
+  letter-spacing: 0.03em;
+}
+
+.admin-table tr {
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.03);
+}
+
+.admin-table tr:not(:last-child) td {
+  border-bottom: 2px solid #e5e7eb;
+}
+
+.admin-table td.actions {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
 tr:hover {
   background-color: rgba(0, 0, 0, 0.025);
   transition: background-color 0.2s;
