@@ -24,36 +24,45 @@
           <div class="user-avatar">JD</div>
           <span class="user-name">Juan Pérez</span>
         </div>
-        <button class="btn btn-outline btn-primary" onclick="logout()">
-          <i class="fas fa-sign-out-alt"></i>
-          Salir
-        </button>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'" title="Perfil de empresa">
+            <i class="fas fa-user-cog"></i>
+          </button>
+          <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()" title="Administración del sistema">
+            <i class="fas fa-shield-alt"></i>
+          </button>
+          <button class="btn btn-outline btn-primary" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Salir
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
-  <!-- Navegación de Pestañas -->
-  <nav class="admin-nav">
-    <div class="nav-content">
-      <div class="nav-tabs">
-        <button class="nav-tab" onclick="location.href='userpanel.html'">
-          <i class="fas fa-box"></i>
-          Control de Productos
-        </button>
-        <button class="nav-tab active">
-          <i class="fas fa-exchange-alt"></i>
-          Compra y Venta
-        </button>
-        <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
-          <i class="fas fa-file-invoice-dollar"></i>
-          Cuenta Corriente
-        </button>
-      </div>
-    </div>
-  </nav>
-
   <!-- Contenido Principal -->
   <main class="admin-main">
+    <!-- Navegación de Pestañas -->
+    <nav class="admin-nav">
+      <div class="nav-content">
+        <div class="nav-tabs">
+          <button class="nav-tab" onclick="location.href='userpanel.html'">
+            <i class="fas fa-box"></i>
+            Control de Productos
+          </button>
+          <button class="nav-tab active">
+            <i class="fas fa-exchange-alt"></i>
+            Compra y Venta
+          </button>
+          <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
+            <i class="fas fa-file-invoice-dollar"></i>
+            Cuenta Corriente
+          </button>
+        </div>
+      </div>
+    </nav>
+
+
     <!-- Estadísticas de Ventas -->
     <div class="stats-grid">
       <div class="stat-card">
@@ -281,95 +290,94 @@
         </div>
       </div>
     </div>
-  </main>
 
-  <!-- Modal Nueva Venta -->
-  <div id="saleModal" class="modal" style="display: none;">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Nueva Venta</h5>
-          <button type="button" class="close" onclick="closeSaleModal()">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id="saleForm">
-            <div class="form-group">
-              <label class="form-label">Cliente</label>
-              <input type="text" class="form-control" id="saleClient" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Producto</label>
-              <select class="form-control" id="saleProduct" required>
-                <option value="">Seleccionar producto</option>
-                <option value="P001">Laptop Dell Inspiron 15 - $850,000</option>
-                <option value="P002">Camiseta Nike Running - $45,000</option>
-                <option value="P003">Sofá 3 Plazas Gris - $320,000</option>
-              </select>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Cantidad</label>
-              <input type="number" class="form-control" id="saleQuantity" min="1" value="1" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Total</label>
-              <input type="text" class="form-control" id="saleTotal" readonly>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="closeSaleModal()">Cancelar</button>
-          <button type="button" class="btn btn-success" onclick="saveSale()">Registrar Venta</button>
+    <!-- Modal Nueva Venta -->
+    <div id="saleModal" class="modal" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Nueva Venta</h5>
+            <button type="button" class="close" onclick="closeSaleModal()">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="saleForm">
+              <div class="form-group">
+                <label class="form-label">Cliente</label>
+                <input type="text" class="form-control" id="saleClient" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Producto</label>
+                <select class="form-control" id="saleProduct" required>
+                  <option value="">Seleccionar producto</option>
+                  <option value="P001">Laptop Dell Inspiron 15 - $850,000</option>
+                  <option value="P002">Camiseta Nike Running - $45,000</option>
+                  <option value="P003">Sofá 3 Plazas Gris - $320,000</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="saleQuantity" min="1" value="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Total</label>
+                <input type="text" class="form-control" id="saleTotal" readonly>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closeSaleModal()">Cancelar</button>
+            <button type="button" class="btn btn-success" onclick="saveSale()">Registrar Venta</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <!-- Modal Nueva Compra -->
-  <div id="purchaseModal" class="modal" style="display: none;">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title">Nueva Compra</h5>
-          <button type="button" class="close" onclick="closePurchaseModal()">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <form id="purchaseForm">
-            <div class="form-group">
-              <label class="form-label">Proveedor</label>
-              <input type="text" class="form-control" id="purchaseSupplier" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Producto</label>
-              <input type="text" class="form-control" id="purchaseProduct" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Cantidad</label>
-              <input type="number" class="form-control" id="purchaseQuantity" min="1" value="1" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Precio unitario</label>
-              <input type="number" class="form-control" id="purchasePrice" min="0" step="0.01" required>
-            </div>
-            <div class="form-group">
-              <label class="form-label">Total</label>
-              <input type="text" class="form-control" id="purchaseTotal" readonly>
-            </div>
-          </form>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="closePurchaseModal()">Cancelar</button>
-          <button type="button" class="btn btn-primary" onclick="savePurchase()">Registrar Compra</button>
+    <!-- Modal Nueva Compra -->
+    <div id="purchaseModal" class="modal" style="display: none;">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title">Nueva Compra</h5>
+            <button type="button" class="close" onclick="closePurchaseModal()">
+              <span>&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">
+            <form id="purchaseForm">
+              <div class="form-group">
+                <label class="form-label">Proveedor</label>
+                <input type="text" class="form-control" id="purchaseSupplier" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Producto</label>
+                <input type="text" class="form-control" id="purchaseProduct" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Cantidad</label>
+                <input type="number" class="form-control" id="purchaseQuantity" min="1" value="1" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Precio unitario</label>
+                <input type="number" class="form-control" id="purchasePrice" min="0" step="0.01" required>
+              </div>
+              <div class="form-group">
+                <label class="form-label">Total</label>
+                <input type="text" class="form-control" id="purchaseTotal" readonly>
+              </div>
+            </form>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" onclick="closePurchaseModal()">Cancelar</button>
+            <button type="button" class="btn btn-primary" onclick="savePurchase()">Registrar Compra</button>
+          </div>
         </div>
       </div>
     </div>
-  </div>
 
-  <script src="../../src/panel.js"></script>
-  <script src="../src/compra-venta.js"></script>
+    <script src="../../src/panel.js"></script>
+    <script src="../src/compra-venta.js"></script>
 </body>
 
 </html>

@@ -24,39 +24,27 @@
           <div class="user-avatar">JD</div>
           <span class="user-name">Juan Pérez</span>
         </div>
-        <button class="btn btn-outline btn-primary" onclick="logout()">
-          <i class="fas fa-sign-out-alt"></i>
-          Salir
-        </button>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'" title="Perfil de empresa">
+            <i class="fas fa-user-cog"></i>
+          </button>
+          <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()" title="Administración del sistema">
+            <i class="fas fa-shield-alt"></i>
+          </button>
+          <button class="btn btn-outline btn-primary" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Salir
+          </button>
+        </div>
       </div>
     </div>
   </header>
 
   <!-- Contenido Principal -->
-  <main class="admin-main container-fluid">
-    <!-- Navegación de Pestañas -->
-    <nav class="admin-nav">
-      <div class="nav-content">
-        <div class="nav-tabs">
-          <button class="nav-tab" onclick="location.href='userpanel.html'">
-            <i class="fas fa-box"></i>
-            Control de Productos
-          </button>
-          <button class="nav-tab" onclick="location.href='compraventa.html'">
-            <i class="fas fa-exchange-alt"></i>
-            Compra y Venta
-          </button>
-          <button class="nav-tab active">
-            <i class="fas fa-file-invoice-dollar"></i>
-            Cuenta Corriente
-          </button>
-        </div>
-      </div>
-    </nav>
-
+  <main class="admin-main">
     <!-- Estadísticas Financieras -->
-    <div class="row stats-grid">
-      <div class="col-12 col-md-6 col-lg-3 stat-card">
+    <div class="stats-grid">
+      <div class="stat-card">
         <div class="stat-header">
           <div class="stat-icon success">
             <i class="fas fa-arrow-up"></i>
@@ -67,7 +55,7 @@
         <div class="stat-change positive">15 clientes pendientes</div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3 stat-card">
+      <div class="stat-card">
         <div class="stat-header">
           <div class="stat-icon danger">
             <i class="fas fa-arrow-down"></i>
@@ -78,7 +66,7 @@
         <div class="stat-change negative">8 proveedores pendientes</div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3 stat-card">
+      <div class="stat-card">
         <div class="stat-header">
           <div class="stat-icon primary">
             <i class="fas fa-balance-scale"></i>
@@ -89,7 +77,7 @@
         <div class="stat-change positive">Posición favorable</div>
       </div>
 
-      <div class="col-12 col-md-6 col-lg-3 stat-card">
+      <div class="stat-card">
         <div class="stat-header">
           <div class="stat-icon warning">
             <i class="fas fa-exclamation-triangle"></i>
@@ -101,335 +89,133 @@
       </div>
     </div>
 
-    <!-- Pestañas de Cuenta Corriente -->
+    <!-- Sección de Gestión de Cuentas -->
     <div class="admin-card">
       <div class="card-header">
-        <div class="nav-tabs flex-wrap" style="border: none; margin-bottom: 0;">
-          <button class="nav-tab active" data-subtab="clientes">
-            <i class="fas fa-users"></i>
-            Clientes
-          </button>
-          <button class="nav-tab" data-subtab="proveedores">
-            <i class="fas fa-truck"></i>
-            Proveedores
-          </button>
-          <button class="nav-tab" data-subtab="movimientos">
-            <i class="fas fa-list"></i>
-            Movimientos
-          </button>
-        </div>
-        <div class="card-actions d-flex flex-wrap gap-2 mt-2">
-          <button class="btn btn-success" onclick="openPaymentModal()">
-            <i class="fas fa-plus"></i>
-            Registrar Pago
-          </button>
-          <button class="btn btn-primary" onclick="openChargeModal()">
-            <i class="fas fa-plus"></i>
-            Registrar Cargo
-          </button>
-        </div>
+        <h2 class="card-title">Gestión de Cuentas Corrientes</h2>
       </div>
-
-      <!-- Contenido de Clientes -->
-      <div id="clientes-content" class="tab-content active">
-        <div class="admin-form">
-          <div class="row form-row">
-            <div class="col-12 col-md-4 form-group">
-              <label class="form-label">Buscar cliente</label>
-              <input type="text" class="form-control" placeholder="Nombre o documento..." id="searchClient">
-            </div>
-            <div class="col-12 col-md-4 form-group">
-              <label class="form-label">Estado</label>
-              <select class="form-control" id="clientStatusFilter">
-                <option value="">Todos</option>
-                <option value="activo">Activo</option>
-                <option value="vencido">Vencido</option>
-                <option value="al-dia">Al día</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-4 form-group d-flex align-items-end">
-              <label class="form-label">&nbsp;</label>
-              <button class="btn btn-primary w-100" onclick="filterClients()">
-                <i class="fas fa-search"></i>
-                Filtrar
-              </button>
+      
+      <div class="card-content">
+        <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+          
+          <!-- Tarjeta de Clientes -->
+          <div class="admin-card" style="border: 2px solid #059669; background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; cursor: pointer; transition: transform 0.3s ease;" onclick="location.href='clientes.html'">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <div style="font-size: 4rem; margin-bottom: 1rem;">
+                <i class="fas fa-users"></i>
+              </div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Gestión de Clientes</h3>
+              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Administrar cuentas corrientes de clientes</p>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <span>Clientes activos:</span>
+                <strong>47</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Saldo pendiente:</span>
+                <strong>$4,250,800</strong>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="card-content">
-        <div class="table-responsive">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Cliente</th>
-                <th>Contacto</th>
-                <th>Saldo</th>
-                <th>Última Factura</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="clientsTableBody">
-              <tr>
-                <td>
-                  <div>
-                    <strong>María González</strong>
-                    <div style="font-size: 0.75rem; color: #6b7280;">DNI: 12.345.678</div>
-                  </div>
-                </td>
-                <td>
-                  <div>maria.gonzalez@email.com</div>
-                  <div style="font-size: 0.75rem; color: #6b7280;">+54 11 1234-5678</div>
-                </td>
-                <td><strong style="color: #dc2626;">-$850,000</strong></td>
-                <td>15/01/2025</td>
-                <td><span class="badge badge-danger">Vencido</span></td>
-                <td class="actions">
-                  <button class="btn btn-sm btn-primary" onclick="viewClientAccount(1)">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-success" onclick="addPayment(1)">
-                    <i class="fas fa-dollar-sign"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>Carlos Rodríguez</strong>
-                    <div style="font-size: 0.75rem; color: #6b7280;">DNI: 87.654.321</div>
-                  </div>
-                </td>
-                <td>
-                  <div>carlos.rodriguez@email.com</div>
-                  <div style="font-size: 0.75rem; color: #6b7280;">+54 11 8765-4321</div>
-                </td>
-                <td><strong style="color: #dc2626;">-$45,000</strong></td>
-                <td>14/01/2025</td>
-                <td><span class="badge badge-warning">Pendiente</span></td>
-                <td class="actions">
-                  <button class="btn btn-sm btn-primary" onclick="viewClientAccount(2)">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-success" onclick="addPayment(2)">
-                    <i class="fas fa-dollar-sign"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>Ana López</strong>
-                    <div style="font-size: 0.75rem; color: #6b7280;">DNI: 11.222.333</div>
-                  </div>
-                </td>
-                <td>
-                  <div>ana.lopez@email.com</div>
-                  <div style="font-size: 0.75rem; color: #6b7280;">+54 11 2233-4455</div>
-                </td>
-                <td><strong style="color: #059669;">$0</strong></td>
-                <td>10/01/2025</td>
-                <td><span class="badge badge-success">Al día</span></td>
-                <td class="actions">
-                  <button class="btn btn-sm btn-primary" onclick="viewClientAccount(3)">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-success" onclick="addPayment(3)">
-                    <i class="fas fa-dollar-sign"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Contenido de Proveedores -->
-      <div id="proveedores-content" class="tab-content" style="display: none;">
-        <div class="admin-form">
-          <div class="row form-row">
-            <div class="col-12 col-md-4 form-group">
-              <label class="form-label">Buscar proveedor</label>
-              <input type="text" class="form-control" placeholder="Nombre o CUIT..." id="searchSupplier">
-            </div>
-            <div class="col-12 col-md-4 form-group">
-              <label class="form-label">Estado</label>
-              <select class="form-control" id="supplierStatusFilter">
-                <option value="">Todos</option>
-                <option value="pendiente">Pendiente</option>
-                <option value="pagado">Pagado</option>
-                <option value="vencido">Vencido</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-4 form-group d-flex align-items-end">
-              <label class="form-label">&nbsp;</label>
-              <button class="btn btn-primary w-100" onclick="filterSuppliers()">
-                <i class="fas fa-search"></i>
-                Filtrar
-              </button>
+          <!-- Tarjeta de Proveedores -->
+          <div class="admin-card" style="border: 2px solid #dc2626; background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; cursor: pointer; transition: transform 0.3s ease;" onclick="location.href='proveedores.html'">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <div style="font-size: 4rem; margin-bottom: 1rem;">
+                <i class="fas fa-truck"></i>
+              </div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Gestión de Proveedores</h3>
+              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Administrar cuentas corrientes de proveedores</p>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <span>Proveedores activos:</span>
+                <strong>23</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Saldo a pagar:</span>
+                <strong>$1,890,650</strong>
+              </div>
             </div>
           </div>
-        </div>
-      </div>
 
-      <div class="card-content">
-        <div class="table-responsive">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Proveedor</th>
-                <th>Contacto</th>
-                <th>Saldo</th>
-                <th>Última Compra</th>
-                <th>Estado</th>
-                <th>Acciones</th>
-              </tr>
-            </thead>
-            <tbody id="suppliersTableBody">
-              <tr>
-                <td>
-                  <div>
-                    <strong>Distribuidora Tech SA</strong>
-                    <div style="font-size: 0.75rem; color: #6b7280;">CUIT: 30-12345678-9</div>
-                  </div>
-                </td>
-                <td>
-                  <div>ventas@techsa.com</div>
-                  <div style="font-size: 0.75rem; color: #6b7280;">+54 11 5555-0000</div>
-                </td>
-                <td><strong style="color: #dc2626;">$6,500,000</strong></td>
-                <td>10/01/2025</td>
-                <td><span class="badge badge-warning">Pendiente</span></td>
-                <td class="actions">
-                  <button class="btn btn-sm btn-primary" onclick="viewSupplierAccount(1)">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-danger" onclick="addPayment(1, 'supplier')">
-                    <i class="fas fa-dollar-sign"></i>
-                  </button>
-                </td>
-              </tr>
-              <tr>
-                <td>
-                  <div>
-                    <strong>Textiles del Norte</strong>
-                    <div style="font-size: 0.75rem; color: #6b7280;">CUIT: 30-87654321-0</div>
-                  </div>
-                </td>
-                <td>
-                  <div>info@textilesnorte.com</div>
-                  <div style="font-size: 0.75rem; color: #6b7280;">+54 381 444-5566</div>
-                </td>
-                <td><strong style="color: #059669;">$0</strong></td>
-                <td>08/01/2025</td>
-                <td><span class="badge badge-success">Pagado</span></td>
-                <td class="actions">
-                  <button class="btn btn-sm btn-primary" onclick="viewSupplierAccount(2)">
-                    <i class="fas fa-eye"></i>
-                  </button>
-                  <button class="btn btn-sm btn-danger" onclick="addPayment(2, 'supplier')">
-                    <i class="fas fa-dollar-sign"></i>
-                  </button>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </div>
-
-      <!-- Contenido de Movimientos -->
-      <div id="movimientos-content" class="tab-content" style="display: none;">
-        <div class="admin-form">
-          <div class="row form-row">
-            <div class="col-12 col-md-3 form-group">
-              <label class="form-label">Buscar movimiento</label>
-              <input type="text" class="form-control" placeholder="Cliente, proveedor o concepto..."
-                id="searchMovement">
-            </div>
-            <div class="col-12 col-md-2 form-group">
-              <label class="form-label">Tipo</label>
-              <select class="form-control" id="movementTypeFilter">
-                <option value="">Todos</option>
-                <option value="pago">Pago</option>
-                <option value="cargo">Cargo</option>
-                <option value="venta">Venta</option>
-                <option value="compra">Compra</option>
-              </select>
-            </div>
-            <div class="col-12 col-md-2 form-group">
-              <label class="form-label">Fecha desde</label>
-              <input type="date" class="form-control" id="dateFromMovement">
-            </div>
-            <div class="col-12 col-md-2 form-group">
-              <label class="form-label">Fecha hasta</label>
-              <input type="date" class="form-control" id="dateToMovement">
-            </div>
-            <div class="col-12 col-md-3 form-group d-flex align-items-end">
-              <label class="form-label">&nbsp;</label>
-              <button class="btn btn-primary" onclick="filterMovements()">
-                <i class="fas fa-search"></i>
-                Filtrar
-              </button>
+          <!-- Tarjeta de Movimientos -->
+          <div class="admin-card" style="border: 2px solid #1e40af; background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; cursor: pointer; transition: transform 0.3s ease;" onclick="location.href='movimientos.html'">
+            <div class="card-content" style="text-align: center; padding: 2rem;">
+              <div style="font-size: 4rem; margin-bottom: 1rem;">
+                <i class="fas fa-list"></i>
+              </div>
+              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Historial de Movimientos</h3>
+              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Ver todos los movimientos financieros</p>
+              <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
+                <span>Movimientos hoy:</span>
+                <strong>12</strong>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span>Total este mes:</span>
+                <strong>$6,141,450</strong>
+              </div>
             </div>
           </div>
+
         </div>
       </div>
+    </div>
 
+    <!-- Acciones Rápidas -->
+    <div class="admin-card">
+      <div class="card-header">
+        <h2 class="card-title">Acciones Rápidas</h2>
+      </div>
+      
       <div class="card-content">
-        <div class="table-responsive">
-          <table class="admin-table">
-            <thead>
-              <tr>
-                <th>Fecha</th>
-                <th>Tipo</th>
-                <th>Cliente/Proveedor</th>
-                <th>Concepto</th>
-                <th>Debe</th>
-                <th>Haber</th>
-                <th>Saldo</th>
-              </tr>
-            </thead>
-            <tbody id="movementsTableBody">
-              <tr>
-                <td>15/01/2025</td>
-                <td><span class="badge badge-danger">Cargo</span></td>
-                <td>María González</td>
-                <td>Venta - Factura #V-001</td>
-                <td><strong style="color: #dc2626;">$850,000</strong></td>
-                <td>-</td>
-                <td><strong style="color: #dc2626;">-$850,000</strong></td>
-              </tr>
-              <tr>
-                <td>14/01/2025</td>
-                <td><span class="badge badge-danger">Cargo</span></td>
-                <td>Carlos Rodríguez</td>
-                <td>Venta - Factura #V-002</td>
-                <td><strong style="color: #dc2626;">$45,000</strong></td>
-                <td>-</td>
-                <td><strong style="color: #dc2626;">-$45,000</strong></td>
-              </tr>
-              <tr>
-                <td>12/01/2025</td>
-                <td><span class="badge badge-success">Pago</span></td>
-                <td>Ana López</td>
-                <td>Pago Factura #V-003</td>
-                <td>-</td>
-                <td><strong style="color: #059669;">$120,000</strong></td>
-                <td><strong style="color: #059669;">$0</strong></td>
-              </tr>
-              <tr>
-                <td>10/01/2025</td>
-                <td><span class="badge badge-warning">Compra</span></td>
-                <td>Distribuidora Tech SA</td>
-                <td>Compra - Factura #C-001</td>
-                <td>-</td>
-                <td><strong style="color: #dc2626;">$6,500,000</strong></td>
-                <td><strong style="color: #dc2626;">$6,500,000</strong></td>
-              </tr>
-            </tbody>
-          </table>
+        <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.5rem;">
+          
+          <button class="admin-card" style="border: none; background: white; cursor: pointer; text-align: left; transition: all 0.3s ease;" onclick="openPaymentModal()">
+            <div class="card-content" style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 60px; height: 60px; background: #059669; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="fas fa-dollar-sign"></i>
+              </div>
+              <div>
+                <h4 style="margin: 0; color: #111827; font-weight: 600;">Registrar Pago</h4>
+                <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">Registrar pago de cliente o a proveedor</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="admin-card" style="border: none; background: white; cursor: pointer; text-align: left; transition: all 0.3s ease;" onclick="openChargeModal()">
+            <div class="card-content" style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 60px; height: 60px; background: #dc2626; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="fas fa-plus"></i>
+              </div>
+              <div>
+                <h4 style="margin: 0; color: #111827; font-weight: 600;">Registrar Cargo</h4>
+                <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">Agregar cargo a cuenta de cliente</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="admin-card" style="border: none; background: white; cursor: pointer; text-align: left; transition: all 0.3s ease;" onclick="location.href='agregar-cliente-proveedor.html'">
+            <div class="card-content" style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 60px; height: 60px; background: #1e40af; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="fas fa-user-plus"></i>
+              </div>
+              <div>
+                <h4 style="margin: 0; color: #111827; font-weight: 600;">Agregar Cliente/Proveedor</h4>
+                <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">Registrar nuevo cliente o proveedor</p>
+              </div>
+            </div>
+          </button>
+
+          <button class="admin-card" style="border: none; background: white; cursor: pointer; text-align: left; transition: all 0.3s ease;" onclick="generateAccountReport()">
+            <div class="card-content" style="display: flex; align-items: center; gap: 1rem;">
+              <div style="width: 60px; height: 60px; background: #d97706; border-radius: 12px; display: flex; align-items: center; justify-content: center; color: white; font-size: 1.5rem;">
+                <i class="fas fa-file-alt"></i>
+              </div>
+              <div>
+                <h4 style="margin: 0; color: #111827; font-weight: 600;">Reporte de Cuentas</h4>
+                <p style="margin: 0; color: #6b7280; font-size: 0.875rem;">Generar reporte de estados de cuenta</p>
+              </div>
+            </div>
+          </button>
+
         </div>
       </div>
     </div>
@@ -525,32 +311,6 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" onclick="closeChargeModal()">Cancelar</button>
           <button type="button" class="btn btn-primary" onclick="saveCharge()">Registrar Cargo</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Modal Detalle de Cuenta -->
-  <div id="accountModal" class="modal" style="display: none;">
-    <div class="modal-dialog modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h5 class="modal-title" id="accountModalTitle">Detalle de Cuenta</h5>
-          <button type="button" class="close" onclick="closeAccountModal()">
-            <span>&times;</span>
-          </button>
-        </div>
-        <div class="modal-body">
-          <div id="accountDetails">
-            <!-- Se carga dinámicamente -->
-          </div>
-        </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" onclick="closeAccountModal()">Cerrar</button>
-          <button type="button" class="btn btn-primary" onclick="printAccountStatement()">
-            <i class="fas fa-print"></i>
-            Imprimir Estado
-          </button>
         </div>
       </div>
     </div>
