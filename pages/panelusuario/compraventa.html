@@ -40,27 +40,46 @@
     </div>
   </header>
 
-  <!-- Contenido Principal -->
   <main class="admin-main">
     <!-- Navegación de Pestañas -->
-    <nav class="admin-nav">
-      <div class="nav-content">
-        <div class="nav-tabs">
-          <button class="nav-tab" onclick="location.href='userpanel.html'">
-            <i class="fas fa-box"></i>
-            Control de Productos
-          </button>
-          <button class="nav-tab active">
-            <i class="fas fa-exchange-alt"></i>
-            Compra y Venta
-          </button>
-          <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
-            <i class="fas fa-file-invoice-dollar"></i>
-            Cuenta Corriente
-          </button>
+    <div class="admin-nav-card" style="margin-bottom: 24px;">
+      <nav class="admin-nav">
+        <div class="nav-content">
+          <div class="nav-tabs" style="flex-wrap: wrap;">
+            <div class="dropdown">
+              <button class="nav-tab tab-btn dropdown-toggle"><i class="fas fa-box"></i> Productos</button>
+              <div class="dropdown-menu">
+                <a href="userpanel.html" class="dropdown-item">Control de Productos</a>
+                <a href="agregar-producto.html" class="dropdown-item">Agregar Producto</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab tab-btn dropdown-toggle"><i class="fas fa-exchange-alt"></i>
+                Compras/Ventas</button>
+              <div class="dropdown-menu">
+                <a href="compras.html" class="dropdown-item">Compras</a>
+                <a href="ventas.html" class="dropdown-item">Ventas</a>
+                <a href="facturaZ.html" class="dropdown-item">Factura Z</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab tab-btn dropdown-toggle"><i class="fas fa-users"></i> Clientes/Proveedores</button>
+              <div class="dropdown-menu">
+                <a href="clientes.html" class="dropdown-item">Clientes</a>
+                <a href="proveedores.html" class="dropdown-item">Proveedores</a>
+                <a href="agregar-cliente-proveedor.html" class="dropdown-item">Agregar Cliente/Proveedor</a>
+              </div>
+            </div>
+            <button class="nav-tab tab-btn" onclick="location.href='movimientos.html'">
+              <i class="fas fa-list"></i> Movimientos
+            </button>
+            <button class="nav-tab tab-btn" onclick="location.href='cuentacorriente.html'">
+              <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
+            </button>
+          </div>
         </div>
-      </div>
-    </nav>
+      </nav>
+    </div>
 
 
     <!-- Estadísticas de Ventas -->
