@@ -15,3 +15,23 @@ function setupTabs() {
     });
   });
 }
+
+document.addEventListener('DOMContentLoaded', function () {
+  const tabBtns = document.querySelectorAll('.tab-btn');
+  const currentPage = location.pathname.split('/').pop();
+
+  tabBtns.forEach(btn => {
+    // Marcar activa la pestaña correspondiente
+    if (btn.getAttribute('data-tab') === currentPage) {
+      btn.classList.add('active');
+    } else {
+      btn.classList.remove('active');
+    }
+    // Navegación al hacer click
+    btn.addEventListener('click', function () {
+      if (btn.getAttribute('data-tab') !== currentPage) {
+        window.location.href = btn.getAttribute('data-tab');
+      }
+    });
+  });
+});

@@ -40,6 +40,12 @@
   </header>
 
   <main class="admin-main">
+    <!-- Sección para volver atrás -->
+    <section class="volver-section" style="margin-bottom: 16px;">
+      <button class="btn btn-outline btn-secondary" onclick="volverAtras()">
+        <i class="fas fa-arrow-left"></i> Volver atrás
+      </button>
+    </section>
     <!-- Navegación de Pestañas -->
     <div class="admin-nav-card" style="margin-bottom: 24px;">
       <nav class="admin-nav">
@@ -89,14 +95,14 @@
           <div class="admin-card">
             <h3>Usuarios del sistema</h3>
             <p>Administrar roles, accesos y contraseñas.</p>
-            <button class="btn btn-primary"><i class="fas fa-users-cog"></i> Gestionar</button>
+            <button class="btn btn-primary" onclick="location.href='usuarios.html'"><i class="fas fa-users-cog"></i> Gestionar</button>
           </div>
         </div>
         <div class="col-6">
           <div class="admin-card">
             <h3>Parámetros generales</h3>
             <p>Configurar impuestos, moneda, y preferencias.</p>
-            <button class="btn btn-primary"><i class="fas fa-cogs"></i> Ajustes</button>
+            <button class="btn btn-primary" onclick="location.href='parametros.html'"><i class="fas fa-cogs"></i> Ajustes</button>
           </div>
         </div>
       </div>
@@ -104,6 +110,7 @@
   </main>
 
   <script src="../../src/panel.js"></script>
+  <script src="../../src/volver.js"></script>
 </body>
 
 </html>
