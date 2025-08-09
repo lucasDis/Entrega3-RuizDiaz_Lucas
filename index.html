@@ -1,609 +1,545 @@
-<!DOCTYPE html>
-<html lang="es" data-theme="light">
-
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sysgen Argentina - Inicio</title>
-  <!-- Tipografia Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Estilos personalizados -->
-  <link rel="stylesheet" href="../css/base.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sysgen - Sistema de Gestión Empresarial | Soluciones Inteligentes</title>
+    <meta name="description" content="Sistema de gestión empresarial completo: inventario, facturación, ventas y control financiero. Más de 1,200 empresas confían en nuestras soluciones.">
+    <meta name="author" content="Sysgen">
+    <meta name="keywords" content="gestión empresarial, inventario, facturación, ERP, sistema empresarial, software gestión">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="css/base.css">
+    
+    <!-- Canonical -->
+    <link rel="canonical" href="https://sysgen.com">
+    
+    <!-- Open Graph -->
+    <meta property="og:title" content="Sysgen - Sistema de Gestión Empresarial">
+    <meta property="og:description" content="Sistema completo de gestión empresarial: inventario, facturación y control financiero. Más de 1,200 empresas confían en nosotros.">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="assets/images/og-image.jpg">
+    <meta property="og:url" content="https://sysgen.com">
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@sysgen">
+    <meta name="twitter:image" content="assets/images/og-image.jpg">
 </head>
 
 <body>
-  <!-- Navbar -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="index.html">
-          Sysgen
-        </a>
-
-        <!-- Botón hamburguesa -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menú colapsable -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="index.html">
-                Inicio
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="./pages/Principal/funcionalidades.html">
-                Funcionalidades
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="./pages/Principal/planes.html">
-                Planes
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="./pages/Principal/contacto.html">
-                Contacto
-              </a>
-            </li>
-          </ul>
-          <a href="./pages/Principal/login.html" class="btn btn-outline-light">
-            <i class="fas fa-sign-in-alt me-1"></i>
-            Iniciar sesión
-          </a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main>
-    <!-- Hero -->
-    <section class="container py-5">
-      <div class="row align-items-center text-center text-md-start">
-        <div class="col-md-4 mb-4 mb-md-0">
-          <h1 class="display-5 fw-bold">
-            Sistema de <span class="text-primary">Gestión Empresarial</span><br>completo y eficiente
-          </h1>
-        </div>
-
-        <div class="col-md-4">
-          <p class="lead">Administrá tu negocio de manera inteligente: inventario en tiempo real, facturación
-            automática, control de ventas y cuentas corrientes desde una sola plataforma.</p>
-        </div>
-
-        <div class="col-md-4">
-          <div class="card p-4 border bg-light shadow-sm">
-            <div class="text-center mb-3">
-              <i class="fas fa-rocket text-primary" style="font-size: 2.5rem;"></i>
-            </div>
-            <h5 class="text-center">¿Listo para optimizar tu negocio?</h5>
-            <p class="text-center">Descubrí cómo nuestro sistema puede transformar la gestión de tu empresa.</p>
-            <a href="pages/planes.html" class="btn btn-primary">
-              <i class="fas fa-arrow-right me-1"></i>
-              Ver planes
+    <!-- Header -->
+    <header class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar" role="banner">
+        <div class="container">
+            <a class="navbar-brand fw-bold" href="#inicio">
+                <span class="brand-text">Sysgen</span>
             </a>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section>
-      <div style="height: 300px; overflow: hidden;">
-        <img src="assets/img/pexels-googledeepmind-17483867.webp" alt="Sistema de gestión empresarial"
-          class="img-fluid w-100 h-100 object-fit-cover">
-      </div>
-    </section>
-
-    <!-- Sección Porque Elegirnos -->
-    <section class="section-process bg-contrast">
-      <div class="container py-5">
-        <div class="text-center mb-5">
-          <h2 class="display-6 fw-bold">¿Por qué elegir Sysgen?</h2>
-          <p class="lead">Herramientas profesionales para hacer crecer tu negocio</p>
-        </div>
-        <div class="row g-4">
-          <div class="col-lg-4 col-md-6">
-            <div class="tarjeta-encabezado text-center h-100 p-4">
-              <div class="imagen-gato mb-3">
-                <i class="fas fa-cash-register"></i>
-              </div>
-              <h3 class="h5 mb-3">Gestión Integral de Ventas</h3>
-              <p class="mb-0">Procesá ventas, emití facturas automáticas y mantené un control total del flujo de
-                ingresos con reportes en tiempo real.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="tarjeta-encabezado text-center h-100 p-4">
-              <div class="imagen-gato mb-3">
-                <i class="fas fa-warehouse"></i>
-              </div>
-              <h3 class="h5 mb-3">Inventario Inteligente</h3>
-              <p class="mb-0">Controlá stock en tiempo real, recibí alertas automáticas de productos con bajo inventario
-                y optimizá la gestión de tu almacén.</p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <div class="tarjeta-encabezado text-center h-100 p-4">
-              <div class="imagen-gato mb-3">
-                <i class="fas fa-shopping-cart"></i>
-              </div>
-              <h3 class="h5 mb-3">Control de Compras Avanzado</h3>
-              <p class="mb-0">Administrá proveedores, órdenes de compra y mantené un control detallado de todos los
-                costos operativos de tu negocio.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Sección de Características con Carrusel -->
-    <section class="py-5 bg-light">
-      <div class="container">
-        <div class="text-center mb-5">
-          <h2 class="display-4 fw-bold mb-4">Características Principales</h2>
-          <p class="lead">Descubrí todo lo que nuestro sistema puede hacer por tu empresa</p>
-        </div>
-
-        <div id="caracteristicasCarousel" class="carousel slide custom-carousel" data-bs-ride="carousel">
-          <div class="carousel-inner">
-            <!-- Slide 1: Cuentas Corrientes -->
-            <div class="carousel-item active">
-              <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                  <div class="texto-contenido">
-                    <h3 class="display-5 fw-bold mb-4">Cuentas Corrientes Simplificadas</h3>
-                    <p class="lead mb-4">Llevá un control detallado de clientes y proveedores. Gestioná créditos, pagos
-                      y mantené un seguimiento completo de todas las transacciones comerciales.</p>
-                    <ul class="list-unstyled mb-4">
-                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Seguimiento automático de
-                        saldos</li>
-                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Alertas de vencimientos</li>
-                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Reportes de morosidad</li>
-                      <li class="mb-2"><i class="fas fa-check-circle text-success me-2"></i>Historial completo de
-                        transacciones</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary btn-lg">Conocé más</a>
-                  </div>
+            
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" 
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <nav class="navbar-nav mx-auto" role="navigation">
+                    <a class="nav-link" href="#inicio">Inicio</a>
+                    <a class="nav-link" href="#funcionalidades">Funcionalidades</a>
+                    <a class="nav-link" href="pages/principal/planes.html">Planes</a>
+                    <a class="nav-link" href="#contacto">Contacto</a>
+                </nav>
+                
+                <div class="navbar-cta d-flex gap-2">
+                    <a class="btn btn-outline-primary" href="pages/principal/login.html">Iniciar Sesión</a>
                 </div>
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="feature-card">
-                      <div class="feature-icon">
-                        <i class="fas fa-file-invoice-dollar"></i>
-                      </div>
-                      <h4>Facturación Automática</h4>
-                      <p>Generá facturas profesionales al instante</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main role="main">
+        <!-- Hero Section -->
+        <section id="inicio" class="hero-section d-flex align-items-center" role="banner">
+            <div class="hero-overlay"></div>
+            <div class="container position-relative">
+                <div class="row justify-content-center text-center text-white">
+                    <div class="col-lg-10">
+                        <h1 class="hero-title mb-4 fade-in-up">
+                            Experience Success, 
+                            <span class="text-gradient">Precision</span> & Expertise
+                        </h1>
+                        
+                        <p class="hero-subtitle mb-5 fade-in-up delay-1">
+                            Nuestro compromiso gira en torno a ofrecer servicios meticulosos y personalizados 
+                            diseñados para adaptarse a sus objetivos empresariales únicos.
+                        </p>
+                        
+                        <div class="hero-buttons d-flex flex-column flex-sm-row gap-3 justify-content-center mb-5 fade-in-up delay-2">
+                            <button class="btn btn-hero-secondary btn-lg">
+                                CONOCER MÁS <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                            <button class="btn btn-cta-primary btn-lg">
+                                CONTACTAR →
+                            </button>
+                        </div>
+
+                        <div class="hero-trust fade-in-up delay-3" aria-label="Clientes que confían">
+                            <div class="trust-badges">
+                                <span class="badge-item"><i class="fa-solid fa-shield-halved"></i> Seguridad Empresarial</span>
+                                <span class="badge-item"><i class="fa-solid fa-bolt"></i> Rendimiento 99.9%</span>
+                                <span class="badge-item"><i class="fa-solid fa-award"></i> 5★ Clientes</span>
+                            </div>
+                        </div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
 
-            <!-- Slide 2: Análisis y Reportes -->
-            <div class="carousel-item">
-              <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                  <div class="texto-contenido">
-                    <h3 class="display-5 fw-bold mb-4">Análisis Empresarial Avanzado</h3>
-                    <p class="lead mb-4">Tomá decisiones estratégicas basadas en datos reales. Nuestro sistema genera
-                      reportes detallados y análisis predictivos para tu negocio.</p>
-                    <ul class="list-unstyled mb-4">
-                      <li class="mb-2"><i class="fas fa-chart-line text-primary me-2"></i>Dashboard ejecutivo en tiempo
-                        real</li>
-                      <li class="mb-2"><i class="fas fa-chart-pie text-primary me-2"></i>Análisis de rentabilidad por
-                        producto</li>
-                      <li class="mb-2"><i class="fas fa-trending-up text-primary me-2"></i>Proyecciones de ventas</li>
-                      <li class="mb-2"><i class="fas fa-download text-primary me-2"></i>Exportación de datos
-                        personalizada</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary btn-lg">Ver reportes</a>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="feature-card">
-                      <div class="feature-icon">
-                        <i class="fas fa-chart-bar"></i>
-                      </div>
-                      <h4>Reportes Inteligentes</h4>
-                      <p>Visualizá el crecimiento de tu negocio</p>
+            <!-- Scroll Indicator -->
+            <div class="scroll-indicator" aria-hidden="true">
+                <svg class="scroll-arrow" width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Stats Section -->
+        <section class="stats-section py-5" role="region" aria-labelledby="stats-heading">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 id="stats-heading" class="section-title mb-4">
+                        Potenciando el <span class="text-gradient">Triunfo</span> de su Negocio
+                    </h2>
+                    
+                    <div class="revenue-highlight mb-4">
+                        <div class="revenue-number">+500M</div>
                     </div>
-                  </div>
+                    
+                    <h3 class="revenue-label mb-3">Generado en Ingresos</h3>
+                    
+                    <p class="section-subtitle">
+                        Nuestra dedicación a navegar el complejo mundo de las finanzas empresariales ha redefinido 
+                        el éxito para nuestros clientes, permitiéndonos crear portafolios resilientes que resisten 
+                        la prueba del tiempo.
+                    </p>
                 </div>
-              </div>
-            </div>
-
-            <!-- Slide 3: Seguridad y Backup -->
-            <div class="carousel-item">
-              <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                  <div class="texto-contenido">
-                    <h3 class="display-5 fw-bold mb-4">Seguridad y Protección Total</h3>
-                    <p class="lead mb-4">Tu información está protegida con los más altos estándares de seguridad.
-                      Sistema de backup automático y encriptación de datos.</p>
-                    <ul class="list-unstyled mb-4">
-                      <li class="mb-2"><i class="fas fa-shield-alt text-success me-2"></i>Encriptación de datos de
-                        extremo a extremo</li>
-                      <li class="mb-2"><i class="fas fa-cloud-upload-alt text-success me-2"></i>Backup automático en la
-                        nube</li>
-                      <li class="mb-2"><i class="fas fa-user-shield text-success me-2"></i>Control de acceso por roles
-                      </li>
-                      <li class="mb-2"><i class="fas fa-history text-success me-2"></i>Historial de cambios detallado
-                      </li>
-                    </ul>
-                    <a href="#" class="btn btn-primary btn-lg">Más seguridad</a>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="feature-card">
-                      <div class="feature-icon">
-                        <i class="fas fa-lock"></i>
-                      </div>
-                      <h4>Máxima Seguridad</h4>
-                      <p>Tus datos siempre protegidos</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">1,247</div>
+                        <div class="stat-label">Empresas Confían</div>
+                        <div class="stat-description">en nuestras soluciones empresariales</div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 4: Integración y API -->
-            <div class="carousel-item">
-              <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                  <div class="texto-contenido">
-                    <h3 class="display-5 fw-bold mb-4">Integración Empresarial</h3>
-                    <p class="lead mb-4">Conectá Sysgen con tus herramientas existentes. API robusta y integraciones
-                      nativas con sistemas contables y plataformas de e-commerce.</p>
-                    <ul class="list-unstyled mb-4">
-                      <li class="mb-2"><i class="fas fa-plug text-warning me-2"></i>API RESTful completa</li>
-                      <li class="mb-2"><i class="fas fa-sync-alt text-warning me-2"></i>Sincronización automática</li>
-                      <li class="mb-2"><i class="fas fa-shopping-bag text-warning me-2"></i>Integración con e-commerce
-                      </li>
-                      <li class="mb-2"><i class="fas fa-calculator text-warning me-2"></i>Conexión con sistemas
-                        contables</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary btn-lg">Ver integraciones</a>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="feature-card">
-                      <div class="feature-icon">
-                        <i class="fas fa-network-wired"></i>
-                      </div>
-                      <h4>Conectividad Total</h4>
-                      <p>Integrá todos tus sistemas</p>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">99.9%</div>
+                        <div class="stat-label">Uptime Garantizado</div>
+                        <div class="stat-description">disponibilidad del sistema</div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 5: Movilidad -->
-            <div class="carousel-item">
-              <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                  <div class="texto-contenido">
-                    <h3 class="display-5 fw-bold mb-4">Acceso Desde Cualquier Lugar</h3>
-                    <p class="lead mb-4">Gestioná tu negocio desde donde estés. Aplicación web responsive y aplicaciones
-                      móviles nativas para iOS y Android.</p>
-                    <ul class="list-unstyled mb-4">
-                      <li class="mb-2"><i class="fas fa-mobile-alt text-info me-2"></i>App móvil nativa</li>
-                      <li class="mb-2"><i class="fas fa-tablet-alt text-info me-2"></i>Interfaz responsive</li>
-                      <li class="mb-2"><i class="fas fa-wifi text-info me-2"></i>Funcionamiento offline</li>
-                      <li class="mb-2"><i class="fas fa-sync text-info me-2"></i>Sincronización automática</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary btn-lg">Descargá la app</a>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="feature-card">
-                      <div class="feature-icon">
-                        <i class="fas fa-mobile"></i>
-                      </div>
-                      <h4>Movilidad Total</h4>
-                      <p>Tu negocio siempre contigo</p>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Soporte Técnico</div>
+                        <div class="stat-description">asistencia especializada</div>
                     </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Slide 6: Soporte -->
-            <div class="carousel-item">
-              <div class="row align-items-center g-5">
-                <div class="col-lg-6">
-                  <div class="texto-contenido">
-                    <h3 class="display-5 fw-bold mb-4">Soporte Especializado 24/7</h3>
-                    <p class="lead mb-4">Nuestro equipo de expertos está disponible cuando lo necesites. Capacitación,
-                      soporte técnico y consultoría empresarial incluidos.</p>
-                    <ul class="list-unstyled mb-4">
-                      <li class="mb-2"><i class="fas fa-headset text-danger me-2"></i>Soporte 24/7 multicanal</li>
-                      <li class="mb-2"><i class="fas fa-graduation-cap text-danger me-2"></i>Capacitación personalizada
-                      </li>
-                      <li class="mb-2"><i class="fas fa-user-tie text-danger me-2"></i>Consultor asignado</li>
-                      <li class="mb-2"><i class="fas fa-rocket text-danger me-2"></i>Migración gratuita</li>
-                    </ul>
-                    <a href="#" class="btn btn-primary btn-lg">Contactar soporte</a>
-                  </div>
-                </div>
-                <div class="col-lg-6">
-                  <div class="text-center">
-                    <div class="feature-card">
-                      <div class="feature-icon">
-                        <i class="fas fa-life-ring"></i>
-                      </div>
-                      <h4>Soporte Experto</h4>
-                      <p>Siempre listos para ayudarte</p>
+                    
+                    <div class="stat-card">
+                        <div class="stat-number">5★</div>
+                        <div class="stat-label">Calificación Promedio</div>
+                        <div class="stat-description">satisfacción del cliente</div>
                     </div>
-                  </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
+        </section>
 
-      <!-- Indicadores -->
-      <div class="d-flex justify-content-center carousel-indicators carousel-indicators-custom mt-4">
-        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="0" class="active"></button>
-        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="1"></button>
-        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="2"></button>
-        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="3"></button>
-        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="4"></button>
-        <button type="button" data-bs-target="#caracteristicasCarousel" data-bs-slide-to="5"></button>
-      </div>
-      </div>
-      </div>
-      <!-- Botones de navegación por fuera del carrusel -->
-      <div class="d-flex justify-content-center mt-4">
-        <button class="carousel-control-prev position-static" type="button" data-bs-target="#caracteristicasCarousel"
-          data-bs-slide="prev" style="width:auto;">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Anterior</span>
-        </button>
-        <button class="carousel-control-next position-static ms-3" type="button"
-          data-bs-target="#caracteristicasCarousel" data-bs-slide="next" style="width:auto;">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Siguiente</span>
-        </button>
-      </div>
-    </section>
+        <!-- Features Section -->
+        <section id="funcionalidades" class="features-section py-5" role="region" aria-labelledby="features-heading">
+            <div class="container">
+                <div class="text-center mb-5">
+                    <h2 id="features-heading" class="section-title mb-4">
+                        ¿Por qué elegir <span class="text-gradient">Sysgen</span>?
+                    </h2>
+                    <p class="section-subtitle">
+                        Herramientas profesionales diseñadas para hacer crecer tu negocio 
+                        de manera inteligente y eficiente
+                    </p>
+                </div>
+                
+                <div class="features-container">
+                    <!-- Feature 1 -->
+                    <div class="feature-item">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="feature-image">
+                                    <img src="assets/img/fin-1.webp" alt="Hoja de Ruta Financiera" class="img-fluid rounded">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="feature-content">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-chart-line"></i>
+                                    </div>
+                                    <h3 class="feature-title">Hoja de Ruta Financiera</h3>
+                                    <p class="feature-description">
+                                        Nuestros expertos experimentados elaboran estrategias financieras personalizadas 
+                                        diseñadas exclusivamente para su negocio. Estas hojas de ruta personalizadas 
+                                        aseguran que cada paso se alinee con sus objetivos específicos.
+                                    </p>
+                                    <a href="#" class="feature-link">
+                                        Ver<i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 2 -->
+                    <div class="feature-item">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 order-lg-2">
+                                <div class="feature-image">
+                                    <img src="assets/img/mer-1.webp" alt="Inteligencia de Mercado" class="img-fluid rounded">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 order-lg-1">
+                                <div class="feature-content">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-database"></i>
+                                    </div>
+                                    <h3 class="feature-title">Inteligencia de Mercado</h3>
+                                    <p class="feature-description">
+                                        Obtenga una ventaja competitiva con nuestros conocimientos proactivos del mercado. 
+                                        Manténgase a la vanguardia con datos en tiempo real y análisis integrales, 
+                                        tome decisiones informadas en condiciones dinámicas del mercado.
+                                    </p>
+                                    <a href="#" class="feature-link">
+                                        Ver<i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Feature 3 -->
+                    <div class="feature-item">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6">
+                                <div class="feature-image">
+                                    <img src="assets/img/ases-1.webp" alt="Soporte de Asesoría Experta" class="img-fluid rounded">
+                                </div>
+                            </div>
+                            <div class="col-lg-6">
+                                <div class="feature-content">
+                                    <div class="feature-icon">
+                                        <i class="fas fa-shopping-cart"></i>
+                                    </div>
+                                    <h3 class="feature-title">Soporte de Asesoría Experta</h3>
+                                    <p class="feature-description">
+                                        Acceda a nuestro equipo de asesores experimentados, equipados para brindarle 
+                                        soporte y orientación incomparables. Benefíciese de su riqueza de experiencia 
+                                        y conocimiento de la industria.
+                                    </p>
+                                    <a href="#" class="feature-link">
+                                        Ver<i class="fas fa-arrow-right ms-2"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <!-- Sección de Planes con Hover Expandible -->
-    <section class="py-5 bg-light bg-contrast">
-      <div class="container">
-        <div class="row mb-5">
-          <div class="col-lg-8 mx-auto text-center">
-            <h2 class="display-4 fw-bold mb-4">Planes Diseñados para tu Crecimiento</h2>
-            <p class="lead">Elegí el plan que mejor se adapte al tamaño y necesidades de tu empresa. Todos incluyen
-              soporte técnico y actualizaciones gratuitas.</p>
-          </div>
-        </div>
-        <div class="row g-4 justify-content-center">
-          <div class="col-lg-4 col-md-6">
-            <div class="plan-card card text-center h-100 shadow-sm border-0">
-              <div class="plan-card-body card-body p-4">
-                <div class="plan-icon mb-3">
-                  <i class="fas fa-seedling text-success" style="font-size: 3rem;"></i>
+        <!-- About Section -->
+        <section class="about-section py-5" role="region" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-6">
+                        <h2 id="about-heading" class="section-title mb-4">
+                            Su Camino Perfecto hacia el <span class="text-gradient">Éxito Financiero</span>
+                        </h2>
+                        
+                        <p class="mb-4">
+                            Elegir Sysgen significa alinearse con un socio dedicado a su prosperidad. 
+                            Nuestro compromiso inquebrantable con la precisión, innovación y soluciones 
+                            centradas en el cliente se erige como nuestro sello distintivo.
+                        </p>
+                        
+                        <p class="mb-4">
+                            Presentamos un equipo de expertos experimentados, cada uno equipado con una 
+                            riqueza de experiencia y una pasión por navegar las complejidades del mundo empresarial.
+                        </p>
+                        
+                        <div class="highlights mb-4">
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h5>Equipo Experto</h5>
+                                    <p>Profesionales con años de experiencia</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-target"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h5>Enfoque Personalizado</h5>
+                                    <p>Soluciones adaptadas a cada negocio</p>
+                                </div>
+                            </div>
+                            
+                            <div class="highlight-item">
+                                <div class="highlight-icon">
+                                    <i class="fas fa-award"></i>
+                                </div>
+                                <div class="highlight-content">
+                                    <h5>Resultados Comprobados</h5>
+                                    <p>Más de 1,200 empresas satisfechas</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="about-buttons d-flex flex-column flex-sm-row gap-3">
+                            <button class="btn btn-cta-primary">CONTACTAR →</button>
+                            <button class="btn btn-outline-primary">
+                                CONOCER MÁS <i class="fas fa-arrow-right ms-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-6">
+                        <div class="about-image position-relative">
+                            <img src="assets/img/Hero-1.webp" alt="Nuestro equipo de profesionales" class="img-fluid rounded">
+                            <div class="floating-card">
+                                <div class="text-center">
+                                    <div class="card-number">15+</div>
+                                    <div class="card-label">Años de Experiencia</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="plan-title h4 mb-3">Plan Inicial</h3>
-                <p class="plan-subtitle mb-3">Perfecto para emprendimientos y pequeños negocios que comienzan su
-                  digitalización</p>
-                <ul class="list-unstyled plan-features mb-3">
-                  <li><i class="fas fa-check text-success me-2"></i>Hasta 1.000 productos</li>
-                  <li><i class="fas fa-check text-success me-2"></i>1 usuario incluido</li>
-                  <li><i class="fas fa-check text-success me-2"></i>Reportes básicos</li>
-                  <li><i class="fas fa-check text-success me-2"></i>Soporte por email</li>
-                </ul>
-              </div>
-              <div class="plan-expanded">
-                <div class="plan-price">
-                  <span class="price-currency">$</span>
-                  <span class="price-amount">15.000</span>
-                  <span class="price-period">/mes</span>
-                </div>
-                <p class="plan-price-note">Facturación mensual</p>
-                <a href="pages/contacto.html" class="btn btn-success btn-lg w-100 mb-3">
-                  <i class="fas fa-shopping-cart me-2"></i>
-                  Comenzar Ahora
-                </a>
-                <small class="text-muted">Sin permanencia • Cancela cuando quieras</small>
-              </div>
             </div>
-          </div>
+        </section>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="plan-card card text-center h-100 shadow border-primary position-relative">
-              <div class="plan-popular-badge">
-                <span class="badge bg-primary">Más Popular</span>
-              </div>
-              <div class="plan-card-body card-body p-4">
-                <div class="plan-icon mb-3">
-                  <i class="fas fa-store text-primary" style="font-size: 3rem;"></i>
+        <!-- Testimonial Section -->
+        <section class="testimonial-section py-5" role="region" aria-labelledby="testimonial-heading">
+            <div class="container">
+                <div class="text-center">
+                    <div class="quote-icon mb-4">
+                        <i class="fas fa-quote-left"></i>
+                    </div>
+                    
+                    <blockquote class="testimonial-quote mb-4">
+                        <h2 id="testimonial-heading" class="quote-text">
+                            "Trabajar con este equipo ha sido un 
+                            <span class="text-gradient">cambio absoluto</span> 
+                            para mis emprendimientos empresariales. Su experiencia y enfoque 
+                            personalizado transformó la forma en que navego el mercado."
+                        </h2>
+                    </blockquote>
+                    
+                    <div class="stars mb-4">
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <div class="testimonial-author d-flex align-items-center justify-content-center gap-3 mb-4">
+                        <div class="author-avatar position-relative">
+                            <img src="https://thispersondoesnotexist.com/" alt="Christopher Reynolds" class="rounded-circle">
+                            <div class="status-indicator"></div>
+                        </div>
+                        <div class="author-info text-start">
+                            <h4 class="author-name mb-0">Christopher Reynolds</h4>
+                            <p class="author-title mb-0">Propietario de Yellow Bird</p>
+                        </div>
+                    </div>
+                    
+                    <div class="testimonial-badges">
+                        <span class="badge badge-verified">
+                            <i class="fas fa-check-circle me-1"></i>
+                            Cliente verificado
+                        </span>
+                        <span class="badge badge-loyalty">
+                            <i class="fas fa-clock me-1"></i>
+                            3+ años con Sysgen
+                        </span>
+                        <span class="badge badge-growth">
+                            <i class="fas fa-chart-line me-1"></i>
+                            +300% crecimiento
+                        </span>
+                    </div>
                 </div>
-                <h3 class="plan-title h4 mb-3">Plan Profesional</h3>
-                <p class="plan-subtitle mb-3">Ideal para empresas en crecimiento que buscan maximizar su eficiencia
-                  operativa</p>
-                <ul class="list-unstyled plan-features mb-3">
-                  <li><i class="fas fa-check text-primary me-2"></i>Productos ilimitados</li>
-                  <li><i class="fas fa-check text-primary me-2"></i>Hasta 5 usuarios</li>
-                  <li><i class="fas fa-check text-primary me-2"></i>Reportes avanzados</li>
-                  <li><i class="fas fa-check text-primary me-2"></i>Cuentas corrientes</li>
-                  <li><i class="fas fa-check text-primary me-2"></i>API básica incluida</li>
-                </ul>
-              </div>
-              <div class="plan-expanded">
-                <div class="plan-price">
-                  <span class="price-currency">$</span>
-                  <span class="price-amount">35.000</span>
-                  <span class="price-period">/mes</span>
-                </div>
-                <p class="plan-price-note">Facturación mensual</p>
-                <a href="pages/contacto.html" class="btn btn-primary btn-lg w-100 mb-3">
-                  <i class="fas fa-rocket me-2"></i>
-                  Empezar Prueba Gratis
-                </a>
-                <small class="text-muted">30 días gratis • Sin compromisos</small>
-              </div>
             </div>
-          </div>
+        </section>
 
-          <div class="col-lg-4 col-md-6">
-            <div class="plan-card card text-center h-100 shadow-sm border-0">
-              <div class="plan-card-body card-body p-4">
-                <div class="plan-icon mb-3">
-                  <i class="fas fa-building text-warning" style="font-size: 3rem;"></i>
+        <!-- CTA Section -->
+        <section id="contacto" class="cta-section" role="region" aria-labelledby="cta-heading">
+            <div class="cta-overlay"></div>
+            <div class="container position-relative text-center text-white">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10">
+                        <h2 id="cta-heading" class="cta-title mb-4">
+                            Maximice su <span class="text-gradient">Éxito</span>
+                        </h2>
+                        
+                        <p class="cta-subtitle mb-4">
+                            Desbloquee un crecimiento empresarial sin precedentes. 
+                            Asóciese con nosotros para obtener orientación experta, 
+                            estrategias personalizadas y prosperidad duradera.
+                        </p>
+                        
+                        <h3 class="cta-tagline mb-5">
+                            Su camino hacia el triunfo empresarial comienza aquí
+                        </h3>
+                        
+                        <div class="main-cta mb-5">
+                            <button class="btn btn-cta-primary btn-lg">CONTACTAR →</button>
+                        </div>
+                        
+                        <div class="cta-grid">
+                            <div class="cta-card">
+                                <div class="cta-card-icon">
+                                    <i class="fas fa-book-open"></i>
+                                </div>
+                                <h4>Lea nuestro blog</h4>
+                                <p>Sumérjase en nuestro blog integral, donde expertos de la industria comparten conocimientos invaluables.</p>
+                                <a href="#" class="cta-link">
+                                    Leer Blog<i class="fas fa-arrow-right ms-2"></i>
+                                </a>
+                            </div>
+                            
+                            <div class="cta-card">
+                                <div class="cta-card-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <h4>Demos su Futuro Empresarial</h4>
+                                <p>¿Listo para dar el siguiente paso? Comuníquese y conecte con nuestro equipo de expertos.</p>
+                                <a href="mailto:contacto@sysgen.com" class="cta-link">
+                                    contacto@sysgen.com
+                                </a>
+                            </div>
+                            
+                            <div class="cta-card">
+                                <div class="cta-card-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <h4>Llamada Directa</h4>
+                                <p>Hable directamente con nuestros consultores especializados. Agenda una consulta gratuita.</p>
+                                <a href="tel:+1234567890" class="cta-link">
+                                    Llamar Ahora <i class="fas fa-phone ms-2"></i>
+                                </a>
+                            </div>
+                        </div>
+                        
+                        <p class="final-message mt-5">
+                            Únase a más de <span class="highlight-text">1,200 empresas</span> que 
+                            ya transformaron sus procesos con Sysgen
+                        </p>
+                    </div>
                 </div>
-                <h3 class="plan-title h4 mb-3">Plan Empresarial</h3>
-                <p class="plan-subtitle mb-3">Solución completa para grandes empresas con necesidades específicas y
-                  complejas</p>
-                <ul class="list-unstyled plan-features mb-3">
-                  <li><i class="fas fa-check text-warning me-2"></i>Todo incluido sin límites</li>
-                  <li><i class="fas fa-check text-warning me-2"></i>Usuarios ilimitados</li>
-                  <li><i class="fas fa-check text-warning me-2"></i>Soporte prioritario 24/7</li>
-                  <li><i class="fas fa-check text-warning me-2"></i>Personalización completa</li>
-                  <li><i class="fas fa-check text-warning me-2"></i>Consultor dedicado</li>
-                </ul>
-              </div>
-              <div class="plan-expanded">
-                <div class="plan-price">
-                  <span class="price-currency">$</span>
-                  <span class="price-amount">65.000</span>
-                  <span class="price-period">/mes</span>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-section" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <div class="row">
+                    <div class="col-lg-6">
+                        <div class="footer-brand">
+                            <h3 class="brand-name">Sysgen</h3>
+                            <p class="brand-description">
+                                Sistema de gestión empresarial completo que transforma la manera 
+                                en que las empresas manejan su inventario, facturación y operaciones financieras. 
+                                Más de 1,200 empresas confían en nuestras soluciones.
+                            </p>
+                            
+                            <div class="contact-info">
+                                <div class="contact-item">
+                                    <i class="fas fa-envelope"></i>
+                                    <a href="mailto:contacto@sysgen.com">contacto@sysgen.com</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-phone"></i>
+                                    <a href="tel:+1234567890">+1 (234) 567-890</a>
+                                </div>
+                                <div class="contact-item">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <span>Buenos Aires, Argentina</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                        <div class="footer-links">
+                            <h4>Navegación</h4>
+                            <ul>
+                                <li><a href="#inicio">Inicio</a></li>
+                                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                                <li><a href="#planes">Planes</a></li>
+                                <li><a href="#contacto">Contacto</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <div class="col-lg-3">
+                        <div class="footer-legal">
+                            <h4>Legal</h4>
+                            <ul>
+                                <li><a href="/privacy">Política de Privacidad</a></li>
+                                <li><a href="/terms">Términos de Servicio</a></li>
+                                <li><a href="/cookies">Política de Cookies</a></li>
+                            </ul>
+                            
+                            <div class="social-links mt-4">
+                                <h5>Síguenos</h5>
+                                <div class="social-icons">
+                                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <p class="plan-price-note">Facturación mensual</p>
-                <a href="pages/contacto.html" class="btn btn-warning btn-lg w-100 mb-3">
-                  <i class="fas fa-crown me-2"></i>
-                  Solicitar Demo
-                </a>
-                <small class="text-muted">Demo personalizada • Implementación incluida</small>
-              </div>
             </div>
-          </div>
+            
+            <div class="footer-bottom">
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <p>&copy; 2024 Sysgen. Todos los derechos reservados.</p>
+                    </div>
+                    <div class="col-md-6 text-md-end">
+                        <span>Desarrollado con ❤️ en Argentina</span>
+                        <span class="ms-3">ISO 27001 Certificado</span>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-    </section>
-
-    <!-- Sección de Entrenamiento actualizada -->
-    <section class="seccion-entrenamiento py-5">
-      <div class="container">
-        <div class="row align-items-center g-5">
-          <div class="col-lg-6">
-            <div class="imagen-entrenamiento">
-              <img src="assets/img/glenn-carstens-peters-npxXWgQ33ZQ-unsplash.webp" alt="Capacitación"
-                class="img-fluid w-100 h-100">
-            </div>
-          </div>
-          <div class="col-lg-6">
-            <div class="contenido-entrenamiento">
-              <h2 class="display-4 fw-bold mb-4">Capacitación y Onboarding</h2>
-              <p class="lead mb-4">Nuestro programa de capacitación te asegura aprovechar al máximo todas las
-                funcionalidades del sistema desde el primer día.</p>
-              <h3 class="h4 mb-4">¿Qué incluye?</h3>
-              <ul class="list-unstyled">
-                <li class="mb-3">
-                  <i class="fas fa-video text-primary me-3"></i>
-                  Sesiones de capacitación en vivo personalizadas
-                </li>
-                <li class="mb-3">
-                  <i class="fas fa-book text-primary me-3"></i>
-                  Material educativo y guías paso a paso
-                </li>
-                <li class="mb-3">
-                  <i class="fas fa-users text-primary me-3"></i>
-                  Capacitación para todo tu equipo
-                </li>
-                <li class="mb-3">
-                  <i class="fas fa-certificate text-primary me-3"></i>
-                  Certificación oficial en el uso del sistema
-                </li>
-              </ul>
-              <a href="pages/contacto.html" class="btn btn-primary btn-lg rounded-pill">
-                <i class="fas fa-play me-2"></i>
-                Solicitar Capacitación
-              </a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Pie de Página -->
-    <footer class="pie-pagina py-5 border-top">
-      <div class="container">
-        <div class="row g-4">
-          <div class="col-lg-4">
-            <div class="seccion-pie">
-              <h3 class="h4 mb-3">
-                <i class="fas fa-briefcase me-2"></i>
-                Sysgen
-              </h3>
-              <p class="mb-3">Optimiza tus procesos de venta. Soluciones inteligentes para una gestión eficiente y
-                rentable.</p>
-              <div class="redes-sociales">
-                <a href="#" class="me-3">
-                  <i class="fab fa-facebook-f"></i>
-                </a>
-                <a href="#" class="me-3">
-                  <i class="fab fa-twitter"></i>
-                </a>
-                <a href="#" class="me-3">
-                  <i class="fab fa-instagram"></i>
-                </a>
-                <a href="#" class="me-3">
-                  <i class="fab fa-youtube"></i>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="seccion-pie">
-              <h3 class="h5 mb-3">Enlaces Rápidos</h3>
-              <ul class="list-unstyled">
-                <li class="mb-2"><a href="#" class="text-decoration-none">Acerca de Sysgen</a></li>
-                <li class="mb-2"><a href="#" class="text-decoration-none">Servicios</a></li>
-                <li class="mb-2"><a href="#" class="text-decoration-none">Planes Empresariales</a></li>
-                <li class="mb-2"><a href="#" class="text-decoration-none">Funcionalidades</a></li>
-                <li class="mb-2"><a href="#" class="text-decoration-none">Consultoría</a></li>
-                <li class="mb-2"><a href="#" class="text-decoration-none">Contáctanos</a></li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-lg-4">
-            <div class="seccion-pie">
-              <h3 class="h5 mb-3">Suscribirse</h3>
-              <p class="mb-3">Suscribite y recibí novedades, actualizaciones y mejoras del sistema directamente en tu
-                correo.</p>
-              <div class="input-group">
-                <input type="email" class="form-control" placeholder="tucorreo@ejemplo.com">
-                <button class="btn btn-primary" type="button">
-                  <i class="fas fa-arrow-right"></i>
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        <hr class="my-4">
-        <div class="row">
-          <div class="col text-center">
-            <p class="mb-0 text-muted">©2024 Sysgen - Todos los derechos reservados</p>
-          </div>
-        </div>
-      </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript -->
+    <script src="src/main.js"></script>
 </body>
-
 </html>
