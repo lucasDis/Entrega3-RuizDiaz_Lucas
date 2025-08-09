@@ -1,185 +1,203 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
+<html lang="es">
 
 <head>
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="../../assets/img/favicons/manifest.json">
+  <link rel="shortcut icon" href="../../assets/img/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2c3e50">
+  <meta name="msapplication-TileImage" content="../../assets/img/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#2c3e50">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sysgen Argentina - funcionalidades</title>
-  <!-- Tipografia Montserrat -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600&display=swap" rel="stylesheet">
-  <!-- Bootstrap -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <!-- Estilos personalizados -->
+  <title>Sysgen - Funcionalidades</title>
+  <meta name="description" content="Descubrí las funcionalidades de Sysgen: ventas, inventario, reportes y más.">
+  <meta name="author" content="Sysgen">
+  <meta name="keywords" content="funcionalidades, ERP, inventario, ventas, reportes, Sysgen">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
   <link rel="stylesheet" href="../../css/base.css">
+
+  <link rel="canonical" href="https://sysgen.com/funcionalidades">
+  <meta property="og:title" content="Sysgen - Funcionalidades">
+  <meta property="og:description" content="Ventas, inventario, reportes y mucho más en un solo lugar.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../../assets/img/Hero-2.webp">
+  <meta property="og:url" content="https://sysgen.com/funcionalidades">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@sysgen">
+  <meta name="twitter:image" content="../../assets/img/Hero-2.webp">
 </head>
 
-<body>
+<body class="has-fixed-navbar">
   <!-- Navbar -->
-  <header>
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-      <div class="container">
-        <a class="navbar-brand fw-bold" href="../../index.html">
-          Sysgen
-        </a>
-
-        <!-- Botón hamburguesa -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-          aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-
-        <!-- Menú colapsable -->
-        <div class="collapse navbar-collapse" id="navbarNav">
-          <ul class="navbar-nav mx-auto">
-            <li class="nav-item">
-              <a class="nav-link text-white" href="../../index.html">
-                Inicio
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="funcionalidades.html">
-                Funcionalidades
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="planes.html">
-                Planes
-              </a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link text-white" href="contacto.html">
-                Contacto
-              </a>
-            </li>
-          </ul>
-          <a href="login.html" class="btn btn-outline-light">
-            <i class="fas fa-sign-in-alt me-1"></i>
-            Iniciar sesión
-          </a>
-        </div>
-      </div>
-    </nav>
-  </header>
-
-  <main class="py-5">
+  <header class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar" role="banner">
     <div class="container">
-      <div class="text-center mb-5">
-        <h1 class="display-4 fw-bold">Funcionalidades de Sysgen</h1>
-        <p class="lead">Todo lo que necesitás para administrar tu empresa de forma eficiente, desde un solo lugar.</p>
-      </div>
-      <div class="row g-4">
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4 text-center shadow-sm">
-            <i class="fas fa-cash-register text-primary mb-3" style="font-size: 2rem;"></i>
-            <h5>Gestión de Ventas</h5>
-            <p>Emití facturas, registrá transacciones y mantené control total del flujo de ingresos.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4 text-center shadow-sm">
-            <i class="fas fa-boxes text-success mb-3" style="font-size: 2rem;"></i>
-            <h5>Inventario en Tiempo Real</h5>
-            <p>Actualización automática de stock, alertas y seguimiento por categoría o proveedor.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4 text-center shadow-sm">
-            <i class="fas fa-user-friends text-warning mb-3" style="font-size: 2rem;"></i>
-            <h5>Cuentas Corrientes</h5>
-            <p>Gestión de saldos, créditos, vencimientos y reportes de morosidad.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4 text-center shadow-sm">
-            <i class="fas fa-chart-line text-info mb-3" style="font-size: 2rem;"></i>
-            <h5>Reportes Financieros</h5>
-            <p>Visualización de ingresos, egresos y evolución de tu negocio en tiempo real.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4 text-center shadow-sm">
-            <i class="fas fa-users-cog text-danger mb-3" style="font-size: 2rem;"></i>
-            <h5>Multiusuario y Permisos</h5>
-            <p>Creá usuarios con roles personalizados y permisos por área o función.</p>
-          </div>
-        </div>
-        <div class="col-md-6 col-lg-4">
-          <div class="card h-100 p-4 text-center shadow-sm">
-            <i class="fas fa-cloud-upload-alt text-secondary mb-3" style="font-size: 2rem;"></i>
-            <h5>Backup y Seguridad</h5>
-            <p>Resguardá tu información de forma automática en la nube.</p>
-          </div>
+      <a class="navbar-brand fw-bold" href="../../index.html#inicio">
+        <span class="brand-text">Sysgen</span>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <nav class="navbar-nav mx-auto" role="navigation">
+          <a class="nav-link" href="../../index.html#inicio">Inicio</a>
+          <a class="nav-link" href="funcionalidades.html">Funcionalidades</a>
+          <a class="nav-link" href="planes.html">Planes</a>
+          <a class="nav-link" href="contacto.html">Contacto</a>
+        </nav>
+        <div class="navbar-cta d-flex gap-2">
+          <a class="btn btn-outline-primary" href="login.html">Iniciar Sesión</a>
         </div>
       </div>
     </div>
+  </header>
+
+  <main>
+    <section class="page-services-section" aria-labelledby="services-heading">
+      <div class="container">
+        <div class="services-header fade-in-up visible">
+          <h1 id="services-heading" class="section-title">Funcionalidades de Sysgen</h1>
+          <p class="section-subtitle">Todo lo que necesitás para administrar tu empresa de forma eficiente, desde un
+            solo lugar.</p>
+        </div>
+        <div class="services-grid">
+          <article class="service-card fade-in-up visible">
+            <div class="service-icon"><i class="fas fa-cash-register"></i></div>
+            <h3 class="service-title">Gestión de Ventas</h3>
+            <p class="service-text">Emití facturas, registrá transacciones y mantené control total del flujo de
+              ingresos.</p>
+            <a href="planes.html" class="feature-link mt-2 d-inline-block">Ver planes <i
+                class="fas fa-arrow-right ms-1"></i></a>
+          </article>
+          <article class="service-card fade-in-up visible">
+            <div class="service-icon"><i class="fas fa-boxes"></i></div>
+            <h3 class="service-title">Inventario en Tiempo Real</h3>
+            <p class="service-text">Actualización automática de stock, alertas y seguimiento por categoría o proveedor.
+            </p>
+            <a href="planes.html" class="feature-link mt-2 d-inline-block">Comparar planes <i
+                class="fas fa-arrow-right ms-1"></i></a>
+          </article>
+          <article class="service-card fade-in-up visible">
+            <div class="service-icon"><i class="fas fa-user-friends"></i></div>
+            <h3 class="service-title">Cuentas Corrientes</h3>
+            <p class="service-text">Gestión de saldos, créditos, vencimientos y reportes de morosidad.</p>
+            <a href="../panelusuario/cuentacorriente.html" class="feature-link mt-2 d-inline-block">Ver más <i
+                class="fas fa-arrow-right ms-1"></i></a>
+          </article>
+          <article class="service-card fade-in-up visible">
+            <div class="service-icon"><i class="fas fa-chart-line"></i></div>
+            <h3 class="service-title">Reportes Financieros</h3>
+            <p class="service-text">Visualización de ingresos, egresos y evolución de tu negocio en tiempo real.</p>
+            <a href="planes.html" class="feature-link mt-2 d-inline-block">Probar ahora <i
+                class="fas fa-arrow-right ms-1"></i></a>
+          </article>
+          <article class="service-card fade-in-up visible">
+            <div class="service-icon"><i class="fas fa-users-cog"></i></div>
+            <h3 class="service-title">Multiusuario y Permisos</h3>
+            <p class="service-text">Creá usuarios con roles personalizados y permisos por área o función.</p>
+            <a href="login.html" class="feature-link mt-2 d-inline-block">Ingresar <i
+                class="fas fa-arrow-right ms-1"></i></a>
+          </article>
+          <article class="service-card fade-in-up visible">
+            <div class="service-icon"><i class="fas fa-cloud-upload-alt"></i></div>
+            <h3 class="service-title">Backup y Seguridad</h3>
+            <p class="service-text">Resguardá tu información de forma automática en la nube.</p>
+            <a href="contacto.html" class="feature-link mt-2 d-inline-block">Contactar soporte <i
+                class="fas fa-arrow-right ms-1"></i></a>
+          </article>
+        </div>
+      </div>
+    </section>
   </main>
 
 
-  <!-- Pie de Página -->
-  <footer class="pie-pagina py-5 border-top">
+  <!-- Footer -->
+  <footer class="footer-section" role="contentinfo">
     <div class="container">
-      <div class="row g-4">
-        <div class="col-lg-4">
-          <div class="seccion-pie">
-            <h3 class="h4 mb-3">
-              <i class="fas fa-briefcase me-2"></i>
-              Sysgen
-            </h3>
-            <p class="mb-3">Optimiza tus procesos de venta. Soluciones inteligentes para una gestión eficiente y
-              rentable.</p>
-            <div class="redes-sociales">
-              <a href="#" class="me-3">
-                <i class="fab fa-facebook-f"></i>
-              </a>
-              <a href="#" class="me-3">
-                <i class="fab fa-twitter"></i>
-              </a>
-              <a href="#" class="me-3">
-                <i class="fab fa-instagram"></i>
-              </a>
-              <a href="#" class="me-3">
-                <i class="fab fa-youtube"></i>
-              </a>
+      <div class="footer-content">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="footer-brand">
+              <h3 class="brand-name">Sysgen</h3>
+              <p class="brand-description">
+                Sistema de gestión empresarial completo que transforma la manera
+                en que las empresas manejan su inventario, facturación y operaciones financieras.
+                Más de 1,200 empresas confían en nuestras soluciones.
+              </p>
+
+              <div class="contact-info">
+                <div class="contact-item">
+                  <i class="fas fa-envelope"></i>
+                  <a href="mailto:contacto@sysgen.com">contacto@sysgen.com</a>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-phone"></i>
+                  <a href="tel:+1234567890">+1 (234) 567-890</a>
+                </div>
+                <div class="contact-item">
+                  <i class="fas fa-map-marker-alt"></i>
+                  <span>Buenos Aires, Argentina</span>
+                </div>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="seccion-pie">
-            <h3 class="h5 mb-3">Enlaces Rápidos</h3>
-            <ul class="list-unstyled">
-              <li class="mb-2"><a href="#" class="text-decoration-none">Acerca de Sysgen</a></li>
-              <li class="mb-2"><a href="#" class="text-decoration-none">Servicios</a></li>
-              <li class="mb-2"><a href="#" class="text-decoration-none">Planes Empresariales</a></li>
-              <li class="mb-2"><a href="#" class="text-decoration-none">Funcionalidades</a></li>
-              <li class="mb-2"><a href="#" class="text-decoration-none">Consultoría</a></li>
-              <li class="mb-2"><a href="#" class="text-decoration-none">Contáctanos</a></li>
-            </ul>
+
+          <div class="col-lg-3">
+            <div class="footer-links">
+              <h4>Navegación</h4>
+              <ul>
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="#planes">Planes</a></li>
+                <li><a href="#contacto">Contacto</a></li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <div class="col-lg-4">
-          <div class="seccion-pie">
-            <h3 class="h5 mb-3">Suscribirse</h3>
-            <p class="mb-3">Suscribite y recibí novedades, actualizaciones y mejoras del sistema directamente en tu
-              correo.</p>
-            <div class="input-group">
-              <input type="email" class="form-control" placeholder="tucorreo@ejemplo.com">
-              <button class="btn btn-primary" type="button">
-                <i class="fas fa-arrow-right"></i>
-              </button>
+
+          <div class="col-lg-3">
+            <div class="footer-legal">
+              <h4>Legal</h4>
+              <ul>
+                <li><a href="/privacy">Política de Privacidad</a></li>
+                <li><a href="/terms">Términos de Servicio</a></li>
+                <li><a href="/cookies">Política de Cookies</a></li>
+              </ul>
+
+              <div class="social-links mt-4">
+                <h5>Síguenos</h5>
+                <div class="social-icons">
+                  <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                  <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                </div>
+              </div>
             </div>
           </div>
         </div>
       </div>
-      <hr class="my-4">
-      <div class="row">
-        <div class="col text-center">
-          <p class="mb-0 text-muted">©2024 Sysgen - Todos los derechos reservados</p>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <p>&copy; 2024 Sysgen. Todos los derechos reservados.</p>
+          </div>
         </div>
       </div>
     </div>
   </footer>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="../../src/main.js"></script>
 </body>
