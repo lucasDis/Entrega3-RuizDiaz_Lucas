@@ -425,34 +425,6 @@ document.addEventListener("DOMContentLoaded", function () {
   init();
 
   // ===============================
-  // CONTACT FORM SPECIFIC HANDLING
-  // ===============================
-  const contactButtons = document.querySelectorAll(
-    '.btn-cta-primary, .cta-link[href*="mailto"], .cta-link[href*="tel"]'
-  );
-
-  contactButtons.forEach((button) => {
-    button.addEventListener("click", (e) => {
-      // Track contact interactions
-      if (window.gtag) {
-        gtag("event", "contact_interaction", {
-          event_category: "engagement",
-          event_label: button.textContent.trim(),
-        });
-      }
-
-      // Show feedback for contact attempts
-      if (button.textContent.includes("CONTACTAR")) {
-        e.preventDefault();
-        showNotification(
-          "¡Gracias por tu interés! Te contactaremos pronto.",
-          "success"
-        );
-      }
-    });
-  });
-
-  // ===============================
   // SEO AND ANALYTICS HELPERS
   // ===============================
   const trackPageView = () => {
