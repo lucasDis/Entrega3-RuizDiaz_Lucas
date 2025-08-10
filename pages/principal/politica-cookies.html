@@ -2,88 +2,122 @@
 <html lang="es">
 
 <head>
-  <!-- Favicons -->
-  <link rel="apple-touch-icon" sizes="180x180" href="../../assets/img/favicons/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/img/favicons/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/img/favicons/favicon-16x16.png">
-  <link rel="manifest" href="../../assets/img/favicons/manifest.json">
-  <link rel="shortcut icon" href="../../assets/img/favicons/favicon.ico">
-  <meta name="msapplication-TileColor" content="#2c3e50">
-  <meta name="msapplication-TileImage" content="../../assets/img/favicons/ms-icon-144x144.png">
-  <meta name="theme-color" content="#2c3e50">
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sysgen - Iniciar Sesión</title>
-  <meta name="description" content="Accedé a tu cuenta de Sysgen para gestionar tu negocio.">
+  <meta name="description"
+    content="Política de Cookies de Sysgen: Uso de cookies conforme a la Resolución AAIP 159/2018 y Ley 25.326 en Argentina.">
+  <meta name="keywords" content="política de cookies, uso de cookies, Sysgen, resolución AAIP, Argentina">
+  <meta name="robots" content="index, follow">
   <meta name="author" content="Sysgen">
-  <meta name="keywords" content="login, acceso, Sysgen">
+  <title>Sysgen - Política de Cookies</title>
 
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
     rel="stylesheet">
+
+  <!-- Bootstrap CSS -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- Favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/img/favicons/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/img/favicons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/img/favicons/favicon-16x16.png">
+  <link rel="manifest" href="assets/img/favicons/manifest.json">
+  <link rel="shortcut icon" href="assets/img/favicons/favicon.ico">
+  <meta name="msapplication-TileColor" content="#2c3e50">
+  <meta name="msapplication-TileImage" content="assets/img/favicons/ms-icon-144x144.png">
+  <meta name="theme-color" content="#2c3e50">
+
+  <!-- Custom Styles -->
   <link rel="stylesheet" href="../../css/base.css">
 
-  <link rel="canonical" href="https://sysgen.com/login">
-  <meta property="og:title" content="Sysgen - Iniciar Sesión">
-  <meta property="og:description" content="Entrá a tu cuenta de Sysgen y seguí gestionando tu empresa.">
+  <!-- Canonical -->
+  <link rel="canonical" href="https://sysgen.com">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Sysgen - Sistema de Gestión Empresarial">
+  <meta property="og:description"
+    content="Sistema completo de gestión empresarial: inventario, facturación y control financiero. Más de 1,200 empresas confían en nosotros.">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="../../assets/img/Hero-2.webp">
-  <meta property="og:url" content="https://sysgen.com/login">
+  <meta property="og:image" content="assets/images/og-image.jpg">
+  <meta property="og:url" content="https://sysgen.com">
+
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@sysgen">
-  <meta name="twitter:image" content="../../assets/img/Hero-2.webp">
+  <meta name="twitter:image" content="assets/images/og-image.jpg">
 </head>
 
-<body>
-  <!-- Navbar -->
+<body class="has-fixed-navbar">
+  <!-- Header -->
   <header class="navbar navbar-expand-lg navbar-light fixed-top custom-navbar" role="banner">
     <div class="container">
       <a class="navbar-brand fw-bold" href="../../index.html#inicio">
         <span class="brand-text">Sysgen</span>
       </a>
 
-      <!-- Botón hamburguesa -->
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-        aria-controls="navbarNav" aria-expanded="false" aria-label="Abrir menú">
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
 
       <div class="collapse navbar-collapse" id="navbarNav">
         <nav class="navbar-nav mx-auto" role="navigation">
-          <a class="nav-link" href="../../index.html#inicio">Inicio</a>
-          <a class="nav-link" href="funcionalidades.html">Funcionalidades</a>
-          <a class="nav-link" href="planes.html">Planes</a>
-          <a class="nav-link" href="contacto.html">Contacto</a>
+          <a class="nav-link" href="../../index.html">Inicio</a>
+          <a class="nav-link" href="./funcionalidades.html">Funcionalidades</a>
+          <a class="nav-link" href="./planes.html">Planes</a>
+          <a class="nav-link" href="./contacto.html">Contacto</a>
         </nav>
+
         <div class="navbar-cta d-flex gap-2">
-          <a class="btn btn-outline-primary" href="login.html">Iniciar Sesión</a>
+          <a class="btn btn-outline-primary" href="./pages/principal/login.html">Iniciar Sesión</a>
         </div>
       </div>
     </div>
   </header>
 
-  <!-- Login -->
-  <main class="d-flex justify-content-center align-items-center" style="min-height: 80vh;">
-    <div class="container mt-5">
-      <h2>Iniciar Sesión</h2>
-      <form id="loginForm">
-        <div class="mb-3">
-          <label for="email" class="form-label">Correo Electrónico</label>
-          <input type="email" class="form-control" id="email-input" placeholder="Colocar cualquier correo electrónico" required>
-        </div>
-        <div class="mb-3">
-          <label for="password" class="form-label">Contraseña</label>
-          <input type="password" class="form-control" id="password-input" placeholder="Colocar cualquier contraseña" required>
-        </div>
-        <button type="submit" class="btn btn-primary">Iniciar Sesión</button>
-      </form>
-    </div>
-  </main>
+  <main class="container my-5">
+    <h1>Política de Cookies</h1>
+    <p>Última actualización: 9 de agosto de 2025</p>
 
+    <section>
+      <h2>Introducción</h2>
+      <p>Usamos cookies para mejorar la experiencia, conforme a la Resolución AAIP 159/2018 y Ley 25.326 en Argentina.
+      </p>
+    </section>
+
+    <section>
+      <h2>Tipos de Cookies</h2>
+      <p>- Esenciales: Para funcionalidad básica.<br>- Analíticas: Para medir uso (ej. Google Analytics).<br>-
+        Publicitarias: Para anuncios personalizados.<br>No usamos cookies sin consentimiento donde sea requerido.</p>
+    </section>
+
+    <section>
+      <h2>Gestión de Cookies</h2>
+      <p>Puede configurar su navegador para rechazar cookies. Visite preferencias para más opciones.</p>
+    </section>
+
+    <section>
+      <h2>Terceros</h2>
+      <p>Terceros como Google pueden colocar cookies. Consulte sus políticas.</p>
+    </section>
+
+    <section>
+      <h2>Cambios</h2>
+      <p>Notificaremos cambios en el sitio.</p>
+    </section>
+
+    <section>
+      <h2>Contacto</h2>
+      <p>Para consultas, escriba a contacto@sysgen.com.</p>
+    </section>
+  </main>
 
   <!-- Footer -->
   <footer class="footer-section" role="contentinfo">
@@ -121,9 +155,9 @@
               <h4>Navegación</h4>
               <ul>
                 <li><a href="../../index.html">Inicio</a></li>
-                <li><a href="./funcionalidades">Funcionalidades</a></li>
-                <li><a href="./planes">Planes</a></li>
-                <li><a href="./contacto">Contacto</a></li>
+                <li><a href="./pages/principal/funcionalidades.html">Funcionalidades</a></li>
+                <li><a href="./pages/principal/planes">Planes</a></li>
+                <li><a href="./pages/principal/contacto">Contacto</a></li>
               </ul>
             </div>
           </div>
@@ -142,7 +176,8 @@
                 <div class="social-icons">
                   <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                   <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                  <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                  <a href="https://www.linkedin.com/in/abel-edgardo-ruiz-diaz-2462a316/?originalSubdomain=ar"
+                    aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
                   <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
                 </div>
               </div>
@@ -161,18 +196,6 @@
     </div>
   </footer>
 
-  <script>
-    document.getElementById('loginForm').addEventListener('submit', function (event) {
-      event.preventDefault(); // Evitar envío del formulario
-      window.location.href = '../PanelUsuario/userpanel.html'; // Redirigir a userpanel.html
-    });
-  </script>
-
-  <!-- Bootstrap JS -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
-
-  <!-- JavaScript Personalizado-->
-  <script src="../../src/main.js"></script>
 </body>
 
 </html>
