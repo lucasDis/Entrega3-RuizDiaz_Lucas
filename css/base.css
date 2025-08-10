@@ -117,6 +117,30 @@ h6 {
   color: var(--accent-gold);
 }
 
+/* Estilo general para botones deshabilitados */
+.nav-link.disabled, .btn-login.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  pointer-events: none;
+  color: var(--text-muted); /* Gris apagado: #7f8c8d */
+  background: rgba(127, 140, 141, 0.2); /* Fondo gris claro */
+  border-color: var(--text-muted); /* Borde gris para .btn-login */
+  transition: none; /* Evita transiciones en estado deshabilitado */
+}
+
+/* Asegurar que hover no se aplique a botones deshabilitados */
+.nav-link.disabled:hover {
+  color: var(--text-muted);
+  background: rgba(127, 140, 141, 0.2);
+}
+
+.btn-login.disabled:hover {
+  background: var(--primary-color);
+  border-color: var(--text-muted);
+  transform: none;
+  box-shadow: none;
+}
+
 .btn-outline-primary {
   border: 2px solid var(--primary-color);
   color: var(--primary-color);
@@ -165,6 +189,29 @@ h6 {
 }
 .btn-back-to-hero.show {
   display: block;
+}
+
+.btn-login {
+  background: var(--primary-color);
+  color: var(--text-light);
+  border: 2px solid var(--primary-light);
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-family: var(--font-body);
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-login:hover {
+  background: var(--primary-light);
+  border-color: var(--accent-gold);
+  color: var(--text-light);
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(52, 73, 94, 0.3);
 }
 
 /* Hero Section */

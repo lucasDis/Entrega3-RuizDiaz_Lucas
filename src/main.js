@@ -1,17 +1,15 @@
 document.addEventListener("DOMContentLoaded", function () {
-    
   // Scroll desde el hero hasta la siguiente sección
-  const scrollDownBtn = document.getElementById('scroll-down');
+  const scrollDownBtn = document.getElementById("scroll-down");
   if (scrollDownBtn) {
-    scrollDownBtn.addEventListener('click', () => {
-      const nextSection = document.querySelector('#funcionalidades');
+    scrollDownBtn.addEventListener("click", () => {
+      const nextSection = document.querySelector("#funcionalidades");
       if (nextSection) {
-        nextSection.scrollIntoView({ behavior: 'smooth' });
+        nextSection.scrollIntoView({ behavior: "smooth" });
       }
     });
-  }  
+  }
 
-  // Botón para volver al hero
   const backToHeroBtn = document.getElementById("back-to-hero");
   window.addEventListener("scroll", () => {
     if (window.scrollY > 400) {
@@ -26,7 +24,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }
 
-  // Handle all anchor links
+  // Gestionar todos los enlaces de anclaje
   document.querySelectorAll('a[href^="#"]').forEach((link) => {
     link.addEventListener("click", function (e) {
       e.preventDefault();
@@ -38,7 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===============================
-  // NAVBAR SCROLL EFFECT
+  // EFECTO DE DESPLAZAMIENTO DE LA BARRA DE NAVEGACIÓN
   // ===============================
   const navbar = document.querySelector(".custom-navbar");
   let lastScrollTop = 0;
@@ -65,7 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", throttle(handleNavbarScroll, 100));
 
   // ===============================
-  // INTERSECTION OBSERVER ANIMATIONS
+  // ANIMACIONES DEL OBSERVADOR DE INTERSECCIONES
   // ===============================
   const observerOptions = {
     root: null,
@@ -78,12 +76,12 @@ document.addEventListener("DOMContentLoaded", function () {
       if (entry.isIntersecting) {
         entry.target.classList.add("visible");
 
-        // Special handling for counter animations
+        // Manejo especial para animaciones de mostrador
         if (entry.target.classList.contains("stat-number")) {
           animateCounter(entry.target);
         }
 
-        // Stagger animations for grid items
+        // Animaciones escalonadas para elementos de cuadrícula
         if (entry.target.classList.contains("stat-card")) {
           const cards = document.querySelectorAll(".stat-card");
           cards.forEach((card, index) => {
@@ -96,7 +94,7 @@ document.addEventListener("DOMContentLoaded", function () {
     });
   }, observerOptions);
 
-  // Observe elements for animations
+  // Observa los elementos para las animaciones
   const elementsToAnimate = document.querySelectorAll(
     ".fade-in-up, .stat-card, .feature-item, .testimonial-section > div"
   );
@@ -105,7 +103,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   // ===============================
-  // COUNTER ANIMATIONS
+  // ANIMACIONES CONTRARIAS
   // ===============================
   const animateCounter = (element) => {
     const target = element.textContent.trim();
@@ -137,10 +135,10 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // ===============================
-  // PARALLAX EFFECTS
+  // EFECTOS DE PARALLAX
   // ===============================
-  // Desactivamos el parallax de overlays para que no se separen de la imagen de fondo
-  // Mantener overlays fijos pegados al fondo
+  // Desactiva el parallax de overlays para que no se separen de la imagen de fondo
+  // Mantiene overlays fijos pegados al fondo
   const parallaxElements = document.querySelectorAll(
     ".hero-section, .cta-section"
   );
@@ -155,13 +153,13 @@ document.addEventListener("DOMContentLoaded", function () {
   window.addEventListener("scroll", throttle(handleParallax, 100));
 
   // ===============================
-  // MOBILE MENU HANDLING
+  // MANEJO DEL MENÚ MÓVIL
   // ===============================
   const navbarToggler = document.querySelector(".navbar-toggler");
   const navbarNav = document.querySelector("#navbarNav");
 
   if (navbarToggler && navbarNav) {
-    // Close mobile menu when clicking on a link
+    // Cerrar el menú móvil al hacer clic en un enlace
     const navLinks = navbarNav.querySelectorAll(".nav-link");
     navLinks.forEach((link) => {
       link.addEventListener("click", () => {
@@ -171,7 +169,7 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    // Close mobile menu when clicking outside
+    // Cerrar el menú móvil al hacer clic fuera de él
     document.addEventListener("click", (e) => {
       if (
         !e.target.closest(".navbar") &&
@@ -183,7 +181,7 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ===============================
-  // FORM HANDLING
+  // TRATAMIENTO DE FORMULARIOS
   // ===============================
   const handleFormSubmissions = () => {
     const forms = document.querySelectorAll("form");
@@ -192,7 +190,7 @@ document.addEventListener("DOMContentLoaded", function () {
       form.addEventListener("submit", function (e) {
         e.preventDefault();
 
-        // Basic form validation
+        // Validación básica de formularios
         const requiredFields = form.querySelectorAll("[required]");
         let isValid = true;
 
@@ -206,7 +204,7 @@ document.addEventListener("DOMContentLoaded", function () {
         });
 
         if (isValid) {
-          // Simulate form submission
+          // Simular el envío del formulario
           showNotification("¡Mensaje enviado correctamente!", "success");
           form.reset();
         } else {
@@ -220,98 +218,7 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // ===============================
-  // NOTIFICATION SYSTEM
-  // ===============================
-  const showNotification = (message, type = "info") => {
-    const notification = document.createElement("div");
-    notification.className = `notification notification-${type}`;
-    notification.innerHTML = `
-          <div class="notification-content">
-              <span class="notification-icon">
-                  ${type === "success" ? "✓" : type === "error" ? "✕" : "ℹ"}
-              </span>
-              <span class="notification-message">${message}</span>
-              <button class="notification-close">&times;</button>
-          </div>
-      `;
-
-    // Add styles for notification
-    if (!document.querySelector("#notification-styles")) {
-      const styles = document.createElement("style");
-      styles.id = "notification-styles";
-      styles.textContent = `
-              .notification {
-                  position: fixed;
-                  top: 20px;
-                  right: 20px;
-                  z-index: 9999;
-                  background: white;
-                  border-radius: 8px;
-                  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-                  padding: 16px 20px;
-                  transform: translateX(100%);
-                  transition: transform 0.3s ease;
-              }
-              .notification.show {
-                  transform: translateX(0);
-              }
-              .notification-success {
-                  border-left: 4px solid #27ae60;
-              }
-              .notification-error {
-                  border-left: 4px solid #e74c3c;
-              }
-              .notification-info {
-                  border-left: 4px solid #3498db;
-              }
-              .notification-content {
-                  display: flex;
-                  align-items: center;
-                  gap: 10px;
-              }
-              .notification-icon {
-                  font-weight: bold;
-                  font-size: 18px;
-              }
-              .notification-success .notification-icon { color: #27ae60; }
-              .notification-error .notification-icon { color: #e74c3c; }
-              .notification-info .notification-icon { color: #3498db; }
-              .notification-close {
-                  background: none;
-                  border: none;
-                  font-size: 18px;
-                  cursor: pointer;
-                  opacity: 0.7;
-              }
-              .notification-close:hover {
-                  opacity: 1;
-              }
-          `;
-      document.head.appendChild(styles);
-    }
-
-    document.body.appendChild(notification);
-
-    // Show notification
-    setTimeout(() => notification.classList.add("show"), 100);
-
-    // Auto hide after 5 seconds
-    setTimeout(() => {
-      notification.classList.remove("show");
-      setTimeout(() => notification.remove(), 300);
-    }, 5000);
-
-    // Close button functionality
-    notification
-      .querySelector(".notification-close")
-      .addEventListener("click", () => {
-        notification.classList.remove("show");
-        setTimeout(() => notification.remove(), 300);
-      });
-  };
-
-  // ===============================
-  // LAZY LOADING FOR IMAGES
+  // CARGA DIFERIDA DE IMÁGENES
   // ===============================
   const lazyLoadImages = () => {
     const images = document.querySelectorAll("img[data-src]");
@@ -331,10 +238,10 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // ===============================
-  // PERFORMANCE OPTIMIZATIONS
+  // OPTIMIZACIONES DEL RENDIMIENTO
   // ===============================
 
-  // Throttle function for performance
+  // Función de aceleración para mejorar el rendimiento
   function throttle(func, limit) {
     let inThrottle;
     return function () {
@@ -348,7 +255,7 @@ document.addEventListener("DOMContentLoaded", function () {
     };
   }
 
-  // Debounce function for performance
+  // Función antirrebote para mejorar el rendimiento
   function debounce(func, wait) {
     let timeout;
     return function executedFunction(...args) {
@@ -362,10 +269,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // ===============================
-  // ACCESSIBILITY IMPROVEMENTS
+  // MEJORAS EN LA ACCESIBILIDAD
   // ===============================
   const improveAccessibility = () => {
-    // Add focus visible for keyboard navigation
     document.addEventListener("keydown", (e) => {
       if (e.key === "Tab") {
         document.body.classList.add("using-keyboard");
@@ -376,7 +282,6 @@ document.addEventListener("DOMContentLoaded", function () {
       document.body.classList.remove("using-keyboard");
     });
 
-    // Add focus styles for keyboard users
     if (!document.querySelector("#accessibility-styles")) {
       const styles = document.createElement("style");
       styles.id = "accessibility-styles";
@@ -401,17 +306,15 @@ document.addEventListener("DOMContentLoaded", function () {
   };
 
   // ===============================
-  // INITIALIZE ALL FUNCTIONALITY
+  // INHABILITACION DE BOTONES
   // ===============================
   const init = () => {
     handleFormSubmissions();
     lazyLoadImages();
     improveAccessibility();
-
-    // Add loaded class to body for CSS animations
+  
     document.body.classList.add("loaded");
-
-    // Performance monitoring
+  
     if ("performance" in window) {
       window.addEventListener("load", () => {
         const loadTime =
@@ -419,78 +322,37 @@ document.addEventListener("DOMContentLoaded", function () {
         console.log(`Page loaded in ${loadTime}ms`);
       });
     }
+  
+    // Agrega esta línea para inicializar la inhabilitación de botones
+    trackPageView();
   };
 
-  // Start initialization
   init();
 
   // ===============================
-  // SEO AND ANALYTICS HELPERS
+  // SERVICIOS PÚBLICOS GLOBALES
   // ===============================
-  const trackPageView = () => {
-    // Track page sections in view
-    const sections = document.querySelectorAll("section[id]");
 
-    const sectionObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            const sectionName = entry.target.id;
-
-            // Update page title for better SEO
-            const originalTitle = document.title;
-            const sectionTitles = {
-              inicio: "Inicio - Sysgen",
-              funcionalidades: "Funcionalidades - Sysgen",
-              contacto: "Contacto - Sysgen",
-            };
-
-            if (sectionTitles[sectionName]) {
-              document.title = sectionTitles[sectionName];
-            }
-
-            // Track with analytics if available
-            if (window.gtag) {
-              gtag("event", "page_view", {
-                page_title: sectionTitles[sectionName] || originalTitle,
-                page_location: window.location.href + "#" + sectionName,
-              });
-            }
-          }
-        });
-      },
-      { threshold: 0.5 }
-    );
-
-    sections.forEach((section) => sectionObserver.observe(section));
+  // Función global para desplazarse hasta la parte superior
+  window.scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: "smooth",
+    });
   };
 
-  trackPageView();
+  // Función global para el seguimiento de enlaces externos
+  window.trackExternalLink = (url, label) => {
+    if (window.gtag) {
+      gtag("event", "click", {
+        event_category: "external_link",
+        event_label: label,
+        transport_type: "beacon",
+      });
+    }
+
+    setTimeout(() => {
+      window.open(url, "_blank", "noopener,noreferrer");
+    }, 100);
+  };
 });
-
-// ===============================
-// GLOBAL UTILITIES
-// ===============================
-
-// Global function to scroll to top
-window.scrollToTop = () => {
-  window.scrollTo({
-    top: 0,
-    behavior: "smooth",
-  });
-};
-
-// Global function for external link tracking
-window.trackExternalLink = (url, label) => {
-  if (window.gtag) {
-    gtag("event", "click", {
-      event_category: "external_link",
-      event_label: label,
-      transport_type: "beacon",
-    });
-  }
-
-  setTimeout(() => {
-    window.open(url, "_blank", "noopener,noreferrer");
-  }, 100);
-};
