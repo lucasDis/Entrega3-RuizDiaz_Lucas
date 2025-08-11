@@ -25,15 +25,14 @@
           <span class="user-name">Juan Pérez</span>
         </div>
         <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'" title="Perfil de empresa">
+          <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'" title="Perfil de empresa" aria-label="Perfil de empresa">
             <i class="fas fa-user-cog"></i>
           </button>
-          <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()" title="Administración del sistema">
+          <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()" title="Administración del sistema" aria-label="Administración del sistema">
             <i class="fas fa-shield-alt"></i>
           </button>
-          <button class="btn btn-outline btn-primary" onclick="logout()">
-            <i class="fas fa-sign-out-alt"></i>
-            Salir
+          <button class="btn btn-outline btn-primary" onclick="logout()" title="Salir" aria-label="Salir">
+            <i class="fas fa-sign-out-alt"></i> Salir
           </button>
         </div>
       </div>
@@ -70,10 +69,10 @@
                 <a href="agregar-cliente-proveedor.html" class="dropdown-item">Agregar Cliente/Proveedor</a>
               </div>
             </div>
-            <button class="nav-tab tab-btn" onclick="location.href='movimientos.html'">
+            <button class="nav-tab" onclick="location.href='movimientos.html'">
               <i class="fas fa-list"></i> Movimientos
             </button>
-            <button class="nav-tab tab-btn" onclick="location.href='cuentacorriente.html'">
+            <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
               <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
             </button>
           </div>
@@ -138,68 +137,35 @@
         <div class="stats-grid" style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
 
           <!-- Tarjeta de Clientes -->
-          <div class="admin-card"
-            style="border: 2px solid #059669; background: linear-gradient(135deg, #059669 0%, #047857 100%); color: white; cursor: pointer; transition: transform 0.3s ease;"
-            onclick="location.href='clientes.html'">
-            <div class="card-content" style="text-align: center; padding: 2rem;">
-              <div style="font-size: 4rem; margin-bottom: 1rem;">
-                <i class="fas fa-users"></i>
-              </div>
-              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Gestión de Clientes
-              </h3>
-              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Administrar cuentas corrientes de clientes</p>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                <span>Clientes activos:</span>
-                <strong>47</strong>
-              </div>
-              <div style="display: flex; justify-content: space-between;">
-                <span>Saldo pendiente:</span>
-                <strong>$4,250,800</strong>
-              </div>
+          <div class="admin-card card-cta card-cta--success hoverable" onclick="location.href='clientes.html'">
+            <div class="card-content">
+              <div class="icon-hero"><i class="fas fa-users"></i></div>
+              <h3>Gestión de Clientes</h3>
+              <p>Administrar cuentas corrientes de clientes</p>
+              <div class="metric-row"><span>Clientes activos:</span><strong>47</strong></div>
+              <div class="metric-row"><span>Saldo pendiente:</span><strong>$4,250,800</strong></div>
             </div>
           </div>
 
           <!-- Tarjeta de Proveedores -->
-          <div class="admin-card"
-            style="border: 2px solid #dc2626; background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%); color: white; cursor: pointer; transition: transform 0.3s ease;"
-            onclick="location.href='proveedores.html'">
-            <div class="card-content" style="text-align: center; padding: 2rem;">
-              <div style="font-size: 4rem; margin-bottom: 1rem;">
-                <i class="fas fa-truck"></i>
-              </div>
-              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Gestión de
-                Proveedores</h3>
-              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Administrar cuentas corrientes de proveedores</p>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                <span>Proveedores activos:</span>
-                <strong>23</strong>
-              </div>
-              <div style="display: flex; justify-content: space-between;">
-                <span>Saldo a pagar:</span>
-                <strong>$1,890,650</strong>
-              </div>
+          <div class="admin-card card-cta card-cta--danger hoverable" onclick="location.href='proveedores.html'">
+            <div class="card-content">
+              <div class="icon-hero"><i class="fas fa-truck"></i></div>
+              <h3>Gestión de Proveedores</h3>
+              <p>Administrar cuentas corrientes de proveedores</p>
+              <div class="metric-row"><span>Proveedores activos:</span><strong>23</strong></div>
+              <div class="metric-row"><span>Saldo a pagar:</span><strong>$1,890,650</strong></div>
             </div>
           </div>
 
           <!-- Tarjeta de Movimientos -->
-          <div class="admin-card"
-            style="border: 2px solid #1e40af; background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%); color: white; cursor: pointer; transition: transform 0.3s ease;"
-            onclick="location.href='movimientos.html'">
-            <div class="card-content" style="text-align: center; padding: 2rem;">
-              <div style="font-size: 4rem; margin-bottom: 1rem;">
-                <i class="fas fa-list"></i>
-              </div>
-              <h3 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 0.5rem; color: white;">Historial de
-                Movimientos</h3>
-              <p style="opacity: 0.9; margin-bottom: 1.5rem;">Ver todos los movimientos financieros</p>
-              <div style="display: flex; justify-content: space-between; margin-bottom: 1rem;">
-                <span>Movimientos hoy:</span>
-                <strong>12</strong>
-              </div>
-              <div style="display: flex; justify-content: space-between;">
-                <span>Total este mes:</span>
-                <strong>$6,141,450</strong>
-              </div>
+          <div class="admin-card card-cta card-cta--primary hoverable" onclick="location.href='movimientos.html'">
+            <div class="card-content">
+              <div class="icon-hero"><i class="fas fa-list"></i></div>
+              <h3>Historial de Movimientos</h3>
+              <p>Ver todos los movimientos financieros</p>
+              <div class="metric-row"><span>Movimientos hoy:</span><strong>12</strong></div>
+              <div class="metric-row"><span>Total este mes:</span><strong>$6,141,450</strong></div>
             </div>
           </div>
 
@@ -377,7 +343,9 @@
   </div>
 
   <script src="../../src/panel.js"></script>
-  <script src="../../src/cuenta-corriente.js"></script>
+  <script src="../../src/supabase.js"></script>
+  <script src="../../src/filtros.js"></script>
+
 </body>
 
 </html>

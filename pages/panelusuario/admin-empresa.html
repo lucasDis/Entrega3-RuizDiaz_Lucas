@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<html lang="es" data-theme="light">
-
-<!DOCTYPE html>
 <html lang="es">
 
 <head>
@@ -75,10 +72,10 @@
                 <a href="agregar-cliente-proveedor.html" class="dropdown-item">Agregar Cliente/Proveedor</a>
               </div>
             </div>
-            <button class="nav-tab tab-btn" data-tab="movimientos.html">
+            <button class="nav-tab" onclick="location.href='movimientos.html'">
               <i class="fas fa-list"></i> Movimientos
             </button>
-            <button class="nav-tab tab-btn" data-tab="cuentacorriente.html">
+            <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
               <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
             </button>
           </div>
@@ -95,14 +92,16 @@
           <div class="admin-card">
             <h3>Usuarios del sistema</h3>
             <p>Administrar roles, accesos y contraseñas.</p>
-            <button class="btn btn-primary" onclick="location.href='usuarios.html'"><i class="fas fa-users-cog"></i> Gestionar</button>
+            <button class="btn btn-primary" onclick="location.href='usuarios.html'"><i class="fas fa-users-cog"></i>
+              Gestionar</button>
           </div>
         </div>
         <div class="col-6">
           <div class="admin-card">
             <h3>Parámetros generales</h3>
             <p>Configurar impuestos, moneda, y preferencias.</p>
-            <button class="btn btn-primary" onclick="location.href='parametros.html'"><i class="fas fa-cogs"></i> Ajustes</button>
+            <button class="btn btn-primary" onclick="location.href='parametros.html'"><i class="fas fa-cogs"></i>
+              Ajustes</button>
           </div>
         </div>
       </div>
@@ -111,6 +110,9 @@
 
   <script src="../../src/panel.js"></script>
   <script src="../../src/volver.js"></script>
+  <script src="../../src/supabase.js"></script>
+  <script src="../../src/filtros.js"></script>
+
 </body>
 
 </html>
