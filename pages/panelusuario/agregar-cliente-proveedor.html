@@ -84,40 +84,160 @@
         <div class="form-row">
           <div class="form-group col-6">
             <label>Tipo</label>
-            <select class="form-control">
+            <select class="form-control" id="tipoSelect" onchange="toggleFormFields()">
               <option value="cliente">Cliente</option>
               <option value="proveedor">Proveedor</option>
             </select>
           </div>
           <div class="form-group col-6">
-            <label>Razón Social / Nombre</label>
-            <input type="text" class="form-control">
+            <label id="nombreLabel">Nombre</label>
+            <input type="text" class="form-control" id="nombreInput" placeholder="Nombre completo" required>
+          </div>
+        </div>
+
+        <div class="form-row" id="contactoRow" style="display: none;">
+          <div class="form-group col-6">
+            <label>Persona de Contacto</label>
+            <input type="text" class="form-control" id="contactoInput" placeholder="Nombre del contacto">
+          </div>
+          <div class="form-group col-6">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-6">
             <label>Correo</label>
-            <input type="email" class="form-control">
+            <input type="email" class="form-control" id="emailInput" placeholder="correo@ejemplo.com">
           </div>
           <div class="form-group col-6">
             <label>Teléfono</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="telefonoInput" placeholder="11 1234 5678">
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-12">
             <label>Dirección</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="direccionInput" placeholder="Dirección completa">
           </div>
         </div>
 
-        <button class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
+        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar</button>
       </form>
     </section>
   </main>
 
+  <script>
+    function toggleFormFields() {
+      const tipo = document.getElementById('tipoSelect').value;
+      const nombreLabel = document.getElementById('nombreLabel');
+      const nombreInput = document.getElementById('nombreInput');
+      const contactoRow = document.getElementById('contactoRow');
+      
+      if (tipo === 'proveedor') {
+        nombreLabel.textContent = 'Razón Social / Empresa';
+        nombreInput.placeholder = 'Nombre de la empresa';
+        contactoRow.style.display = 'grid';
+      } else {
+        nombreLabel.textContent = 'Nombre';
+        nombreInput.placeholder = 'Nombre completo';
+        contactoRow.style.display = 'none';
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('.admin-form form');
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const tipo = document.getElementById('tipoSelect').value;
+        const recordData = {
+          email: document.getElementById('emailInput').value,
+          telefono: document.getElementById('telefonoInput').value,
+          direccion: document.getElementById('direccionInput').value,
+          fechaAlta: new Date().toISOString().split('T')[0],
+          estado: 'Activo',
+          saldo: 0
+        };
+
+        if (tipo === 'cliente') {
+          recordData.nombre = document.getElementById('nombreInput').value;
+        } else {
+          recordData.empresa = document.getElementById('nombreInput').value;
+          recordData.contacto = document.getElementById('contactoInput').value || 'N/A';
+        }
+
+        try {
+          if (typeof window.db !== 'undefined') {
+            await window.db.addRecord(tipo === 'cliente' ? 'clientes' : 'proveedores', recordData);
+            showNotification(`${tipo === 'cliente' ? 'Cliente' : 'Proveedor'} agregado correctamente`, 'success');
+            form.reset();
+            toggleFormFields(); // Reset form fields
+          } else {
+            showNotification('Sistema de base de datos no disponible', 'error');
+          }
+        } catch (error) {
+          showNotification('Error al guardar', 'error');
+          console.error(error);
+        }
+      });
+    });
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease;
+      `;
+
+      const colors = {
+        success: '#059669',
+        error: '#dc2626',
+        info: '#1e40af',
+        warning: '#d97706'
+      };
+
+      notification.style.backgroundColor = colors[type] || colors.info;
+      notification.textContent = message;
+
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.remove();
+          }
+        }, 300);
+      }, 3000);
+
+      if (!document.querySelector('#notification-animations')) {
+        const style = document.createElement('style');
+        style.id = 'notification-animations';
+        style.textContent = `
+          @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+  </script>
+
+  <script src="../../src/database.js"></script>
   <script src="../../src/panel.js"></script>
   <script src="../../src/supabase.js"></script>
   <script src="../../src/filtros.js"></script>

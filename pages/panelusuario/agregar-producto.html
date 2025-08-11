@@ -84,28 +84,29 @@
         <div class="form-row">
           <div class="form-group col-6">
             <label>Nombre del Producto</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="productName" required>
           </div>
           <div class="form-group col-6">
             <label>Código SKU</label>
-            <input type="text" class="form-control">
+            <input type="text" class="form-control" id="productSku" required>
           </div>
         </div>
 
         <div class="form-row">
           <div class="form-group col-6">
             <label>Categoría</label>
-            <select class="form-control">
+            <select class="form-control" id="productCategory" required>
               <option>Seleccionar</option>
               <option>Electrónica</option>
               <option>Ropa</option>
               <option>Hogar</option>
               <option>Deportes</option>
+              <option>Libros</option>
             </select>
           </div>
           <div class="form-group col-6">
             <label>Estado</label>
-            <select class="form-control">
+            <select class="form-control" id="productStatus" required>
               <option>Activo</option>
               <option>Inactivo</option>
             </select>
@@ -115,23 +116,108 @@
         <div class="form-row">
           <div class="form-group col-6">
             <label>Precio</label>
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" id="productPrice" min="0" step="0.01" required>
           </div>
           <div class="form-group col-6">
             <label>Stock Inicial</label>
-            <input type="number" class="form-control">
+            <input type="number" class="form-control" id="productStock" min="0" required>
           </div>
         </div>
 
-        <button class="btn btn-success"><i class="fas fa-save"></i> Guardar Producto</button>
+        <button type="submit" class="btn btn-success"><i class="fas fa-save"></i> Guardar Producto</button>
       </form>
     </section>
   </main>
 
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const form = document.querySelector('.admin-form form');
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const productData = {
+          nombre: document.getElementById('productName').value,
+          sku: document.getElementById('productSku').value,
+          categoria: document.getElementById('productCategory').value,
+          precio: parseFloat(document.getElementById('productPrice').value),
+          stock: parseInt(document.getElementById('productStock').value),
+          estado: document.getElementById('productStatus').value,
+          fechaCreacion: new Date().toISOString().split('T')[0]
+        };
+
+        try {
+          if (typeof window.db !== 'undefined') {
+            await window.db.addRecord('productos', productData);
+            showNotification('Producto agregado correctamente', 'success');
+            form.reset();
+          } else {
+            showNotification('Sistema de base de datos no disponible', 'error');
+          }
+        } catch (error) {
+          showNotification('Error al guardar el producto', 'error');
+          console.error(error);
+        }
+      });
+    });
+
+    function showNotification(message, type = 'info') {
+      const notification = document.createElement('div');
+      notification.style.cssText = `
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+        padding: 15px 20px;
+        border-radius: 8px;
+        color: white;
+        font-weight: 500;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        animation: slideIn 0.3s ease;
+      `;
+
+      const colors = {
+        success: '#059669',
+        error: '#dc2626',
+        info: '#1e40af',
+        warning: '#d97706'
+      };
+
+      notification.style.backgroundColor = colors[type] || colors.info;
+      notification.textContent = message;
+
+      document.body.appendChild(notification);
+
+      setTimeout(() => {
+        notification.style.animation = 'slideOut 0.3s ease';
+        setTimeout(() => {
+          if (notification.parentNode) {
+            notification.remove();
+          }
+        }, 300);
+      }, 3000);
+
+      if (!document.querySelector('#notification-animations')) {
+        const style = document.createElement('style');
+        style.id = 'notification-animations';
+        style.textContent = `
+          @keyframes slideIn {
+            from { transform: translateX(100%); opacity: 0; }
+            to { transform: translateX(0); opacity: 1; }
+          }
+          @keyframes slideOut {
+            from { transform: translateX(0); opacity: 1; }
+            to { transform: translateX(100%); opacity: 0; }
+          }
+        `;
+        document.head.appendChild(style);
+      }
+    }
+  </script>
+
+  <script src="../../src/database.js"></script>
   <script src="../../src/panel.js"></script>
   <script src="../../src/supabase.js"></script>
   <script src="../../src/filtros.js"></script>
-  
 </body>
 
 </html>
