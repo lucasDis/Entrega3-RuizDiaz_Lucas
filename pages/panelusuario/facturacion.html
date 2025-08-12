@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sysgen Argentina - Facturación Electrónica</title>
+  <meta name="description" content="Módulo de facturación electrónica integrado con AFIP">
+  <link rel="canonical" href="https://sysgenargentina.ct.ws/pages/panelusuario/facturacion.html">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="../../css/usuario.css" rel="stylesheet">
+</head>
+
+<body class="admin-layout">
+  <header class="admin-header">
+    <div class="header-content">
+      <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+      <div class="user-menu">
+        <div class="user-info">
+          <div class="user-avatar">JD</div>
+          <span class="user-name">Juan Pérez</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'" title="Perfil de empresa">
+            <i class="fas fa-user-cog"></i>
+          </button>
+          <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()" title="Administración del sistema">
+            <i class="fas fa-shield-alt"></i>
+          </button>
+          <button class="btn btn-outline btn-primary" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Salir
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Navegación de Pestañas -->
+    <div class="admin-layout-container">
+      <nav class="admin-nav">
+        <div class="nav-content">
+          <div class="nav-tabs" style="flex-wrap: wrap;">
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle" type="button"><i class="fas fa-box"></i>
+                Productos</button>
+              <div class="dropdown-menu">
+                <a href="userpanel.html" class="dropdown-item">Control de Productos</a>
+                <a href="agregar-producto.html" class="dropdown-item">Agregar Producto</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle active"><i class="fas fa-file-invoice"></i>
+                Facturación</button>
+              <div class="dropdown-menu">
+                <a href="facturacion.html" class="dropdown-item">Nueva Factura</a>
+                <a href="consultar-facturas.html" class="dropdown-item">Consultar Facturas</a>
+                <a href="reportes-facturacion.html" class="dropdown-item">Reportes</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle"><i class="fas fa-exchange-alt"></i>
+                Compras/Ventas</button>
+              <div class="dropdown-menu">
+                <a href="compras.html" class="dropdown-item">Compras</a>
+                <a href="ventas.html" class="dropdown-item">Ventas</a>
+                <a href="facturaZ.html" class="dropdown-item">Factura Z</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle"><i class="fas fa-users"></i>
+                Clientes/Proveedores</button>
+              <div class="dropdown-menu">
+                <a href="clientes.html" class="dropdown-item">Clientes</a>
+                <a href="proveedores.html" class="dropdown-item">Proveedores</a>
+                <a href="agregar-cliente-proveedor.html" class="dropdown-item">Agregar
+                  Cliente/Proveedor</a>
+              </div>
+            </div>
+            <button class="nav-tab" onclick="location.href='movimientos.html'">
+              <i class="fas fa-list"></i> Movimientos
+            </button>
+            <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
+              <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Estadísticas de Facturación -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon primary">
+            <i class="fas fa-file-invoice"></i>
+          </div>
+        </div>
+        <div class="stat-value">247</div>
+        <div class="stat-label">Facturas Hoy</div>
+        <div class="stat-change positive">+15% vs ayer</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon success">
+            <i class="fas fa-check-circle"></i>
+          </div>
+        </div>
+        <div class="stat-value">$2.450.000</div>
+        <div class="stat-label">Facturado Hoy</div>
+        <div class="stat-change positive">+8% vs ayer</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon warning">
+            <i class="fas fa-clock"></i>
+          </div>
+        </div>
+        <div class="stat-value">5</div>
+        <div class="stat-label">Pendientes CAE</div>
+        <div class="stat-change neutral">Procesando...</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon danger">
+            <i class="fas fa-exclamation-triangle"></i>
+          </div>
+        </div>
+        <div class="stat-value">2</div>
+        <div class="stat-label">Errores AFIP</div>
+        <div class="stat-change negative">Requiere atención</div>
+      </div>
+    </div>
+
+    <!-- Formulario de Nueva Factura -->
+    <div class="admin-card">
+      <div class="card-header">
+        <h2 class="card-title">Nueva Facturación Electrónica</h2>
+        <div class="card-actions">
+          <button class="btn btn-secondary" onclick="consultarFacturas()">
+            <i class="fas fa-search"></i>
+            Consultar Facturas
+          </button>
+          <button class="btn btn-warning" onclick="configurarPuntosVenta()">
+            <i class="fas fa-cog"></i>
+            Puntos de Venta
+          </button>
+        </div>
+      </div>
+
+      <form id="facturaForm" class="admin-form">
+        <!-- Configuración Inicial -->
+        <div class="form-section">
+          <h3 class="form-section-title">Configuración del Comprobante</h3>
+          <div class="form-row">
+            <div class="form-group col-3">
+              <label class="form-label">Punto de Venta</label>
+              <select class="form-control" id="puntoVenta" required>
+                <option value="">Seleccionar...</option>
+                <option value="0001">0001 - Sucursal Central</option>
+                <option value="0002">0002 - Sucursal Norte</option>
+                <option value="0003">0003 - Online</option>
+              </select>
+            </div>
+            <div class="form-group col-3">
+              <label class="form-label">Tipo de Comprobante</label>
+              <select class="form-control" id="tipoComprobante" required onchange="calcularIVA()">
+                <option value="">Seleccionar...</option>
+                <option value="01">01 - Factura A</option>
+                <option value="06">06 - Factura B</option>
+                <option value="11">11 - Factura C</option>
+                <option value="81">81 - Ticket Fiscal A</option>
+                <option value="82">82 - Ticket Fiscal B</option>
+                <option value="83">83 - Ticket Fiscal C</option>
+                <option value="03">03 - Nota de Crédito A</option>
+                <option value="08">08 - Nota de Crédito B</option>
+                <option value="13">13 - Nota de Crédito C</option>
+              </select>
+            </div>
+            <div class="form-group col-3">
+              <label class="form-label">Número</label>
+              <input type="text" class="form-control" id="numeroComprobante" readonly placeholder="Auto-generado">
+            </div>
+            <div class="form-group col-3">
+              <label class="form-label">Fecha</label>
+              <input type="date" class="form-control" id="fechaComprobante" required>
+            </div>
+          </div>
+        </div>
+
+        <!-- Datos del Cliente -->
+        <div class="form-section">
+          <h3 class="form-section-title">Datos del Cliente</h3>
+          <div class="form-row">
+            <div class="form-group col-3">
+              <label class="form-label">CUIT/DNI</label>
+              <div class="input-group">
+                <input type="text" class="form-control" id="clienteCuit" placeholder="XX-XXXXXXXX-X"
+                  onblur="validarCUIT()">
+                <button type="button" class="btn btn-outline-primary" onclick="validarAFIP()" title="Validar en AFIP">
+                  <i class="fas fa-search"></i>
+                </button>
+              </div>
+            </div>
+            <div class="form-group col-4">
+              <label class="form-label">Razón Social / Nombre</label>
+              <input type="text" class="form-control" id="clienteNombre" required>
+            </div>
+            <div class="form-group col-3">
+              <label class="form-label">Condición IVA</label>
+              <select class="form-control" id="clienteCondicionIVA" required onchange="calcularIVA()">
+                <option value="">Seleccionar...</option>
+                <option value="1">IVA Responsable Inscripto</option>
+                <option value="4">IVA Sujeto Exento</option>
+                <option value="5">Consumidor Final</option>
+                <option value="6">Responsable Monotributo</option>
+                <option value="11">IVA Liberado</option>
+              </select>
+            </div>
+            <div class="form-group col-2">
+              <label class="form-label">Condición Venta</label>
+              <select class="form-control" id="condicionVenta">
+                <option value="1">Contado</option>
+                <option value="2">Cuenta Corriente</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group col-6">
+              <label class="form-label">Domicilio</label>
+              <input type="text" class="form-control" id="clienteDomicilio">
+            </div>
+            <div class="form-group col-3">
+              <label class="form-label">Email</label>
+              <input type="email" class="form-control" id="clienteEmail" placeholder="Para envío automático">
+            </div>
+            <div class="form-group col-3">
+              <label class="form-label">Teléfono</label>
+              <input type="text" class="form-control" id="clienteTelefono">
+            </div>
+          </div>
+        </div>
+
+        <!-- Productos/Servicios -->
+        <div class="form-section">
+          <h3 class="form-section-title">Productos / Servicios</h3>
+          <div class="table-responsive">
+            <table class="admin-table" id="productosTable">
+              <thead>
+                <tr>
+                  <th width="40%">Producto/Servicio</th>
+                  <th width="10%">Cantidad</th>
+                  <th width="15%">Precio Unit.</th>
+                  <th width="10%">% IVA</th>
+                  <th width="15%">Subtotal</th>
+                  <th width="10%">Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="productosTableBody">
+                <tr>
+                  <td>
+                    <input type="text" class="form-control" placeholder="Buscar producto..."
+                      onkeyup="buscarProducto(this)">
+                    <div class="autocomplete-results" style="display: none;"></div>
+                  </td>
+                  <td><input type="number" class="form-control" value="1" min="1" onchange="calcularSubtotal(this)">
+                  </td>
+                  <td><input type="number" class="form-control" step="0.01" onchange="calcularSubtotal(this)"></td>
+                  <td>
+                    <select class="form-control" onchange="calcularSubtotal(this)">
+                      <option value="0">0%</option>
+                      <option value="10.5">10.5%</option>
+                      <option value="21" selected>21%</option>
+                      <option value="27">27%</option>
+                    </select>
+                  </td>
+                  <td><span class="subtotal">$0.00</span></td>
+                  <td>
+                    <button type="button" class="btn btn-sm btn-danger" onclick="eliminarLinea(this)">
+                      <i class="fas fa-trash"></i>
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <button type="button" class="btn btn-secondary mt-3" onclick="agregarLineaProducto()">
+            <i class="fas fa-plus"></i> Agregar Línea
+          </button>
+        </div>
+
+        <!-- Totales -->
+        <div class="form-section">
+          <div class="row">
+            <div class="col-8">
+              <div class="form-group">
+                <label class="form-label">Observaciones</label>
+                <textarea class="form-control" id="observaciones" rows="3"
+                  placeholder="Observaciones adicionales..."></textarea>
+              </div>
+            </div>
+            <div class="col-4">
+              <div class="totales-box">
+                <div class="total-line">
+                  <span>Subtotal:</span>
+                  <span id="subtotalFactura">$0.00</span>
+                </div>
+                <div class="total-line">
+                  <span>IVA 10.5%:</span>
+                  <span id="iva105">$0.00</span>
+                </div>
+                <div class="total-line">
+                  <span>IVA 21%:</span>
+                  <span id="iva21">$0.00</span>
+                </div>
+                <div class="total-line">
+                  <span>IVA 27%:</span>
+                  <span id="iva27">$0.00</span>
+                </div>
+                <div class="total-line total-final">
+                  <span><strong>TOTAL:</strong></span>
+                  <span id="totalFactura"><strong>$0.00</strong></span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Botones de Acción -->
+        <div class="form-actions">
+          <button type="button" class="btn btn-secondary" onclick="limpiarFormulario()">
+            <i class="fas fa-broom"></i>
+            Limpiar
+          </button>
+          <button type="button" class="btn btn-warning" onclick="previsualizarFactura()">
+            <i class="fas fa-eye"></i>
+            Previsualizar
+          </button>
+          <button type="submit" class="btn btn-primary">
+            <i class="fas fa-paper-plane"></i>
+            Emitir Factura
+          </button>
+        </div>
+      </form>
+    </div>
+  </main>
+
+  <script src="../../src/database.js"></script>
+  <script src="../../src/panel.js"></script>
+  <script src="../../src/supabase.js"></script>
+  <script src="../../src/facturacion-electronica.js"></script>
+  <script src="../../src/afip-integration.js"></script>
+</body>
+
+</html>

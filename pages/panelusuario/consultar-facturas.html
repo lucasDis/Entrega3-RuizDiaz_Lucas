@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sysgen Argentina - Consultar Facturas</title>
+  <meta name="description" content="Consulta y validación de facturas emitidas">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="../../css/usuario.css" rel="stylesheet">
+</head>
+
+<body class="admin-layout">
+  <header class="admin-header">
+    <div class="header-content">
+      <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+      <div class="user-menu">
+        <div class="user-info">
+          <div class="user-avatar">JD</div>
+          <span class="user-name">Juan Pérez</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'" title="Perfil de empresa">
+            <i class="fas fa-user-cog"></i>
+          </button>
+          <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()" title="Administración del sistema">
+            <i class="fas fa-shield-alt"></i>
+          </button>
+          <button class="btn btn-outline btn-primary" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Salir
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Navegación -->
+    <div class="admin-layout-container">
+      <nav class="admin-nav">
+        <div class="nav-content">
+          <div class="nav-tabs" style="flex-wrap: wrap;">
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle" type="button"><i class="fas fa-box"></i>
+                Productos</button>
+              <div class="dropdown-menu">
+                <a href="userpanel.html" class="dropdown-item">Control de Productos</a>
+                <a href="agregar-producto.html" class="dropdown-item">Agregar Producto</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle active"><i class="fas fa-file-invoice"></i>
+                Facturación</button>
+              <div class="dropdown-menu">
+                <a href="facturacion.html" class="dropdown-item">Nueva Factura</a>
+                <a href="consultar-facturas.html" class="dropdown-item">Consultar Facturas</a>
+                <a href="reportes-facturacion.html" class="dropdown-item">Reportes</a>
+              </div>
+            </div>
+            <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
+              <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Consulta Rápida -->
+    <div class="admin-card">
+      <div class="card-header">
+        <h2 class="card-title">Consulta Rápida de Comprobantes</h2>
+      </div>
+
+      <div class="admin-form">
+        <div class="form-row">
+          <div class="form-group col-2">
+            <label class="form-label">Punto de Venta</label>
+            <input type="text" class="form-control" id="consultaPuntoVenta" placeholder="0001">
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">Tipo</label>
+            <select class="form-control" id="consultaTipo">
+              <option value="">Todos</option>
+              <option value="01">Factura A</option>
+              <option value="06">Factura B</option>
+              <option value="11">Factura C</option>
+            </select>
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">Número</label>
+            <input type="text" class="form-control" id="consultaNumero" placeholder="00000001">
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">CAE</label>
+            <input type="text" class="form-control" id="consultaCAE" placeholder="Código CAE">
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">&nbsp;</label>
+            <button class="btn btn-primary" onclick="consultarComprobante()">
+              <i class="fas fa-search"></i>
+              Consultar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div id="resultadoConsulta" style="display: none;" class="mt-4">
+        <div class="alert alert-info">
+          <div id="estadoComprobante"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Filtros Avanzados -->
+    <div class="admin-card">
+      <div class="card-header">
+        <h2 class="card-title">Listado de Facturas Emitidas</h2>
+        <div class="card-actions">
+          <button class="btn btn-success" onclick="exportarFacturas()">
+            <i class="fas fa-file-excel"></i>
+            Exportar Excel
+          </button>
+          <button class="btn btn-primary" onclick="location.href='facturacion.html'">
+            <i class="fas fa-plus"></i>
+            Nueva Factura
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-form">
+        <div class="form-row">
+          <div class="form-group col-3">
+            <label class="form-label">Fecha Desde</label>
+            <input type="date" class="form-control" id="fechaDesde">
+          </div>
+          <div class="form-group col-3">
+            <label class="form-label">Fecha Hasta</label>
+            <input type="date" class="form-control" id="fechaHasta">
+          </div>
+          <div class="form-group col-3">
+            <label class="form-label">Cliente</label>
+            <input type="text" class="form-control" id="filtroCliente" placeholder="Nombre o CUIT">
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">Estado</label>
+            <select class="form-control" id="filtroEstado">
+              <option value="">Todos</option>
+              <option value="autorizado">Autorizado</option>
+              <option value="pendiente">Pendiente</option>
+              <option value="rechazado">Rechazado</option>
+              <option value="anulado">Anulado</option>
+            </select>
+          </div>
+          <div class="form-group col-1">
+            <label class="form-label">&nbsp;</label>
+            <button class="btn btn-primary" onclick="filtrarFacturas()">
+              <i class="fas fa-filter"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Fecha</th>
+              <th>Tipo</th>
+              <th>Número</th>
+              <th>Cliente</th>
+              <th>Total</th>
+              <th>CAE</th>
+              <th>Estado</th>
+              <th>Usuario</th>
+              <th>Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="facturasTableBody">
+            <tr>
+              <td>15/01/2025</td>
+              <td>Factura A</td>
+              <td>0001-00000147</td>
+              <td>EMPRESA DEMO SA</td>
+              <td>$125.400,00</td>
+              <td>71234567890123</td>
+              <td><span class="badge badge-success">Autorizado</span></td>
+              <td>Juan Pérez</td>
+              <td class="actions">
+                <button class="btn btn-sm btn-primary" onclick="verDetalle(1)" title="Ver detalle">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-success" onclick="descargarPDF(1)" title="Descargar PDF">
+                  <i class="fas fa-file-pdf"></i>
+                </button>
+                <button class="btn btn-sm btn-warning" onclick="enviarEmail(1)" title="Enviar por email">
+                  <i class="fas fa-envelope"></i>
+                </button>
+                <button class="btn btn-sm btn-secondary" onclick="imprimirFiscal(1)" title="Reimprimir fiscal">
+                  <i class="fas fa-print"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="anularFactura(1)" title="Anular">
+                  <i class="fas fa-ban"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>15/01/2025</td>
+              <td>Factura B</td>
+              <td>0001-00000148</td>
+              <td>GARCÍA LUIS</td>
+              <td>$89.350,00</td>
+              <td>71234567890124</td>
+              <td><span class="badge badge-success">Autorizado</span></td>
+              <td>María López</td>
+              <td class="actions">
+                <button class="btn btn-sm btn-primary" onclick="verDetalle(2)">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-success" onclick="descargarPDF(2)">
+                  <i class="fas fa-file-pdf"></i>
+                </button>
+                <button class="btn btn-sm btn-warning" onclick="enviarEmail(2)">
+                  <i class="fas fa-envelope"></i>
+                </button>
+                <button class="btn btn-sm btn-secondary" onclick="imprimirFiscal(2)">
+                  <i class="fas fa-print"></i>
+                </button>
+                <button class="btn btn-sm btn-danger" onclick="anularFactura(2)">
+                  <i class="fas fa-ban"></i>
+                </button>
+              </td>
+            </tr>
+            <tr>
+              <td>15/01/2025</td>
+              <td>Ticket Fiscal</td>
+              <td>0002-00000089</td>
+              <td>CONSUMIDOR FINAL</td>
+              <td>$45.200,00</td>
+              <td>-</td>
+              <td><span class="badge badge-warning">Pendiente</span></td>
+              <td>Carlos Ruiz</td>
+              <td class="actions">
+                <button class="btn btn-sm btn-primary" onclick="verDetalle(3)">
+                  <i class="fas fa-eye"></i>
+                </button>
+                <button class="btn btn-sm btn-warning" onclick="reintentarCAE(3)" title="Reintentar CAE">
+                  <i class="fas fa-redo"></i>
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../src/database.js"></script>
+  <script src="../../src/panel.js"></script>
+  <script src="../../src/supabase.js"></script>
+  <script src="../../src/consultar-facturas.js"></script>
+  <script src="../../src/afip-integration.js"></script>
+</body>
+
+</html>

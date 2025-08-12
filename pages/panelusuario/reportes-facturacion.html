@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sysgen Argentina - Reportes de Facturación</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+  <link href="../../css/usuario.css" rel="stylesheet">
+</head>
+
+<body class="admin-layout">
+  <header class="admin-header">
+    <div class="header-content">
+      <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+      <div class="user-menu">
+        <div class="user-info">
+          <div class="user-avatar">JD</div>
+          <span class="user-name">Juan Pérez</span>
+        </div>
+        <div style="display: flex; gap: 0.5rem; align-items: center;">
+          <button class="btn btn-outline btn-primary" onclick="logout()">
+            <i class="fas fa-sign-out-alt"></i>
+            Salir
+          </button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main class="admin-main">
+    <!-- Navegación -->
+    <div class="admin-layout-container">
+      <nav class="admin-nav">
+        <div class="nav-content">
+          <div class="nav-tabs">
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle active"><i class="fas fa-file-invoice"></i> Facturación</button>
+              <div class="dropdown-menu">
+                <a href="facturacion.html" class="dropdown-item">Nueva Factura</a>
+                <a href="consultar-facturas.html" class="dropdown-item">Consultar Facturas</a>
+                <a href="reportes-facturacion.html" class="dropdown-item">Reportes</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <!-- Resumen del Día -->
+    <div class="stats-grid">
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon primary">
+            <i class="fas fa-file-invoice"></i>
+          </div>
+        </div>
+        <div class="stat-value">247</div>
+        <div class="stat-label">Comprobantes Hoy</div>
+        <div class="stat-change positive">+15% vs ayer</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon success">
+            <i class="fas fa-dollar-sign"></i>
+          </div>
+        </div>
+        <div class="stat-value">$2.450.000</div>
+        <div class="stat-label">Total Facturado</div>
+        <div class="stat-change positive">+8% vs ayer</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon warning">
+            <i class="fas fa-percentage"></i>
+          </div>
+        </div>
+        <div class="stat-value">$514.500</div>
+        <div class="stat-label">IVA Recaudado</div>
+        <div class="stat-change neutral">21% promedio</div>
+      </div>
+
+      <div class="stat-card">
+        <div class="stat-header">
+          <div class="stat-icon info">
+            <i class="fas fa-users"></i>
+          </div>
+        </div>
+        <div class="stat-value">89</div>
+        <div class="stat-label">Clientes Atendidos</div>
+        <div class="stat-change positive">+12% vs ayer</div>
+      </div>
+    </div>
+
+    <!-- Resumen por Usuario -->
+    <div class="admin-card">
+      <div class="card-header">
+        <h2 class="card-title">Resumen por Usuario - Hoy</h2>
+        <div class="card-actions">
+          <select class="form-control" style="width: auto;" onchange="cambiarFechaReporte(this.value)">
+            <option value="hoy">Hoy</option>
+            <option value="ayer">Ayer</option>
+            <option value="semana">Esta Semana</option>
+            <option value="mes">Este Mes</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="card-content">
+        <table class="admin-table">
+          <thead>
+            <tr>
+              <th>Usuario</th>
+              <th>Sucursal</th>
+              <th>Cant. Facturas</th>
+              <th>Total Facturado</th>
+              <th>IVA</th>
+              <th>Promedio por Factura</th>
+              <th>Última Factura</th>
+            </tr>
+          </thead>
+          <tbody id="resumenUsuariosBody">
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">JP</div>
+                  <span>Juan Pérez</span>
+                </div>
+              </td>
+              <td>Sucursal Central</td>
+              <td>89</td>
+              <td>$1.245.600</td>
+              <td>$261.576</td>
+              <td>$13.995</td>
+              <td>14:35</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">ML</div>
+                  <span>María López</span>
+                </div>
+              </td>
+              <td>Sucursal Norte</td>
+              <td>67</td>
+              <td>$876.400</td>
+              <td>$184.044</td>
+              <td>$13.081</td>
+              <td>15:12</td>
+            </tr>
+            <tr>
+              <td>
+                <div style="display: flex; align-items: center; gap: 10px;">
+                  <div class="user-avatar" style="width: 32px; height: 32px; font-size: 0.75rem;">CR</div>
+                  <span>Carlos Ruiz</span>
+                </div>
+              </td>
+              <td>Online</td>
+              <td>91</td>
+              <td>$328.000</td>
+              <td>$68.880</td>
+              <td>$3.604</td>
+              <td>15:45</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Reportes para Contaduría -->
+    <div class="admin-card">
+      <div class="card-header">
+        <h2 class="card-title">Reportes para Contaduría</h2>
+        <div class="card-actions">
+          <button class="btn btn-success" onclick="configurarEnvioAutomatico()">
+            <i class="fas fa-cog"></i>
+            Configurar Envío
+          </button>
+        </div>
+      </div>
+
+      <div class="admin-form">
+        <div class="form-row">
+          <div class="form-group col-3">
+            <label class="form-label">Período</label>
+            <select class="form-control" id="periodoReporte">
+              <option value="diario">Reporte Diario</option>
+              <option value="semanal">Reporte Semanal</option>
+              <option value="mensual">Reporte Mensual</option>
+              <option value="personalizado">Período Personalizado</option>
+            </select>
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">Fecha Desde</label>
+            <input type="date" class="form-control" id="fechaDesdeReporte">
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">Fecha Hasta</label>
+            <input type="date" class="form-control" id="fechaHastaReporte">
+          </div>
+          <div class="form-group col-3">
+            <label class="form-label">Formato</label>
+            <select class="form-control" id="formatoReporte">
+              <option value="excel">Excel (.xlsx)</option>
+              <option value="csv">CSV</option>
+              <option value="txt">TXT Fiscal</option>
+              <option value="pdf">PDF</option>
+            </select>
+          </div>
+          <div class="form-group col-2">
+            <label class="form-label">&nbsp;</label>
+            <button class="btn btn-primary" onclick="generarReporte()">
+              <i class="fas fa-file-download"></i>
+              Generar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Acciones Rápidas -->
+      <div class="form-row mt-4">
+        <div class="col-12">
+          <h4>Acciones Rápidas</h4>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <button class="btn btn-outline-primary" onclick="exportarLibroIVAVentas()">
+              <i class="fas fa-book"></i>
+              Libro IVA Ventas
+            </button>
+            <button class="btn btn-outline-success" onclick="exportarCITI()">
+              <i class="fas fa-file-alt"></i>
+              Archivo CITI
+            </button>
+            <button class="btn btn-outline-warning" onclick="resumenZ()">
+              <i class="fas fa-calculator"></i>
+              Resumen Z
+            </button>
+            <button class="btn btn-outline-danger" onclick="reporteANSES()">
+              <i class="fas fa-shield-alt"></i>
+              Reporte ANSES
+            </button>
+            <button class="btn btn-outline-info" onclick="enviarContador()">
+              <i class="fas fa-envelope"></i>
+              Enviar al Contador
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Análisis de Ventas -->
+    <div class="admin-card">
+      <div class="card-header">
+        <h2 class="card-title">Análisis de Ventas</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-6">
+          <canvas id="ventasPorDiaChart" width="400" height="200"></canvas>
+        </div>
+        <div class="col-6">
+          <canvas id="ventasPorTipoChart" width="400" height="200"></canvas>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="../../src/database.js"></script>
+  <script src="../../src/panel.js"></script>
+  <script src="../../src/supabase.js"></script>
+  <script src="../../src/reportes-facturacion.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</body>
+
+</html>
