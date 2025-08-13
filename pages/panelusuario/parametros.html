@@ -2,127 +2,230 @@
 <html lang="es" data-theme="light">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sysgen | Parámetros</title>
-    <link rel="stylesheet" href="../../css/usuario.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sysgen | Parámetros</title>
+  <link rel="stylesheet" href="../../css/usuario.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 </head>
-<!-- Header Administrativo -->
 
 <body class="admin-layout">
-    <header class="admin-header">
-        <div class="header-content">
-            <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
-            <div class="user-menu">
-                <div class="user-info">
-                    <div class="user-avatar">JD</div>
-                    <span class="user-name">Juan Pérez</span>
-                </div>
-                <div style="display: flex; gap: 0.5rem; align-items: center;">
-                    <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'"
-                        title="Perfil de empresa">
-                        <i class="fas fa-user-cog"></i>
-                    </button>
-                    <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()"
-                        title="Administración del sistema">
-                        <i class="fas fa-shield-alt"></i>
-                    </button>
-                    <button class="btn btn-outline btn-primary" onclick="logout()">
-                        <i class="fas fa-sign-out-alt"></i>
-                        Salir
-                    </button>
-                </div>
+  <!-- Header -->
+  <header class="admin-header">
+    <div class="header-content">
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+      </div>
+
+      <div class="user-menu">
+        <div class="dropdown" style="position: relative;">
+          <button class="user-menu-button" onclick="toggleUserDropdown()" id="userMenuButton">
+            <div class="user-info">
+              <div class="user-avatar">JD</div>
+              <span class="user-name">Juan Pérez</span>
             </div>
-        </div>
-    </header>
+            <i class="fas fa-chevron-down user-chevron"></i>
+          </button>
 
-    <main class="admin-main">
-        <!-- Sección para volver atrás -->
-        <section class="volver-section" style="margin-bottom: 16px;">
-            <button class="btn btn-outline btn-secondary" onclick="volverAtras()">
-                <i class="fas fa-arrow-left"></i> Volver atrás
+          <div class="user-dropdown" id="userDropdown">
+            <button class="user-dropdown-item" onclick="location.href='perfil.html'">
+              <i class="fas fa-user-cog"></i>
+              Perfil de empresa
             </button>
-        </section>
-        <!-- Navegación de Pestañas -->
-        <div class="admin-nav-card" style="margin-bottom: 24px;">
-            <nav class="admin-nav">
-                <div class="nav-content">
-                    <div class="nav-tabs" style="flex-wrap: wrap;">
-                        <div class="dropdown">
-                            <button class="nav-tab dropdown-toggle" type="button"><i class="fas fa-box"></i>
-                                Productos</button>
-                            <div class="dropdown-menu">
-                                <a href="userpanel.html" class="dropdown-item">Control de Productos</a>
-                                <a href="agregar-producto.html" class="dropdown-item">Agregar Producto</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="nav-tab dropdown-toggle"><i class="fas fa-exchange-alt"></i>
-                                Compras/Ventas</button>
-                            <div class="dropdown-menu">
-                                <a href="compras.html" class="dropdown-item">Compras</a>
-                                <a href="ventas.html" class="dropdown-item">Ventas</a>
-                                <a href="facturaZ.html" class="dropdown-item">Factura Z</a>
-                            </div>
-                        </div>
-                        <div class="dropdown">
-                            <button class="nav-tab dropdown-toggle"><i class="fas fa-users"></i>
-                                Clientes/Proveedores</button>
-                            <div class="dropdown-menu">
-                                <a href="clientes.html" class="dropdown-item">Clientes</a>
-                                <a href="proveedores.html" class="dropdown-item">Proveedores</a>
-                                <a href="agregar-cliente-proveedor.html" class="dropdown-item">Agregar
-                                    Cliente/Proveedor</a>
-                            </div>
-                        </div>
-                        <button class="nav-tab" onclick="location.href='movimientos.html'">
-                            <i class="fas fa-list"></i> Movimientos
-                        </button>
-                        <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
-                            <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
-                        </button>
-                    </div>
-                </div>
-            </nav>
+            <button class="user-dropdown-item" onclick="checkAdminAccess()">
+              <i class="fas fa-shield-alt"></i>
+              Administración
+            </button>
+            <div class="user-dropdown-divider"></div>
+            <button class="user-dropdown-item" onclick="logout()">
+              <i class="fas fa-sign-out-alt"></i>
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+        <button class="mobile-sidebar-close" onclick="closeMobileSidebar()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Gestión</div>
+        <a href="userpanel.html" class="mobile-nav-item">
+          <i class="fas fa-box"></i>
+          <span>Control de Productos</span>
+        </a>
+        <a href="agregar-producto.html" class="mobile-nav-item">
+          <i class="fas fa-plus"></i>
+          <span>Agregar Producto</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Transacciones</div>
+        <a href="compras.html" class="mobile-nav-item">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Compras</span>
+        </a>
+        <a href="ventas.html" class="mobile-nav-item">
+          <i class="fas fa-cash-register"></i>
+          <span>Ventas</span>
+        </a>
+        <a href="facturaZ.html" class="mobile-nav-item">
+          <i class="fas fa-receipt"></i>
+          <span>Factura Z</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Contactos</div>
+        <a href="clientes.html" class="mobile-nav-item">
+          <i class="fas fa-users"></i>
+          <span>Clientes</span>
+        </a>
+        <a href="proveedores.html" class="mobile-nav-item">
+          <i class="fas fa-truck"></i>
+          <span>Proveedores</span>
+        </a>
+        <a href="agregar-cliente-proveedor.html" class="mobile-nav-item">
+          <i class="fas fa-user-plus"></i>
+          <span>Agregar Cliente/Proveedor</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Reportes</div>
+        <a href="movimientos.html" class="mobile-nav-item">
+          <i class="fas fa-list"></i>
+          <span>Movimientos</span>
+        </a>
+        <a href="cuentacorriente.html" class="mobile-nav-item">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <span>Cuenta Corriente</span>
+        </a>
+      </div>
+
+      <div class="mobile-user-section">
+        <div class="mobile-user-info">
+          <div class="user-avatar">JD</div>
+          <div>
+            <div style="font-weight: 600;">Juan Pérez</div>
+            <div style="font-size: 0.75rem; color: #6b7280;">juan@empresa.com</div>
+          </div>
         </div>
 
-        <section class="admin-card">
-            <h2 class="card-title">Parámetros Generales del Sistema</h2>
+        <button class="mobile-nav-item" onclick="location.href='perfil.html'">
+          <i class="fas fa-user-cog"></i>
+          <span>Perfil de empresa</span>
+        </button>
+        <button class="mobile-nav-item" onclick="checkAdminAccess()">
+          <i class="fas fa-shield-alt"></i>
+          <span>Administración</span>
+        </button>
+        <button class="mobile-nav-item" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Cerrar sesión</span>
+        </button>
+      </div>
+    </div>
+  </header>
 
-            <form class="admin-form">
-                <div class="form-row">
-                    <div class="form-group col-6">
-                        <label>Moneda Principal</label>
-                        <select class="form-control">
-                            <option selected>ARS - Peso Argentino</option>
-                            <option>USD - Dólar Estadounidense</option>
-                            <option>EUR - Euro</option>
-                        </select>
-                    </div>
-                    <div class="form-group col-6">
-                        <label>IVA (%)</label>
-                        <input type="number" class="form-control" value="21">
-                    </div>
-                </div>
+  <main class="admin-main">
+    <!-- Sección para volver atrás -->
+    <section class="volver-section" style="margin-bottom: 16px;">
+      <button class="btn btn-outline btn-secondary" onclick="volverAtras()">
+        <i class="fas fa-arrow-left"></i> Volver atrás
+      </button>
+    </section>
+    <!-- Navegación de Pestañas -->
+    <div class="admin-nav-card" style="margin-bottom: 24px;">
+      <nav class="admin-nav">
+        <div class="nav-content">
+          <div class="nav-tabs" style="flex-wrap: wrap;">
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle" type="button"><i class="fas fa-box"></i>
+                Productos</button>
+              <div class="dropdown-menu">
+                <a href="userpanel.html" class="dropdown-item">Control de Productos</a>
+                <a href="agregar-producto.html" class="dropdown-item">Agregar Producto</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle"><i class="fas fa-exchange-alt"></i>
+                Compras/Ventas</button>
+              <div class="dropdown-menu">
+                <a href="compras.html" class="dropdown-item">Compras</a>
+                <a href="ventas.html" class="dropdown-item">Ventas</a>
+                <a href="facturaZ.html" class="dropdown-item">Factura Z</a>
+              </div>
+            </div>
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle"><i class="fas fa-users"></i>
+                Clientes/Proveedores</button>
+              <div class="dropdown-menu">
+                <a href="clientes.html" class="dropdown-item">Clientes</a>
+                <a href="proveedores.html" class="dropdown-item">Proveedores</a>
+                <a href="agregar-cliente-proveedor.html" class="dropdown-item">Agregar
+                  Cliente/Proveedor</a>
+              </div>
+            </div>
+            <button class="nav-tab" onclick="location.href='movimientos.html'">
+              <i class="fas fa-list"></i> Movimientos
+            </button>
+            <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
+              <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
+            </button>
+          </div>
+        </div>
+      </nav>
+    </div>
 
-                <div class="form-row">
-                    <div class="form-group col-12">
-                        <label>Preferencias Generales</label>
-                        <label><input type="checkbox" checked> Habilitar control doble de stock</label><br>
-                        <label><input type="checkbox"> Permitir facturación sin stock</label><br>
-                        <label><input type="checkbox"> Mostrar precios con IVA incluido</label>
-                    </div>
-                </div>
+    <section class="admin-card">
+      <h2 class="card-title">Parámetros Generales del Sistema</h2>
 
-                <button class="btn btn-primary"><i class="fas fa-save"></i> Guardar Cambios</button>
-            </form>
-        </section>
-    </main>
+      <form class="admin-form">
+        <div class="form-row">
+          <div class="form-group col-6">
+            <label>Moneda Principal</label>
+            <select class="form-control">
+              <option selected>ARS - Peso Argentino</option>
+              <option>USD - Dólar Estadounidense</option>
+              <option>EUR - Euro</option>
+            </select>
+          </div>
+          <div class="form-group col-6">
+            <label>IVA (%)</label>
+            <input type="number" class="form-control" value="21">
+          </div>
+        </div>
 
-    <script src="../../src/panel.js"></script>
-    <script src="../../src/supabase.js"></script>
-    <script src="../../src/filtros.js"></script>
+        <div class="form-row">
+          <div class="form-group col-12">
+            <label>Preferencias Generales</label>
+            <label><input type="checkbox" checked> Habilitar control doble de stock</label><br>
+            <label><input type="checkbox"> Permitir facturación sin stock</label><br>
+            <label><input type="checkbox"> Mostrar precios con IVA incluido</label>
+          </div>
+        </div>
+
+        <button class="btn btn-primary"><i class="fas fa-save"></i> Guardar Cambios</button>
+      </form>
+    </section>
+  </main>
+
+  <script src="../../src/panel.js"></script>
+  <script src="../../src/supabase.js"></script>
+  <script src="../../src/filtros.js"></script>
 
 </body>
 

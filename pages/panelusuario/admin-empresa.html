@@ -12,26 +12,132 @@
 <!-- Header Administrativo -->
 
 <body class="admin-layout">
+  <!-- Header -->
   <header class="admin-header">
     <div class="header-content">
-      <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+      <div style="display: flex; align-items: center; gap: 1rem;">
+        <button class="mobile-menu-toggle" onclick="toggleMobileSidebar()">
+          <i class="fas fa-bars"></i>
+        </button>
+        <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+      </div>
+
       <div class="user-menu">
-        <div class="user-info">
+        <div class="dropdown" style="position: relative;">
+          <button class="user-menu-button" onclick="toggleUserDropdown()" id="userMenuButton">
+            <div class="user-info">
+              <div class="user-avatar">JD</div>
+              <span class="user-name">Juan Pérez</span>
+            </div>
+            <i class="fas fa-chevron-down user-chevron"></i>
+          </button>
+
+          <div class="user-dropdown" id="userDropdown">
+            <button class="user-dropdown-item" onclick="location.href='perfil.html'">
+              <i class="fas fa-user-cog"></i>
+              Perfil de empresa
+            </button>
+            <button class="user-dropdown-item" onclick="checkAdminAccess()">
+              <i class="fas fa-shield-alt"></i>
+              Administración
+            </button>
+            <div class="user-dropdown-divider"></div>
+            <button class="user-dropdown-item" onclick="logout()">
+              <i class="fas fa-sign-out-alt"></i>
+              Cerrar sesión
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+    <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
+    <div class="mobile-sidebar" id="mobileSidebar">
+      <div class="mobile-sidebar-header">
+        <a href="../../index.html" class="admin-logo"><i class="fas fa-cube"></i> Sysgen</a>
+        <button class="mobile-sidebar-close" onclick="closeMobileSidebar()">
+          <i class="fas fa-times"></i>
+        </button>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Gestión</div>
+        <a href="userpanel.html" class="mobile-nav-item">
+          <i class="fas fa-box"></i>
+          <span>Control de Productos</span>
+        </a>
+        <a href="agregar-producto.html" class="mobile-nav-item">
+          <i class="fas fa-plus"></i>
+          <span>Agregar Producto</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Transacciones</div>
+        <a href="compras.html" class="mobile-nav-item">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Compras</span>
+        </a>
+        <a href="ventas.html" class="mobile-nav-item">
+          <i class="fas fa-cash-register"></i>
+          <span>Ventas</span>
+        </a>
+        <a href="facturaZ.html" class="mobile-nav-item">
+          <i class="fas fa-receipt"></i>
+          <span>Factura Z</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Contactos</div>
+        <a href="clientes.html" class="mobile-nav-item">
+          <i class="fas fa-users"></i>
+          <span>Clientes</span>
+        </a>
+        <a href="proveedores.html" class="mobile-nav-item">
+          <i class="fas fa-truck"></i>
+          <span>Proveedores</span>
+        </a>
+        <a href="agregar-cliente-proveedor.html" class="mobile-nav-item">
+          <i class="fas fa-user-plus"></i>
+          <span>Agregar Cliente/Proveedor</span>
+        </a>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Reportes</div>
+        <a href="movimientos.html" class="mobile-nav-item">
+          <i class="fas fa-list"></i>
+          <span>Movimientos</span>
+        </a>
+        <a href="cuentacorriente.html" class="mobile-nav-item">
+          <i class="fas fa-file-invoice-dollar"></i>
+          <span>Cuenta Corriente</span>
+        </a>
+      </div>
+
+      <div class="mobile-user-section">
+        <div class="mobile-user-info">
           <div class="user-avatar">JD</div>
-          <span class="user-name">Juan Pérez</span>
+          <div>
+            <div style="font-weight: 600;">Juan Pérez</div>
+            <div style="font-size: 0.75rem; color: #6b7280;">juan@empresa.com</div>
+          </div>
         </div>
-        <div style="display: flex; gap: 0.5rem; align-items: center;">
-          <button class="btn btn-outline btn-secondary" onclick="location.href='perfil.html'" title="Perfil de empresa">
-            <i class="fas fa-user-cog"></i>
-          </button>
-          <button class="btn btn-outline btn-warning" onclick="checkAdminAccess()" title="Administración del sistema">
-            <i class="fas fa-shield-alt"></i>
-          </button>
-          <button class="btn btn-outline btn-primary" onclick="logout()">
-            <i class="fas fa-sign-out-alt"></i>
-            Salir
-          </button>
-        </div>
+
+        <button class="mobile-nav-item" onclick="location.href='perfil.html'">
+          <i class="fas fa-user-cog"></i>
+          <span>Perfil de empresa</span>
+        </button>
+        <button class="mobile-nav-item" onclick="checkAdminAccess()">
+          <i class="fas fa-shield-alt"></i>
+          <span>Administración</span>
+        </button>
+        <button class="mobile-nav-item" onclick="logout()">
+          <i class="fas fa-sign-out-alt"></i>
+          <span>Cerrar sesión</span>
+        </button>
       </div>
     </div>
   </header>
