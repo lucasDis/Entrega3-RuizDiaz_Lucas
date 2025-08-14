@@ -50,6 +50,7 @@
     </div>
     </div>
 
+    <!-- Sidebar móvil -->
     <div class="sidebar-overlay" id="sidebarOverlay" onclick="closeMobileSidebar()"></div>
     <div class="mobile-sidebar" id="mobileSidebar">
       <div class="mobile-sidebar-header">
@@ -81,9 +82,21 @@
           <i class="fas fa-cash-register"></i>
           <span>Ventas</span>
         </a>
+      </div>
+
+      <div class="mobile-nav-section">
+        <div class="mobile-nav-section-title">Facturación</div>
         <a href="facturaZ.html" class="mobile-nav-item">
           <i class="fas fa-receipt"></i>
           <span>Factura Z</span>
+        </a>
+        <a href="facturacion.html" class="mobile-nav-item">
+          <i class="fas fa-file-invoice"></i>
+          <span>Facturación</span>
+        </a>
+        <a href="reportes-facturacion.html" class="mobile-nav-item">
+          <i class="fas fa-chart-bar"></i>
+          <span>Reportes de Facturación</span>
         </a>
       </div>
 
@@ -132,7 +145,7 @@
           <i class="fas fa-shield-alt"></i>
           <span>Administración</span>
         </button>
-        <button class="mobile-nav-item" onclick="logout()">
+        <button class="mobile-nav-item" onclick="logout()" style="margin-bottom: 1rem;">
           <i class="fas fa-sign-out-alt"></i>
           <span>Cerrar sesión</span>
         </button>
@@ -142,37 +155,56 @@
 
   <main class="admin-main">
     <!-- Navegación de Pestañas -->
-    <div class="admin-nav-card" style="margin-bottom: 24px;">
+    <div class="admin-layout-container">
       <nav class="admin-nav">
         <div class="nav-content">
           <div class="nav-tabs" style="flex-wrap: wrap;">
             <div class="dropdown">
-              <button class="nav-tab dropdown-toggle" type="button"><i class="fas fa-box"></i> Productos</button>
+              <button class="nav-tab dropdown-toggle" type="button">
+                <i class="fas fa-box"></i> Productos
+              </button>
               <div class="dropdown-menu">
                 <a href="userpanel.html" class="dropdown-item">Control de Productos</a>
                 <a href="agregar-producto.html" class="dropdown-item">Agregar Producto</a>
               </div>
             </div>
+
             <div class="dropdown">
-              <button class="nav-tab dropdown-toggle"><i class="fas fa-exchange-alt"></i>
-                Compras/Ventas</button>
+              <button class="nav-tab dropdown-toggle">
+                <i class="fas fa-exchange-alt"></i> Compras/Ventas
+              </button>
               <div class="dropdown-menu">
                 <a href="compras.html" class="dropdown-item">Compras</a>
                 <a href="ventas.html" class="dropdown-item">Ventas</a>
-                <a href="facturaZ.html" class="dropdown-item">Factura Z</a>
               </div>
             </div>
+
             <div class="dropdown">
-              <button class="nav-tab dropdown-toggle"><i class="fas fa-users"></i> Clientes/Proveedores</button>
+              <button class="nav-tab dropdown-toggle">
+                <i class="fas fa-users"></i> Clientes/Proveedores
+              </button>
               <div class="dropdown-menu">
                 <a href="clientes.html" class="dropdown-item">Clientes</a>
                 <a href="proveedores.html" class="dropdown-item">Proveedores</a>
                 <a href="agregar-cliente-proveedor.html" class="dropdown-item">Agregar Cliente/Proveedor</a>
               </div>
             </div>
+
+            <div class="dropdown">
+              <button class="nav-tab dropdown-toggle">
+                <i class="fas fa-file-invoice"></i> Facturación
+              </button>
+              <div class="dropdown-menu">
+                <a href="facturaZ.html" class="dropdown-item">Factura Z</a>
+                <a href="facturacion.html" class="dropdown-item">Facturación</a>
+                <a href="reportes-facturacion.html" class="dropdown-item">Reportes de Facturación</a>
+              </div>
+            </div>
+
             <button class="nav-tab" onclick="location.href='movimientos.html'">
               <i class="fas fa-list"></i> Movimientos
             </button>
+
             <button class="nav-tab" onclick="location.href='cuentacorriente.html'">
               <i class="fas fa-file-invoice-dollar"></i> Cuenta Corriente
             </button>

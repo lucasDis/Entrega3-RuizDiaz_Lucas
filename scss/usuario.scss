@@ -593,7 +593,9 @@ html, body {
   .metric-row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.75rem;
+    color: #fef3c7;
 
     &:last-child {
       margin-bottom: 0;
@@ -610,6 +612,122 @@ html, body {
 
   &--primary {
     background: linear-gradient(135deg, $admin-primary 0%, darken($admin-primary, 10%) 100%);
+  }
+}
+
+/* Mejoras para las tarjetas CTA - mejor contraste y legibilidad */
+.card-cta {
+  color: #ffffff;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+  transition: all 0.3s ease;
+}
+
+.card-cta::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.3); /* Overlay más oscuro para mejor contraste */
+  backdrop-filter: blur(1px);
+  z-index: 1;
+}
+
+.card-cta .card-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  padding: 2rem;
+}
+
+.card-cta .card-content h3 {
+  color: #ffffff;
+  font-weight: 700;
+  margin: 0 0 0.5rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra más pronunciada */
+  font-size: 1.25rem;
+}
+
+.card-cta .card-content p {
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 1rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada */
+  font-weight: 500; /* Texto más grueso */
+}
+
+.card-cta .card-content .icon-hero {
+  text-shadow: 0 3px 6px rgba(0, 0, 0, 0.4); /* Sombra más pronunciada para iconos */
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+  color: #fef3c7;
+}
+
+.card-cta .metric-row {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  font-weight: 600; /* Texto más grueso para métricas */
+  background: rgba(255, 255, 255, 0.1); /* Fondo semi-transparente */
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  backdrop-filter: blur(2px);
+}
+
+.card-cta .metric-row:last-child {
+  margin-bottom: 0;
+}
+
+.card-cta .metric-row strong {
+  font-weight: 700;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Hover effects mejorados */
+.card-cta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+}
+
+.card-cta:hover::before {
+  background: rgba(0, 0, 0, 0.2); /* Menos overlay en hover para más brillo */
+}
+
+/* Gradientes con mejor contraste */
+.card-cta--success {
+  background: linear-gradient(135deg, #047857 0%, #065f46 50%, #064e3b 100%);
+}
+
+.card-cta--danger {
+  background: linear-gradient(135deg, #b91c1c 0%, #991b1b 50%, #7f1d1d 100%);
+}
+
+.card-cta--primary {
+  background: linear-gradient(135deg, #1d4ed8 0%, #1e40af 50%, #1e3a8a 100%);
+}
+
+/* Responsive mejorado para móviles */
+@media (max-width: 768px) {
+  .card-cta .card-content {
+    padding: 1.5rem;
+  }
+  
+  .card-cta .card-content h3 {
+    font-size: 1.1rem;
+  }
+  
+  .card-cta .metric-row {
+    flex-direction: column;
+    gap: 0.25rem;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    padding: 0.75rem;
   }
 }
 
@@ -1025,5 +1143,463 @@ html, body {
 
   .section-actions {
     justify-content: center;
+  }
+}
+
+// OVERLAY CON SCROLL BLOQUEADO
+body.sidebar-open {
+  overflow: hidden;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+.sidebar-overlay {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 9998;
+  overflow: hidden;
+
+  &.show {
+    display: block;
+  }
+}
+
+// TABLAS RESPONSIVE VERTICALES
+@media (max-width: 768px) {
+  .admin-table {
+    display: block;
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+
+    thead {
+      display: none;
+    }
+
+    tbody {
+      display: block;
+    }
+
+    tr {
+      display: block;
+      background: $admin-white;
+      border-radius: 12px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+      @include card-shadow;
+      border: 1px solid $admin-gray-200;
+    }
+
+    td {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.75rem 0;
+      border: none;
+      border-radius: 0;
+      background: transparent;
+      border-bottom: 1px solid $admin-gray-100;
+
+      &:last-child {
+        border-bottom: none;
+      }
+
+      &:before {
+        content: attr(data-label);
+        font-weight: 600;
+        color: $admin-gray-700;
+        font-size: 0.875rem;
+        text-transform: uppercase;
+        letter-spacing: 0.025em;
+        flex: 0 0 40%;
+      }
+
+      &.actions {
+        justify-content: flex-end;
+        gap: 0.5rem;
+        padding-top: 1rem;
+        margin-top: 0.5rem;
+        border-top: 1px solid $admin-gray-200;
+        border-bottom: none;
+
+        &:before {
+          display: none;
+        }
+      }
+    }
+  }
+
+  .mobile-product-info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    text-align: right;
+    gap: 0.25rem;
+
+    .product-name {
+      font-weight: 600;
+      color: $admin-gray-900;
+    }
+
+    .product-sku {
+      font-size: 0.75rem;
+      color: $admin-gray-500;
+    }
+  }
+}
+
+// TARJETAS CTA CON OVERLAY BLANCO
+.card-cta {
+  color: $admin-white;
+  border: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  position: relative;
+
+  // Overlay blanco semitransparente
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(1px);
+    z-index: 1;
+  }
+
+  .card-content {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+    padding: 2rem;
+
+    h3 {
+      color: $admin-white;
+      font-weight: 700;
+      margin: 0 0 0.5rem;
+      text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    }
+
+    p {
+      color: rgba(255, 255, 255, 0.95);
+      margin-bottom: 1rem;
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+    }
+
+    .icon-hero {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  .metric-row {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.75rem;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &--success {
+    background: linear-gradient(135deg, $admin-success 0%, darken($admin-success, 10%) 100%);
+  }
+
+  &--danger {
+    background: linear-gradient(135deg, $admin-danger 0%, darken($admin-danger, 10%) 100%);
+  }
+
+  &--primary {
+    background: linear-gradient(135deg, $admin-primary 0%, darken($admin-primary, 10%) 100%);
+  }
+}
+
+// RESPONSIVE MEJORADO
+@media (max-width: 768px) {
+  // Estadísticas más pequeñas en móvil
+  .stats-grid {
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .stat-card {
+    padding: 1rem;
+    font-size: 0.9rem;
+
+    .stat-value {
+      font-size: 1.5rem;
+    }
+
+    .stat-icon {
+      width: 40px;
+      height: 40px;
+      font-size: 1.25rem;
+    }
+  }
+
+  // Tarjetas CTA responsive verticales
+  .card-cta {
+    .card-content {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .icon-hero {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        order: -1;
+      }
+
+      h3 {
+        font-size: 1.1rem;
+        margin-bottom: 0.5rem;
+      }
+
+      p {
+        font-size: 0.875rem;
+        margin-bottom: 1rem;
+      }
+    }
+
+    .metric-row {
+      flex-direction: column;
+      gap: 0.5rem;
+      text-align: center;
+      margin-bottom: 0.5rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  // Formularios responsive
+  .admin-form {
+    padding: 1.5rem;
+  }
+
+  .form-row {
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .form-control {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  // Botones más pequeños
+  .btn {
+    padding: 0.625rem 1.25rem;
+    font-size: 0.8rem;
+  }
+
+  // Header responsive
+  .admin-header {
+    .header-content {
+      padding: 0 0.75rem;
+    }
+
+    .admin-logo {
+      font-size: 1.25rem;
+    }
+  }
+
+  // Main content
+  .admin-main {
+    padding: 1.5rem 0.75rem;
+  }
+
+  // Cards responsive
+  .admin-card {
+    padding: 1.25rem;
+    border-radius: 8px;
+
+    .card-header {
+      flex-direction: column;
+      gap: 1rem;
+      align-items: stretch;
+      margin-bottom: 1rem;
+
+      .card-actions {
+        justify-content: center;
+      }
+    }
+  }
+}
+
+// ULTRA RESPONSIVE PARA 320px
+@media (max-width: 480px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+  }
+
+  .stat-card {
+    padding: 0.875rem;
+
+    .stat-header {
+      margin-bottom: 0.75rem;
+    }
+
+    .stat-value {
+      font-size: 1.25rem;
+    }
+
+    .stat-icon {
+      width: 36px;
+      height: 36px;
+      font-size: 1.1rem;
+    }
+  }
+
+  .mobile-sidebar {
+    width: 280px;
+    left: -350px;
+    padding: 0.75rem;
+    padding-bottom: 2rem;
+
+    .mobile-nav-item {
+      padding: 0.875rem;
+      font-size: 0.9rem;
+
+      i {
+        font-size: 1.1rem;
+      }
+    }
+
+    .mobile-user-info {
+      padding: 0.875rem;
+    }
+  }
+
+  .admin-main {
+    padding: 1rem 0.5rem;
+  }
+
+  .admin-form {
+    padding: 1rem;
+  }
+
+  .admin-card {
+    padding: 1rem;
+  }
+
+  .card-cta {
+    .card-content {
+      padding: 1.25rem;
+
+      .icon-hero {
+        font-size: 2.5rem;
+      }
+
+      h3 {
+        font-size: 1rem;
+      }
+
+      p {
+        font-size: 0.8rem;
+      }
+    }
+  }
+
+  // Botones extra pequeños para 320px
+  .btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.75rem;
+    
+    &-sm {
+      padding: 0.375rem 0.625rem;
+      font-size: 0.7rem;
+    }
+  }
+
+  // Tablas ultra responsive
+  .admin-table tr {
+    padding: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .admin-table td {
+    padding: 0.5rem 0;
+    font-size: 0.85rem;
+
+    &:before {
+      font-size: 0.75rem;
+      flex: 0 0 35%;
+    }
+  }
+}
+
+@media (max-width: 320px) {
+  .header-content {
+    padding: 0 0.5rem;
+  }
+
+  .admin-logo {
+    font-size: 1.1rem;
+  }
+
+  .mobile-sidebar {
+    width: calc(100vw - 40px);
+    left: calc(-100vw + 40px);
+
+    &.open {
+      left: 0;
+    }
+  }
+
+  .stats-grid {
+    gap: 0.5rem;
+  }
+
+  .stat-card {
+    padding: 0.75rem;
+
+    .stat-value {
+      font-size: 1.1rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+    }
+
+    .stat-change {
+      font-size: 0.7rem;
+    }
+  }
+}
+
+@media (min-width: 769px) {
+  .mobile-product-info {
+    display: none !important;
+  }
+  
+  .desktop-product-info {
+    display: flex !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .mobile-product-info {
+    display: block !important;
+  }
+  
+  .desktop-product-info {
+    display: none !important;
   }
 }
