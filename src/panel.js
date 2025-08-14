@@ -22,11 +22,9 @@ function logout() {
       localStorage.removeItem('userSession');
       sessionStorage.clear();
       
-      // Redirigir al index
-      window.location.href = '../../index.html';
+      window.location.href = '../pages/principal/login.html';
     } catch (error) {
       console.error('Error al cerrar sesión:', error);
-      // Redirigir de todos modos
       window.location.href = '../../index.html';
     }
   }
@@ -160,6 +158,17 @@ function checkAdminAccess() {
 function logout() {
   // Lógica para cerrar sesión
   if (confirm('¿Estás seguro de que quieres cerrar sesión?')) {
-    console.log('Cerrando sesión...');
+    localStorage.removeItem('sysgen_user');
+    
+    // Mostrar notificación de despedida
+    if (typeof showNotification === 'function') {
+      showNotification('Sesión cerrada correctamente', 'success');
+    }
+    
+    // Redirigir al login después de un breve delay
+    setTimeout(() => {
+      window.location.href = '../principal/login.html';
+    }, 1000);
   }
-}
+}onsole.log('Cerrando sesión...');
+
