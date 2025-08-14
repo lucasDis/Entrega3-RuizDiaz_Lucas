@@ -21,12 +21,6 @@ document.addEventListener('DOMContentLoaded', function () {
         checkAdminAccess();
       });
     }
-    if (button.textContent.includes('Cerrar sesión') || button.textContent.includes('Cerrar sesiÃ³n')) {
-      button.addEventListener('click', e => {
-        e.preventDefault();
-        logout();
-      });
-    }
   });
 });
 
